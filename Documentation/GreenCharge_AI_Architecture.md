@@ -28,7 +28,7 @@ FastAPI Backend
           ↓
      OR-Tools CP-SAT
           ↓
-     PostgreSQL Database
+     MongoDB Database
 ```
 
 ### Architecture Goal
@@ -44,7 +44,7 @@ Keep the system easy to build, test, demonstrate, and extend without introducing
 | Frontend | React + Vite + Tailwind | Dashboards and user interaction |
 | API Backend | Python + FastAPI | Business logic and REST APIs |
 | Optimizer | Google OR-Tools CP-SAT | Charging schedule optimization |
-| Database | PostgreSQL | Persistent application data |
+| Database | MongoDB | Persistent application data |
 | Authentication | JWT/session-based | Login and role identification |
 | Charts | Recharts | Dashboard visualization |
 | Deployment | Vercel + Render/Railway | Frontend and backend hosting |
@@ -384,7 +384,7 @@ for unauthorized operations.
 
 ## 9.1 Recommended Database
 
-**PostgreSQL**
+**MongoDB**
 
 It is suitable because the application has structured relational entities:
 
@@ -661,7 +661,7 @@ This enables the UI to show measurable impact.
 
 ## Persistent Data
 
-Store in PostgreSQL:
+Store in MongoDB:
 
 - User data
 - EV data
@@ -806,7 +806,7 @@ GitHub Repository
        │               │
        └───────┬───────┘
                ↓
-          PostgreSQL
+          MongoDB
 ```
 
 ### Frontend
@@ -819,7 +819,7 @@ Deploy FastAPI on Render or Railway.
 
 ### Database
 
-Use hosted PostgreSQL.
+Use hosted MongoDB.
 
 Environment variables:
 
@@ -952,9 +952,9 @@ Do not fabricate operational data.
 
 ---
 
-## Decision 2 — PostgreSQL
+## Decision 2 — MongoDB
 
-**Choice:** PostgreSQL for persistent structured data.
+**Choice:** MongoDB for persistent structured data.
 
 **Reason:** Simple relational model and strong support for time-stamped operational records.
 
@@ -1121,7 +1121,7 @@ API Gateway
     ├── Optimization Worker
     └── Notification Service
              │
-          PostgreSQL
+          MongoDB
 ```
 
 Only introduce these components when measured load or reliability requirements justify them.
@@ -1142,7 +1142,7 @@ The architecture is acceptable for the MVP when:
 8. Dashboard KPIs reflect backend data.
 9. API errors use consistent responses.
 10. Secrets are managed outside source control.
-11. The application can be deployed using a frontend host, backend host, and PostgreSQL.
+11. The application can be deployed using a frontend host, backend host, and MongoDB.
 12. The architecture does not require microservices for the MVP.
 
 ---
@@ -1176,7 +1176,7 @@ The architecture is acceptable for the MVP when:
              ┌──────────────┼──────────────┐
              │                             │
              ▼                             ▼
-       PostgreSQL                     API Results
+       MongoDB                     API Results
                                              │
                                              ▼
                                       Three Dashboards
