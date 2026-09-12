@@ -1,0 +1,102 @@
+{
+  ".oxlintrc.json": {
+    "mtime": 1789193189.1060326,
+    "ast_hash": "5e6e3cea3e89137071c142dd7835b0ef",
+    "semantic_hash": "5e6e3cea3e89137071c142dd7835b0ef"
+  },
+  "package.json": {
+    "mtime": 1789196063.748783,
+    "ast_hash": "ee99f0d0010f30a93d1d7e2f6cfe343b",
+    "semantic_hash": "ee99f0d0010f30a93d1d7e2f6cfe343b"
+  },
+  "server/index.js": {
+    "mtime": 1789195999.94706,
+    "ast_hash": "e6688072acb5702b036d9faaf19d6c5d",
+    "semantic_hash": "e6688072acb5702b036d9faaf19d6c5d"
+  },
+  "server/package.json": {
+    "mtime": 1789195992.5810614,
+    "ast_hash": "c6255af9d1833ccdb737b09fba3f0b95",
+    "semantic_hash": "c6255af9d1833ccdb737b09fba3f0b95"
+  },
+  "src/App.jsx": {
+    "mtime": 1789196278.531439,
+    "ast_hash": "591289a43c66dfe594c944c9cb6cab6b",
+    "semantic_hash": "591289a43c66dfe594c944c9cb6cab6b"
+  },
+  "src/main.jsx": {
+    "mtime": 1789193189.1144817,
+    "ast_hash": "e13723e2574429d9a6d849727e3ff695",
+    "semantic_hash": "e13723e2574429d9a6d849727e3ff695"
+  },
+  "vite.config.js": {
+    "mtime": 1789193189.115493,
+    "ast_hash": "5d54447744c19ccd28638a5c668d15ea",
+    "semantic_hash": "5d54447744c19ccd28638a5c668d15ea"
+  },
+  ".agents/rules/graphify.md": {
+    "mtime": 1789198188.9683878,
+    "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
+    "semantic_hash": "a0e4d192b9e2e17256124dbfc8e24e6a"
+  },
+  ".agents/workflows/graphify.md": {
+    "mtime": 1789198188.9697018,
+    "ast_hash": "637776aa6f7496d069afe7520c845c8a",
+    "semantic_hash": "637776aa6f7496d069afe7520c845c8a"
+  },
+  "Documentation/GreenCharge_AI_PRD.md": {
+    "mtime": 1789197737.1290808,
+    "ast_hash": "3374efce07ca0bde5f6847ac33baf764",
+    "semantic_hash": "3374efce07ca0bde5f6847ac33baf764"
+  },
+  "Documentation/GreenCharge_AI_Project_Overview.md": {
+    "mtime": 1789197737.130102,
+    "ast_hash": "61374b84120130f01afae8df81b4096b",
+    "semantic_hash": "61374b84120130f01afae8df81b4096b"
+  },
+  "Documentation/GreenCharge_AI_SRS.md": {
+    "mtime": 1789197737.130102,
+    "ast_hash": "db5e169d18cc785535de7fd0e795f439",
+    "semantic_hash": "db5e169d18cc785535de7fd0e795f439"
+  },
+  "README.md": {
+    "mtime": 1789193189.1050053,
+    "ast_hash": "75eb386f17caf77fd6fe3ce1d90968ee",
+    "semantic_hash": "75eb386f17caf77fd6fe3ce1d90968ee"
+  },
+  "index.html": {
+    "mtime": 1789195478.965532,
+    "ast_hash": "e1d49a07386b38fdaafe5bb0f0e25581",
+    "semantic_hash": "e1d49a07386b38fdaafe5bb0f0e25581"
+  },
+  "project_structure.md": {
+    "mtime": 1789196082.7122362,
+    "ast_hash": "5ca07bfe39c4341781c18daa572b6bd4",
+    "semantic_hash": "5ca07bfe39c4341781c18daa572b6bd4"
+  },
+  "public/favicon.svg": {
+    "mtime": 1789193189.1080782,
+    "ast_hash": "7e840862161341271697daa99a40d76b",
+    "semantic_hash": "7e840862161341271697daa99a40d76b"
+  },
+  "public/icons.svg": {
+    "mtime": 1789193189.1080782,
+    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
+    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+  },
+  "src/assets/hero.png": {
+    "mtime": 1789193189.1113966,
+    "ast_hash": "aead493361b27e7510691c5d7072dfc1",
+    "semantic_hash": "aead493361b27e7510691c5d7072dfc1"
+  },
+  "src/assets/react.svg": {
+    "mtime": 1789193189.1124053,
+    "ast_hash": "f0402b67b6ce880f65666bb49e841696",
+    "semantic_hash": "f0402b67b6ce880f65666bb49e841696"
+  },
+  "src/assets/vite.svg": {
+    "mtime": 1789193189.1134067,
+    "ast_hash": "9960a24288958394ac50e57ff638b036",
+    "semantic_hash": "9960a24288958394ac50e57ff638b036"
+  }
+}

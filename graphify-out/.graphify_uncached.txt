@@ -1,0 +1,13 @@
+A:\All Android\green-charge-ai\.agents\rules\graphify.md
+A:\All Android\green-charge-ai\.agents\workflows\graphify.md
+A:\All Android\green-charge-ai\Documentation\GreenCharge_AI_PRD.md
+A:\All Android\green-charge-ai\Documentation\GreenCharge_AI_Project_Overview.md
+A:\All Android\green-charge-ai\Documentation\GreenCharge_AI_SRS.md
+A:\All Android\green-charge-ai\README.md
+A:\All Android\green-charge-ai\index.html
+A:\All Android\green-charge-ai\project_structure.md
+A:\All Android\green-charge-ai\public\favicon.svg
+A:\All Android\green-charge-ai\public\icons.svg
+A:\All Android\green-charge-ai\src\assets\hero.png
+A:\All Android\green-charge-ai\src\assets\react.svg
+A:\All Android\green-charge-ai\src\assets\vite.svg
