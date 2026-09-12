@@ -83,11 +83,14 @@
 }
 
 .customer-brand-leaf-icon {
-  width: 32px;
-  height: 32px;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background-color: #10B981;
   display: flex;
   align-items: center;
   justify-content: center;
+  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.25);
 }
 
 .customer-brand-text {
@@ -257,17 +260,17 @@
 }
 
 .customer-avatar-badge {
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
-  background-color: #10B981;
-  color: #FFFFFF;
+  background-color: #DCFCE7;
+  color: #059669;
   font-size: 13px;
   font-weight: 700;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 2px 4px rgba(16, 185, 129, 0.25);
+  border: 1.5px solid #A7F3D0;
   cursor: pointer;
 }
 
@@ -469,8 +472,23 @@
   gap: 10px;
 }
 
-.rec-stat-icon {
-  font-size: 18px;
+.rec-stat-icon-wrap {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.rec-stat-icon-wrap.gold-icon,
+.rec-stat-icon-wrap.savings-icon {
+  background-color: #FEF3C7;
+}
+
+.rec-stat-icon-wrap.green-icon {
+  background-color: #ECFDF5;
 }
 
 .rec-stat-text {
@@ -893,6 +911,21 @@
   position: relative;
   overflow: hidden;
   box-shadow: var(--cust-shadow-sm);
+}
+
+.maps-heading-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #F8FAFC;
+}
+
+.maps-heading-text {
+  font-size: 32px;
+  font-weight: 800;
+  color: #0F172A;
+  letter-spacing: 0.1em;
+  margin: 0;
 }
 
 .map-floating-legend {
@@ -2093,3 +2126,107 @@
     flex-direction: column;
   }
 }
+
+/* Presentation Frame & Slide Banner matching reference picture */
+.customer-presentation-frame {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.customer-slide-banner {
+  background: linear-gradient(135deg, #064E3B 0%, #047857 100%);
+  color: #FFFFFF;
+  padding: 18px 32px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.customer-slide-banner .slide-header-title {
+  font-size: 22px;
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0 0 4px 0;
+  letter-spacing: -0.01em;
+}
+
+.customer-slide-banner .slide-header-subtitle {
+  font-size: 13px;
+  color: #D1FAE5;
+  margin: 0;
+  opacity: 0.95;
+}
+
+.no-header-pad {
+  padding-top: 28px !important;
+}
+
+.card-header-left {
+  text-align: left;
+}
+
+/* Floating switcher pill */
+.viewmode-floating-control {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  z-index: 1000;
+}
+
+.viewmode-switch-btn {
+  background-color: #064E3B;
+  color: #FFFFFF;
+  border: 1.5px solid #10B981;
+  padding: 9px 18px;
+  border-radius: 24px;
+  font-size: 12.5px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.18);
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.viewmode-switch-btn:hover {
+  background-color: #047857;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.22);
+}
+
+/* ==========================================================================
+   ApexCharts Theme & Polish Enhancements
+   ========================================================================== */
+.apexcharts-canvas {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+}
+
+.apexcharts-tooltip {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.08), 0 4px 6px -2px rgba(0, 0, 0, 0.04) !important;
+  border-radius: 8px !important;
+}
+
+.apexcharts-tooltip-title {
+  background: #F8FAFC !important;
+  border-bottom: 1px solid #E2E8F0 !important;
+  font-weight: 600 !important;
+  color: #0F172A !important;
+  padding: 6px 10px !important;
+}
+
+.chart-svg-wrap {
+  width: 100%;
+  height: auto;
+  min-height: 160px;
+}
+
+.slide-inner-page .apexcharts-canvas {
+  max-width: 100% !important;
+}
+
+

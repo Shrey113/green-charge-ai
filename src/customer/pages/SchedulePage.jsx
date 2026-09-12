@@ -1,10 +1,139 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import ApexChartSafe from '../components/ApexChartSafe.jsx';
+import { scheduleChartData } from '../services/customerChartData.js';
 
 export default function SchedulePage() {
   const [scheduleView, setScheduleView] = useState('Day');
   const [selectedDate, setSelectedDate] = useState('Sep 12, 2026');
 
   const timeSlots = ['00', '02', '04', '06', '08', '10', '12', '14', '16', '18', '20', '22', '24'];
+
+  // Day View Chart Config: Tariff vs Renewable vs Scheduled Charging Power
+  const dayChartOptions = useMemo(() => ({
+    chart: {
+      height: 220,
+      type: 'line',
+      toolbar: { show: false },
+      animations: { enabled: true, speed: 600 },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#10B981', '#F59E0B', '#34D399'],
+    stroke: { curve: 'smooth', width: [0, 2.5, 2] },
+    plotOptions: {
+      bar: { columnWidth: '35%', borderRadius: 4 },
+    },
+    fill: {
+      type: ['solid', 'solid', 'gradient'],
+      gradient: {
+        shade: 'light',
+        type: 'vertical',
+        opacityFrom: 0.5,
+        opacityTo: 0.05,
+        stops: [0, 100],
+      },
+      opacity: [0.95, 1, 0.4],
+    },
+    xaxis: {
+      categories: scheduleChartData.dayView.hours,
+      title: { text: 'Time of Day (Hours)', style: { fontSize: '10px', color: '#94A3B8' } },
+      labels: { style: { colors: '#94A3B8', fontSize: '10px' } },
+      axisBorder: { color: '#E2E8F0' },
+    },
+    yaxis: [
+      {
+        title: { text: 'Scheduled (kW)', style: { color: '#10B981', fontSize: '10px', fontWeight: 600 } },
+        min: 0,
+        max: 16,
+        labels: { style: { colors: '#64748B', fontSize: '9px' }, formatter: (v) => `${v} kW` },
+      },
+      {
+        opposite: true,
+        title: { text: 'Tariff (₹/kWh)', style: { color: '#F59E0B', fontSize: '10px', fontWeight: 600 } },
+        min: 0,
+        max: 16,
+        labels: { style: { colors: '#64748B', fontSize: '9px' }, formatter: (v) => `₹${v.toFixed(1)}` },
+      },
+    ],
+    tooltip: {
+      shared: true,
+      y: {
+        formatter: (val, { seriesIndex }) => {
+          if (typeof val === 'undefined') return val;
+          if (seriesIndex === 0) return `${val} kW power draw`;
+          if (seriesIndex === 1) return `₹${val.toFixed(1)} / kWh`;
+          return `${val}% renewable`;
+        },
+      },
+    },
+    legend: { position: 'top', horizontalAlign: 'right', fontSize: '10px' },
+    grid: { borderColor: '#F1F5F9', strokeDashArray: 3 },
+  }), []);
+
+  const dayChartSeries = useMemo(() => [
+    {
+      name: 'Scheduled EV Draw (kW)',
+      type: 'column',
+      data: scheduleChartData.dayView.scheduledKw,
+    },
+    {
+      name: 'Grid Tariff (₹/kWh)',
+      type: 'line',
+      data: scheduleChartData.dayView.tariffPrice,
+    },
+    {
+      name: 'Renewable Share (%)',
+      type: 'area',
+      data: scheduleChartData.dayView.renewableShare,
+    },
+  ], []);
+
+  // Week View Chart Config: Weekly kWh & Savings Forecast
+  const weekChartOptions = useMemo(() => ({
+    chart: {
+      height: 220,
+      type: 'line',
+      toolbar: { show: false },
+      animations: { enabled: true, speed: 600 },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#10B981', '#3B82F6'],
+    plotOptions: {
+      bar: { columnWidth: '40%', borderRadius: 4 },
+    },
+    stroke: { curve: 'smooth', width: [0, 3] },
+    xaxis: {
+      categories: scheduleChartData.weekView.days,
+      labels: { style: { colors: '#64748B', fontSize: '11px' } },
+      axisBorder: { color: '#E2E8F0' },
+    },
+    yaxis: [
+      {
+        title: { text: 'Energy (kWh)', style: { color: '#10B981', fontSize: '10px', fontWeight: 600 } },
+        labels: { style: { colors: '#64748B', fontSize: '9px' }, formatter: (v) => `${v} kWh` },
+      },
+      {
+        opposite: true,
+        title: { text: 'Est. Savings (₹)', style: { color: '#3B82F6', fontSize: '10px', fontWeight: 600 } },
+        labels: { style: { colors: '#64748B', fontSize: '9px' }, formatter: (v) => `₹${v}` },
+      },
+    ],
+    legend: { position: 'top', horizontalAlign: 'right', fontSize: '10px' },
+    grid: { borderColor: '#F1F5F9', strokeDashArray: 3 },
+  }), []);
+
+  const weekChartSeries = useMemo(() => [
+    {
+      name: 'Scheduled Energy (kWh)',
+      type: 'column',
+      data: scheduleChartData.weekView.energyCharged,
+    },
+    {
+      name: 'Money Saved (₹)',
+      type: 'line',
+      data: scheduleChartData.weekView.savings,
+    },
+  ], []);
+
 
   return (
     <div className="customer-page-content schedule-page">
@@ -148,6 +277,32 @@ export default function SchedulePage() {
             <span>High Renewable Share</span>
           </div>
         </div>
+      </div>
+
+      {/* Dynamic AI Optimization ApexChart */}
+      <div className="customer-card" style={{ marginBottom: '16px', padding: '16px' }}>
+        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+          <div>
+            <h3 className="card-title" style={{ margin: 0, fontSize: '14px' }}>
+              AI Smart Charging Optimization ({scheduleView} View)
+            </h3>
+            <p className="card-subtitle" style={{ margin: '2px 0 0 0', fontSize: '11px' }}>
+              {scheduleView === 'Day'
+                ? 'Coordinated EV draw (kW) timed with minimum grid tariff and highest clean renewable share.'
+                : 'Forecasted daily charging volumes and accumulated bill savings over the week.'}
+            </p>
+          </div>
+          <span style={{ fontSize: '10px', color: '#10B981', fontWeight: 600, background: '#ECFDF5', padding: '3px 8px', borderRadius: '4px' }}>
+            ● AI Co-optimized
+          </span>
+        </div>
+        <ApexChartSafe
+          options={scheduleView === 'Day' ? dayChartOptions : weekChartOptions}
+          series={scheduleView === 'Day' ? dayChartSeries : weekChartSeries}
+          type="line"
+          height={220}
+          width="100%"
+        />
       </div>
 
       {/* 3. Bottom Row: Why this schedule? & Schedule Summary */}

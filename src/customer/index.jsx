@@ -11,4 +11,4 @@ export { default as ChargingHistory } from './pages/ChargingHistory.jsx';
 export { default as SchedulePage } from './pages/SchedulePage.jsx';
 export { default as AnalyticsPage } from './pages/AnalyticsPage.jsx';
 export { default as SettingsPage } from './pages/SettingsPage.jsx';
-export { default as AllScreensGrid } from './pages/AllScreensGrid.jsx';
+

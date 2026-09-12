@@ -7,7 +7,6 @@ import stationCityCenterImg from '../assets/station_city_center.jpg';
 export default function FindStations() {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStation, setSelectedStation] = useState(1);
-  const [zoomLevel, setZoomLevel] = useState(1);
 
   const stations = [
     {
@@ -111,7 +110,7 @@ export default function FindStations() {
         </button>
       </div>
 
-      {/* Main Split Layout: Station Cards on Left, Map on Right */}
+      {/* Main Split Layout: Station Cards on Left, Map Placeholder Box on Right */}
       <div className="stations-split-layout">
         {/* Left Column: Station Cards */}
         <div className="stations-list-col">
@@ -178,131 +177,30 @@ export default function FindStations() {
           })}
         </div>
 
-        {/* Right Column: Stylized Gandhinagar Map */}
+        {/* Right Column: Maps Box (Reserved for map integration) */}
         <div className="stations-map-col">
-          <div className="stations-map-container">
-            {/* Top Floating Map Legend */}
-            <div className="map-floating-legend">
-              <span className="map-legend-item">
-                <span className="dot dot-available" />
-                <span>Available</span>
+          <div className="stations-map-container maps-heading-container">
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '10px' }}>
+              <div style={{
+                width: '56px',
+                height: '56px',
+                borderRadius: '50%',
+                backgroundColor: '#ECFDF5',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                border: '1.5px solid #A7F3D0',
+                boxShadow: '0 2px 8px rgba(16, 185, 129, 0.15)',
+              }}>
+                <svg viewBox="0 0 24 24" width="28" height="28" fill="none" stroke="#10B981" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                  <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg>
+              </div>
+              <h2 className="maps-heading-text">MAPS</h2>
+              <span style={{ fontSize: '13px', color: '#64748B', fontWeight: 500 }}>
+                Interactive map canvas container
               </span>
-              <span className="map-legend-item">
-                <span className="dot dot-busy" />
-                <span>Busy</span>
-              </span>
-              <span className="map-legend-item">
-                <span className="dot dot-unavailable" />
-                <span>Unavailable</span>
-              </span>
-            </div>
-
-            {/* Stylized SVG Map of Gandhinagar */}
-            <svg
-              viewBox="0 0 460 520"
-              className="gandhinagar-map-svg"
-              style={{ transform: `scale(${zoomLevel})`, transformOrigin: 'center center', transition: 'transform 0.2s ease' }}
-            >
-              <defs>
-                <filter id="pinShadow" x="-20%" y="-20%" width="140%" height="140%">
-                  <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.25" />
-                </filter>
-              </defs>
-
-              {/* Map Land Background */}
-              <rect width="460" height="520" fill="#F8FAFC" />
-
-              {/* Park & Green Area patches */}
-              <path d="M 60 40 Q 120 20 180 60 T 220 120 Q 140 130 80 100 Z" fill="#DCFCE7" opacity="0.7" />
-              <path d="M 280 180 Q 360 160 420 200 T 400 300 Q 320 280 280 220 Z" fill="#DCFCE7" opacity="0.6" />
-              <path d="M 40 280 Q 100 260 140 310 T 110 420 Q 50 380 40 280 Z" fill="#DCFCE7" opacity="0.7" />
-
-              {/* Sabarmati River curve */}
-              <path
-                d="M 330 0 C 310 100, 290 180, 270 260 C 250 340, 280 420, 260 520 L 300 520 C 320 420, 290 340, 310 260 C 330 180, 350 100, 370 0 Z"
-                fill="#BFDBFE"
-                opacity="0.8"
-              />
-
-              {/* Road Grid lines */}
-              <line x1="20" y1="90" x2="440" y2="90" stroke="#E2E8F0" strokeWidth="4" />
-              <line x1="20" y1="170" x2="440" y2="170" stroke="#E2E8F0" strokeWidth="4" />
-              <line x1="20" y1="260" x2="440" y2="260" stroke="#CBD5E1" strokeWidth="6" /> {/* Major Ring road */}
-              <line x1="20" y1="360" x2="440" y2="360" stroke="#E2E8F0" strokeWidth="4" />
-              <line x1="20" y1="450" x2="440" y2="450" stroke="#E2E8F0" strokeWidth="4" />
-
-              <line x1="90" y1="20" x2="90" y2="500" stroke="#E2E8F0" strokeWidth="4" />
-              <line x1="190" y1="20" x2="190" y2="500" stroke="#CBD5E1" strokeWidth="6" /> {/* CH road */}
-              <line x1="380" y1="20" x2="380" y2="500" stroke="#E2E8F0" strokeWidth="4" />
-
-              {/* Highway SG Angle */}
-              <path d="M 40 500 L 220 180" stroke="#CBD5E1" strokeWidth="7" strokeLinecap="round" />
-
-              {/* City Name Label */}
-              <text x="290" y="320" className="map-city-label">Gandhinagar</text>
-
-              {/* Station Markers / Pins */}
-              {stations.map((s) => {
-                const isSelected = selectedStation === s.id;
-                let pinColor = '#10B981';
-                if (s.statusType === 'busy') pinColor = '#F59E0B';
-                if (s.statusType === 'unavailable') pinColor = '#EF4444';
-
-                return (
-                  <g
-                    key={`pin-${s.id}`}
-                    transform={`translate(${s.mapCoords.x}, ${s.mapCoords.y})`}
-                    filter="url(#pinShadow)"
-                    className="map-station-pin-group"
-                    onClick={() => setSelectedStation(s.id)}
-                    style={{ cursor: 'pointer' }}
-                  >
-                    {/* Pulsing ring if selected */}
-                    {isSelected && (
-                      <circle cx="0" cy="-18" r="22" fill={pinColor} opacity="0.3">
-                        <animate attributeName="r" values="16;24;16" dur="2s" repeatCount="indefinite" />
-                        <animate attributeName="opacity" values="0.4;0.1;0.4" dur="2s" repeatCount="indefinite" />
-                      </circle>
-                    )}
-
-                    {/* Pin shape */}
-                    <path
-                      d="M 0 0 C -8 -10, -14 -16, -14 -24 A 14 14 0 0 1 14 -24 C 14 -16, 8 -10, 0 0 Z"
-                      fill={pinColor}
-                    />
-                    {/* Inner White dot */}
-                    <circle cx="0" cy="-24" r="5" fill="#FFFFFF" />
-
-                    {/* Label tooltip if selected */}
-                    {isSelected && (
-                      <g transform="translate(0, -42)">
-                        <rect x="-65" y="-18" width="130" height="24" rx="12" fill="#0F172A" />
-                        <text x="0" y="-3" fill="#FFFFFF" fontSize="10" fontWeight="600" textAnchor="middle">
-                          {s.name}
-                        </text>
-                      </g>
-                    )}
-                  </g>
-                );
-              })}
-            </svg>
-
-            {/* Bottom Right Map Zoom Controls */}
-            <div className="map-zoom-controls">
-              <button
-                type="button"
-                className="zoom-btn"
-                onClick={() => setZoomLevel((z) => Math.min(z + 0.15, 1.6))}
-              >
-                +
-              </button>
-              <button
-                type="button"
-                className="zoom-btn"
-                onClick={() => setZoomLevel((z) => Math.max(z - 0.15, 0.85))}
-              >
-                −
-              </button>
             </div>
           </div>
         </div>

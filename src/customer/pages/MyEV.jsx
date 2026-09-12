@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import ApexChartSafe from '../components/ApexChartSafe.jsx';
+import { getChargingCurve } from '../services/customerChartData.js';
 import teslaImg from '../assets/tesla_model_3.jpg';
 
 export default function MyEV() {
@@ -9,6 +11,133 @@ export default function MyEV() {
   const [preferredStation, setPreferredStation] = useState('Any');
   const [isEditingPreferences, setIsEditingPreferences] = useState(false);
   const [isEditingVehicle, setIsEditingVehicle] = useState(false);
+
+  // Dynamic charging curve based on max power & target SOC
+  const curveData = useMemo(() => getChargingCurve(maxPower, targetSoc), [maxPower, targetSoc]);
+
+  // Battery SOC Radial Gauge options
+  const socRadialOptions = useMemo(() => ({
+    chart: {
+      type: 'radialBar',
+      height: 220,
+      fontFamily: 'Inter, sans-serif',
+      animations: { enabled: true, speed: 600 },
+    },
+    plotOptions: {
+      radialBar: {
+        offsetY: -5,
+        startAngle: 0,
+        endAngle: 360,
+        hollow: { size: '38%' },
+        track: {
+          background: '#F1F5F9',
+          strokeWidth: '100%',
+        },
+        dataLabels: {
+          name: {
+            show: true,
+            fontSize: '11px',
+            color: '#64748B',
+            offsetY: -8,
+          },
+          value: {
+            show: true,
+            fontSize: '16px',
+            fontWeight: 700,
+            color: '#0F172A',
+            offsetY: 4,
+            formatter: (v) => `${v}%`,
+          },
+          total: {
+            show: true,
+            label: 'Target',
+            color: '#059669',
+            fontSize: '11px',
+            formatter: () => `${targetSoc}%`,
+          },
+        },
+      },
+    },
+    colors: ['#10B981', '#059669', '#F59E0B'],
+    labels: ['Target SOC', 'Current SOC', 'Min Reserve'],
+    stroke: { lineCap: 'round' },
+    legend: {
+      show: true,
+      floating: false,
+      fontSize: '11px',
+      position: 'bottom',
+      horizontalAlign: 'center',
+      markers: { size: 4 },
+      itemMargin: { horizontal: 6, vertical: 2 },
+    },
+  }), [targetSoc]);
+
+  // Charging curve spline area chart options
+  const curveOptions = useMemo(() => ({
+    chart: {
+      height: 200,
+      type: 'area',
+      toolbar: { show: false },
+      animations: { enabled: true, speed: 600 },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#10B981'],
+    stroke: { curve: 'smooth', width: 3 },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'light',
+        type: 'vertical',
+        opacityFrom: 0.65,
+        opacityTo: 0.1,
+        stops: [0, 95, 100],
+      },
+    },
+    xaxis: {
+      categories: curveData.socPoints.map((s) => `${s}%`),
+      title: { text: 'Battery Level (% SOC)', style: { fontSize: '11px', color: '#64748B' } },
+      labels: { style: { fontSize: '10px', colors: '#94A3B8' } },
+      axisBorder: { color: '#E2E8F0' },
+    },
+    yaxis: {
+      title: { text: 'Power (kW)', style: { fontSize: '11px', color: '#10B981', fontWeight: 600 } },
+      labels: {
+        style: { fontSize: '10px', colors: '#64748B' },
+        formatter: (v) => `${v} kW`,
+      },
+      min: 0,
+      max: Math.max(curveData.peakKw * 1.15, 60),
+    },
+    tooltip: {
+      y: {
+        formatter: (val) => `${val} kW charging rate`,
+      },
+    },
+    annotations: {
+      xaxis: [
+        {
+          x: `${targetSoc}%`,
+          borderColor: '#059669',
+          label: {
+            borderColor: '#059669',
+            style: { color: '#fff', background: '#059669', fontSize: '10px' },
+            text: `Cutoff ${targetSoc}%`,
+          },
+        },
+      ],
+    },
+    grid: { borderColor: '#F1F5F9', strokeDashArray: 3 },
+  }), [curveData, targetSoc]);
+
+  const curveSeries = useMemo(() => [
+    {
+      name: 'Charging Power',
+      data: curveData.powerPoints,
+    },
+  ], [curveData]);
+
+  // Dynamic range estimate based on target SOC
+  const estRange = Math.round((491 * targetSoc) / 100);
 
   return (
     <div className="customer-page-content my-ev-page">
@@ -49,19 +178,52 @@ export default function MyEV() {
 
               <div className="vehicle-spec-item">
                 <span className="vspec-label">Range (WLTP)</span>
-                <span className="vspec-val">491 km</span>
+                <span className="vspec-val">{estRange} km ({targetSoc}%)</span>
               </div>
 
               <div className="vehicle-spec-item">
                 <span className="vspec-label">Max Charging Power</span>
-                <span className="vspec-val">250 kW</span>
+                <span className="vspec-val">{maxPower}</span>
               </div>
             </div>
           </div>
         </div>
       </div>
 
-      {/* 2. Charging Preferences Card */}
+      {/* 2. Interactive Telemetry: Battery SOC Gauge & Dynamic Charging Curve */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))', gap: '16px' }}>
+        {/* Battery SOC Multi-Radial Gauge */}
+        <div className="customer-card" style={{ padding: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 700, color: '#0F172A' }}>Battery SOC Allocation</h4>
+            <span style={{ fontSize: '11px', color: '#10B981', fontWeight: 600 }}>Real-time</span>
+          </div>
+          <ApexChartSafe
+            options={socRadialOptions}
+            series={[targetSoc, 78, minSoc]}
+            type="radialBar"
+            height={220}
+            width="100%"
+          />
+        </div>
+
+        {/* Dynamic Fast Charging Curve */}
+        <div className="customer-card" style={{ padding: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <h4 style={{ margin: 0, fontSize: '14px', fontWeight: 700, color: '#0F172A' }}>Dynamic Charging Curve</h4>
+            <span style={{ fontSize: '11px', color: '#64748B' }}>Peak {curveData.peakKw} kW</span>
+          </div>
+          <ApexChartSafe
+            options={curveOptions}
+            series={curveSeries}
+            type="area"
+            height={200}
+            width="100%"
+          />
+        </div>
+      </div>
+
+      {/* 3. Charging Preferences Card */}
       <div className="customer-card preferences-card">
         <div className="pref-header-row">
           <h3 className="pref-title">Charging Preferences</h3>
@@ -181,3 +343,5 @@ export default function MyEV() {
     </div>
   );
 }
+
+

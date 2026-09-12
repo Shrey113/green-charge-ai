@@ -99,12 +99,6 @@ export default function AllScreensGrid({ onSelectScreen }) {
             onClick={() => onSelectScreen && onSelectScreen(screen.id)}
             title={`Click to open full ${screen.title}`}
           >
-            {/* Slide Green Header */}
-            <div className="slide-green-header">
-              <h2 className="slide-header-title">{screen.title}</h2>
-              <p className="slide-header-subtitle">{screen.subtitle}</p>
-            </div>
-
             {/* Slide Frame containing mini layout */}
             <div className="slide-content-frame">
               <div className="slide-layout-shell">
@@ -117,28 +111,14 @@ export default function AllScreensGrid({ onSelectScreen }) {
 
                 {/* Main Body */}
                 <div className="slide-layout-main">
-                  <CustomerHeader
-                    title={
-                      screen.id === 'dashboard'
-                        ? 'Hello, Alex! 👋'
-                        : screen.id === 'stations'
-                        ? ''
-                        : screen.id === 'my-ev'
-                        ? ''
-                        : screen.id === 'history'
-                        ? ''
-                        : screen.id === 'schedule'
-                        ? ''
-                        : ''
-                    }
-                    subtitle={
-                      screen.id === 'dashboard'
-                        ? "Here's your charging overview and sustainability impact."
-                        : ''
-                    }
-                    showGreeting={screen.id === 'dashboard'}
-                  />
-                  <div className="slide-inner-page">
+                  {screen.id === 'dashboard' && (
+                    <CustomerHeader
+                      title="Hello, Alex!"
+                      subtitle="Here's your charging overview and sustainability impact."
+                      showGreeting={true}
+                    />
+                  )}
+                  <div className={`slide-inner-page ${screen.id !== 'dashboard' ? 'no-header-pad' : ''}`}>
                     {screen.component}
                   </div>
                 </div>

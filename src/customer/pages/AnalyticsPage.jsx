@@ -1,22 +1,162 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import ApexChartSafe from '../components/ApexChartSafe.jsx';
+import { analyticsDatasets } from '../services/customerChartData.js';
 
 export default function AnalyticsPage() {
   const [timeRange, setTimeRange] = useState('Last 30 Days');
 
-  // Dates for X-axis
-  const dateLabels = ['Aug 15', 'Aug 22', 'Aug 29', 'Sep 5', 'Sep 12'];
+  // Active dataset driven by time range selection
+  const currentData = analyticsDatasets[timeRange] || analyticsDatasets['Last 30 Days'];
 
-  // 1. Energy Consumption data (kWh) ~ 0 to 150
-  const energyData = [40, 65, 85, 110, 138];
+  // Base options template for clean consistency
+  const baseChartOptions = {
+    chart: {
+      toolbar: { show: false },
+      animations: { enabled: true, speed: 500 },
+      fontFamily: 'Inter, sans-serif',
+    },
+    grid: { borderColor: '#F1F5F9', strokeDashArray: 3 },
+  };
 
-  // 2. Charging Cost data (₹) ~ 0 to 300
-  const costData = [160, 210, 240, 275, 290];
+  // 1. Energy Consumption Chart
+  const energyOptions = useMemo(() => ({
+    ...baseChartOptions,
+    chart: { ...baseChartOptions.chart, type: 'bar', height: 160 },
+    colors: ['#10B981'],
+    plotOptions: {
+      bar: { columnWidth: '40%', borderRadius: 4 },
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'light',
+        type: 'vertical',
+        opacityFrom: 0.95,
+        opacityTo: 0.7,
+        stops: [0, 100],
+      },
+    },
+    dataLabels: { enabled: false },
+    xaxis: {
+      categories: currentData.labels,
+      labels: { style: { colors: '#94A3B8', fontSize: '10px' } },
+      axisBorder: { color: '#E2E8F0' },
+    },
+    yaxis: {
+      labels: {
+        style: { colors: '#64748B', fontSize: '9px' },
+        formatter: (v) => `${Math.round(v)}`,
+      },
+    },
+    tooltip: {
+      y: { formatter: (v) => `${v} kWh` },
+    },
+  }), [currentData]);
 
-  // 3. Renewable Share data (%) ~ 0 to 100
-  const renewableData = [55, 68, 62, 79, 85];
+  // 2. Charging Cost Chart
+  const costOptions = useMemo(() => ({
+    ...baseChartOptions,
+    chart: { ...baseChartOptions.chart, type: 'bar', height: 160 },
+    colors: ['#3B82F6'],
+    plotOptions: {
+      bar: { columnWidth: '40%', borderRadius: 4 },
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'light',
+        type: 'vertical',
+        opacityFrom: 0.95,
+        opacityTo: 0.7,
+        stops: [0, 100],
+      },
+    },
+    dataLabels: { enabled: false },
+    xaxis: {
+      categories: currentData.labels,
+      labels: { style: { colors: '#94A3B8', fontSize: '10px' } },
+      axisBorder: { color: '#E2E8F0' },
+    },
+    yaxis: {
+      labels: {
+        style: { colors: '#64748B', fontSize: '9px' },
+        formatter: (v) => `₹${Math.round(v)}`,
+      },
+    },
+    tooltip: {
+      y: { formatter: (v) => `₹${v}` },
+    },
+  }), [currentData]);
 
-  // 4. Charging Sessions data ~ 0 to 20
-  const sessionsData = [8, 11, 14, 16, 19];
+  // 3. Renewable Share Chart
+  const renewableOptions = useMemo(() => ({
+    ...baseChartOptions,
+    chart: { ...baseChartOptions.chart, type: 'area', height: 160 },
+    colors: ['#10B981'],
+    stroke: { curve: 'smooth', width: 2.5 },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'light',
+        type: 'vertical',
+        opacityFrom: 0.5,
+        opacityTo: 0.05,
+        stops: [0, 100],
+      },
+    },
+    dataLabels: { enabled: false },
+    xaxis: {
+      categories: currentData.labels,
+      labels: { style: { colors: '#94A3B8', fontSize: '10px' } },
+      axisBorder: { color: '#E2E8F0' },
+    },
+    yaxis: {
+      min: 0,
+      max: 100,
+      labels: {
+        style: { colors: '#64748B', fontSize: '9px' },
+        formatter: (v) => `${v}%`,
+      },
+    },
+    tooltip: {
+      y: { formatter: (v) => `${v}% clean energy` },
+    },
+  }), [currentData]);
+
+  // 4. Charging Sessions Chart
+  const sessionsOptions = useMemo(() => ({
+    ...baseChartOptions,
+    chart: { ...baseChartOptions.chart, type: 'bar', height: 160 },
+    colors: ['#8B5CF6'],
+    plotOptions: {
+      bar: { columnWidth: '40%', borderRadius: 4 },
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shade: 'light',
+        type: 'vertical',
+        opacityFrom: 0.95,
+        opacityTo: 0.7,
+        stops: [0, 100],
+      },
+    },
+    dataLabels: { enabled: false },
+    xaxis: {
+      categories: currentData.labels,
+      labels: { style: { colors: '#94A3B8', fontSize: '10px' } },
+      axisBorder: { color: '#E2E8F0' },
+    },
+    yaxis: {
+      labels: {
+        style: { colors: '#64748B', fontSize: '9px' },
+        formatter: (v) => `${Math.round(v)}`,
+      },
+    },
+    tooltip: {
+      y: { formatter: (v) => `${v} sessions` },
+    },
+  }), [currentData]);
 
   return (
     <div className="customer-page-content analytics-page">
@@ -100,226 +240,56 @@ export default function AnalyticsPage() {
         {/* Chart 1: Energy Consumption (kWh) */}
         <div className="customer-card chart-tile">
           <h4 className="chart-tile-title">Energy Consumption (kWh)</h4>
-          <div className="chart-svg-wrap">
-            <svg viewBox="0 0 320 140" className="analytics-svg" preserveAspectRatio="none">
-              {/* Grid lines */}
-              <line x1="30" y1="20" x2="300" y2="20" stroke="#F1F5F9" />
-              <line x1="30" y1="55" x2="300" y2="55" stroke="#F1F5F9" />
-              <line x1="30" y1="90" x2="300" y2="90" stroke="#F1F5F9" />
-              <line x1="30" y1="120" x2="300" y2="120" stroke="#E2E8F0" />
-
-              {/* Y Axis labels */}
-              <text x="24" y="24" className="chart-axis-lbl" textAnchor="end">150</text>
-              <text x="24" y="59" className="chart-axis-lbl" textAnchor="end">100</text>
-              <text x="24" y="94" className="chart-axis-lbl" textAnchor="end">50</text>
-              <text x="24" y="123" className="chart-axis-lbl" textAnchor="end">0</text>
-
-              {/* Bars (Emerald Green) */}
-              {energyData.map((val, idx) => {
-                const barH = (val / 150) * 100;
-                const x = 52 + idx * 52;
-                const y = 120 - barH;
-                return (
-                  <rect
-                    key={`ec-${idx}`}
-                    x={x}
-                    y={y}
-                    width="22"
-                    height={barH}
-                    rx="3"
-                    fill="#10B981"
-                  />
-                );
-              })}
-
-              {/* X Axis labels */}
-              {dateLabels.map((lbl, idx) => {
-                const x = 63 + idx * 52;
-                return (
-                  <text key={lbl} x={x} y="134" className="chart-axis-lbl" textAnchor="middle">
-                    {lbl}
-                  </text>
-                );
-              })}
-            </svg>
+          <div className="chart-svg-wrap" style={{ height: '160px' }}>
+            <ApexChartSafe
+              options={energyOptions}
+              series={[{ name: 'Energy (kWh)', data: currentData.energy }]}
+              type="bar"
+              height={160}
+              width="100%"
+            />
           </div>
         </div>
 
         {/* Chart 2: Charging Cost (₹) */}
         <div className="customer-card chart-tile">
           <h4 className="chart-tile-title">Charging Cost (₹)</h4>
-          <div className="chart-svg-wrap">
-            <svg viewBox="0 0 320 140" className="analytics-svg" preserveAspectRatio="none">
-              {/* Grid lines */}
-              <line x1="30" y1="20" x2="300" y2="20" stroke="#F1F5F9" />
-              <line x1="30" y1="55" x2="300" y2="55" stroke="#F1F5F9" />
-              <line x1="30" y1="90" x2="300" y2="90" stroke="#F1F5F9" />
-              <line x1="30" y1="120" x2="300" y2="120" stroke="#E2E8F0" />
-
-              {/* Y Axis labels */}
-              <text x="24" y="24" className="chart-axis-lbl" textAnchor="end">300</text>
-              <text x="24" y="59" className="chart-axis-lbl" textAnchor="end">200</text>
-              <text x="24" y="94" className="chart-axis-lbl" textAnchor="end">100</text>
-              <text x="24" y="123" className="chart-axis-lbl" textAnchor="end">0</text>
-
-              {/* Bars (Blue) */}
-              {costData.map((val, idx) => {
-                const barH = (val / 300) * 100;
-                const x = 52 + idx * 52;
-                const y = 120 - barH;
-                return (
-                  <rect
-                    key={`cc-${idx}`}
-                    x={x}
-                    y={y}
-                    width="22"
-                    height={barH}
-                    rx="3"
-                    fill="#3B82F6"
-                  />
-                );
-              })}
-
-              {/* X Axis labels */}
-              {dateLabels.map((lbl, idx) => {
-                const x = 63 + idx * 52;
-                return (
-                  <text key={lbl} x={x} y="134" className="chart-axis-lbl" textAnchor="middle">
-                    {lbl}
-                  </text>
-                );
-              })}
-            </svg>
+          <div className="chart-svg-wrap" style={{ height: '160px' }}>
+            <ApexChartSafe
+              options={costOptions}
+              series={[{ name: 'Cost (₹)', data: currentData.cost }]}
+              type="bar"
+              height={160}
+              width="100%"
+            />
           </div>
         </div>
 
         {/* Chart 3: Renewable Energy Share (%) */}
         <div className="customer-card chart-tile">
           <h4 className="chart-tile-title">Renewable Energy Share (%)</h4>
-          <div className="chart-svg-wrap">
-            <svg viewBox="0 0 320 140" className="analytics-svg" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="renAreaGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0%" stopColor="#10B981" stopOpacity="0.25" />
-                  <stop offset="100%" stopColor="#10B981" stopOpacity="0.0" />
-                </linearGradient>
-              </defs>
-
-              {/* Grid lines */}
-              <line x1="30" y1="20" x2="300" y2="20" stroke="#F1F5F9" />
-              <line x1="30" y1="45" x2="300" y2="45" stroke="#F1F5F9" />
-              <line x1="30" y1="70" x2="300" y2="70" stroke="#F1F5F9" />
-              <line x1="30" y1="95" x2="300" y2="95" stroke="#F1F5F9" />
-              <line x1="30" y1="120" x2="300" y2="120" stroke="#E2E8F0" />
-
-              {/* Y Axis labels */}
-              <text x="24" y="24" className="chart-axis-lbl" textAnchor="end">100</text>
-              <text x="24" y="49" className="chart-axis-lbl" textAnchor="end">75</text>
-              <text x="24" y="74" className="chart-axis-lbl" textAnchor="end">50</text>
-              <text x="24" y="99" className="chart-axis-lbl" textAnchor="end">25</text>
-              <text x="24" y="123" className="chart-axis-lbl" textAnchor="end">0</text>
-
-              {/* Area fill path */}
-              <path
-                d={
-                  renewableData.reduce((acc, val, idx) => {
-                    const x = 63 + idx * 52;
-                    const y = 120 - (val / 100) * 100;
-                    return idx === 0 ? `M ${x} 120 L ${x} ${y}` : `${acc} L ${x} ${y}`;
-                  }, '') + ' L 271 120 Z'
-                }
-                fill="url(#renAreaGrad)"
-              />
-
-              {/* Line path */}
-              <path
-                d={
-                  renewableData.reduce((acc, val, idx) => {
-                    const x = 63 + idx * 52;
-                    const y = 120 - (val / 100) * 100;
-                    return idx === 0 ? `M ${x} ${y}` : `${acc} L ${x} ${y}`;
-                  }, '')
-                }
-                fill="none"
-                stroke="#10B981"
-                strokeWidth="2.5"
-              />
-
-              {/* Data points */}
-              {renewableData.map((val, idx) => {
-                const x = 63 + idx * 52;
-                const y = 120 - (val / 100) * 100;
-                return (
-                  <circle
-                    key={`pt-${idx}`}
-                    cx={x}
-                    cy={y}
-                    r="3.5"
-                    fill="#FFFFFF"
-                    stroke="#10B981"
-                    strokeWidth="2"
-                  />
-                );
-              })}
-
-              {/* X Axis labels */}
-              {dateLabels.map((lbl, idx) => {
-                const x = 63 + idx * 52;
-                return (
-                  <text key={lbl} x={x} y="134" className="chart-axis-lbl" textAnchor="middle">
-                    {lbl}
-                  </text>
-                );
-              })}
-            </svg>
+          <div className="chart-svg-wrap" style={{ height: '160px' }}>
+            <ApexChartSafe
+              options={renewableOptions}
+              series={[{ name: 'Renewable Share', data: currentData.renewable }]}
+              type="area"
+              height={160}
+              width="100%"
+            />
           </div>
         </div>
 
         {/* Chart 4: Charging Sessions */}
         <div className="customer-card chart-tile">
           <h4 className="chart-tile-title">Charging Sessions</h4>
-          <div className="chart-svg-wrap">
-            <svg viewBox="0 0 320 140" className="analytics-svg" preserveAspectRatio="none">
-              {/* Grid lines */}
-              <line x1="30" y1="20" x2="300" y2="20" stroke="#F1F5F9" />
-              <line x1="30" y1="55" x2="300" y2="55" stroke="#F1F5F9" />
-              <line x1="30" y1="90" x2="300" y2="90" stroke="#F1F5F9" />
-              <line x1="30" y1="120" x2="300" y2="120" stroke="#E2E8F0" />
-
-              {/* Y Axis labels */}
-              <text x="24" y="24" className="chart-axis-lbl" textAnchor="end">20</text>
-              <text x="24" y="59" className="chart-axis-lbl" textAnchor="end">15</text>
-              <text x="24" y="94" className="chart-axis-lbl" textAnchor="end">10</text>
-              <text x="24" y="123" className="chart-axis-lbl" textAnchor="end">0</text>
-
-              {/* Bars (Purple / Violet) */}
-              {sessionsData.map((val, idx) => {
-                const barH = (val / 20) * 100;
-                const x = 52 + idx * 52;
-                const y = 120 - barH;
-                return (
-                  <rect
-                    key={`cs-${idx}`}
-                    x={x}
-                    y={y}
-                    width="22"
-                    height={barH}
-                    rx="3"
-                    fill="#A855F7"
-                  />
-                );
-              })}
-
-              {/* X Axis labels */}
-              {dateLabels.map((lbl, idx) => {
-                const x = 63 + idx * 52;
-                return (
-                  <text key={lbl} x={x} y="134" className="chart-axis-lbl" textAnchor="middle">
-                    {lbl}
-                  </text>
-                );
-              })}
-            </svg>
+          <div className="chart-svg-wrap" style={{ height: '160px' }}>
+            <ApexChartSafe
+              options={sessionsOptions}
+              series={[{ name: 'Sessions', data: currentData.sessions }]}
+              type="bar"
+              height={160}
+              width="100%"
+            />
           </div>
         </div>
       </div>

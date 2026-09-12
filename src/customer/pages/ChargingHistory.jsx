@@ -1,7 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useMemo } from 'react';
+import ApexChartSafe from '../components/ApexChartSafe.jsx';
+import { historyAnalyticsData } from '../services/customerChartData.js';
 
 export default function ChargingHistory() {
   const [currentPage, setCurrentPage] = useState(1);
+  const [metricFilter, setMetricFilter] = useState('All'); // 'All' | 'Energy' | 'Cost'
 
   const historyData = [
     {
@@ -69,6 +72,124 @@ export default function ChargingHistory() {
     },
   ];
 
+  // Memoized session trend chart
+  const trendOptions = useMemo(() => ({
+    chart: {
+      height: 220,
+      type: 'line',
+      toolbar: { show: false },
+      animations: { enabled: true, speed: 600 },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#10B981', '#3B82F6'],
+    stroke: { curve: 'smooth', width: [3, 2.5] },
+    plotOptions: {
+      bar: { columnWidth: '35%', borderRadius: 4 },
+    },
+    xaxis: {
+      categories: historyAnalyticsData.sessions.map((s) => s.date),
+      labels: { style: { colors: '#94A3B8', fontSize: '10px' } },
+      axisBorder: { color: '#E2E8F0' },
+    },
+    yaxis: [
+      {
+        title: { text: 'Energy (kWh)', style: { color: '#10B981', fontSize: '10px', fontWeight: 600 } },
+        min: 0,
+        max: 60,
+        labels: {
+          style: { colors: '#64748B', fontSize: '9px' },
+          formatter: (v) => `${v} kWh`,
+        },
+      },
+      {
+        opposite: true,
+        title: { text: 'Cost (₹)', style: { color: '#3B82F6', fontSize: '10px', fontWeight: 600 } },
+        min: 0,
+        max: 450,
+        labels: {
+          style: { colors: '#64748B', fontSize: '9px' },
+          formatter: (v) => `₹${v}`,
+        },
+      },
+    ],
+    tooltip: {
+      shared: true,
+      y: {
+        formatter: (val, { seriesIndex }) => {
+          if (typeof val === 'undefined') return val;
+          return seriesIndex === 0 ? `${val} kWh` : `₹${val}`;
+        },
+      },
+    },
+    legend: { position: 'top', horizontalAlign: 'right', fontSize: '10px' },
+    grid: { borderColor: '#F1F5F9', strokeDashArray: 3 },
+  }), []);
+
+  const trendSeries = useMemo(() => {
+    const energyItem = {
+      name: 'Energy Charged (kWh)',
+      type: 'column',
+      data: historyAnalyticsData.sessions.map((s) => s.energy),
+    };
+    const costItem = {
+      name: 'Cost Paid (₹)',
+      type: 'line',
+      data: historyAnalyticsData.sessions.map((s) => s.cost),
+    };
+
+    if (metricFilter === 'Energy') return [energyItem];
+    if (metricFilter === 'Cost') return [costItem];
+    return [energyItem, costItem];
+  }, [metricFilter]);
+
+  // Memoized station distribution Donut chart
+  const donutOptions = useMemo(() => ({
+    chart: {
+      type: 'donut',
+      height: 220,
+      fontFamily: 'Inter, sans-serif',
+      animations: { enabled: true, speed: 600 },
+    },
+    labels: historyAnalyticsData.stationDistribution.labels,
+    colors: ['#10B981', '#3B82F6', '#F59E0B', '#8B5CF6', '#EC4899'],
+    stroke: { width: 2, colors: ['#FFFFFF'] },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: '68%',
+          labels: {
+            show: true,
+            total: {
+              show: true,
+              label: 'Total Energy',
+              fontSize: '11px',
+              fontWeight: 500,
+              color: '#64748B',
+              formatter: () => '812 kWh',
+            },
+            value: {
+              fontSize: '16px',
+              fontWeight: 700,
+              color: '#0F172A',
+            },
+          },
+        },
+      },
+    },
+    legend: {
+      position: 'bottom',
+      fontSize: '10px',
+      markers: { size: 4 },
+      itemMargin: { horizontal: 6, vertical: 2 },
+    },
+    tooltip: {
+      y: {
+        formatter: (val) => `${val} kWh charged`,
+      },
+    },
+    dataLabels: { enabled: false },
+  }), []);
+
   return (
     <div className="customer-page-content charging-history-page">
       {/* 1. TOP ROW: 4 KPI CARDS */}
@@ -131,7 +252,65 @@ export default function ChargingHistory() {
         </div>
       </div>
 
-      {/* 2. TABLE CARD */}
+      {/* 2. DYNAMIC CHARTS: Session Trend & Station Distribution */}
+      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: '16px', marginBottom: '16px' }}>
+        {/* Session Energy & Cost Trend */}
+        <div className="customer-card" style={{ padding: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <h4 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: '#0F172A' }}>
+              Charging Sessions Trend
+            </h4>
+            <div style={{ display: 'flex', gap: '4px' }}>
+              {['All', 'Energy', 'Cost'].map((pill) => (
+                <button
+                  key={pill}
+                  type="button"
+                  onClick={() => setMetricFilter(pill)}
+                  style={{
+                    border: 'none',
+                    padding: '3px 8px',
+                    borderRadius: '4px',
+                    fontSize: '10px',
+                    fontWeight: 600,
+                    cursor: 'pointer',
+                    background: metricFilter === pill ? '#10B981' : '#F1F5F9',
+                    color: metricFilter === pill ? '#FFFFFF' : '#64748B',
+                    transition: 'all 0.15s ease',
+                  }}
+                >
+                  {pill}
+                </button>
+              ))}
+            </div>
+          </div>
+          <ApexChartSafe
+            options={trendOptions}
+            series={trendSeries}
+            type="line"
+            height={220}
+            width="100%"
+          />
+        </div>
+
+        {/* Station Share Donut Chart */}
+        <div className="customer-card" style={{ padding: '16px' }}>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '8px' }}>
+            <h4 style={{ margin: 0, fontSize: '13px', fontWeight: 700, color: '#0F172A' }}>
+              Energy Distribution by Station
+            </h4>
+            <span style={{ fontSize: '10px', color: '#10B981', fontWeight: 600 }}>Total 812 kWh</span>
+          </div>
+          <ApexChartSafe
+            options={donutOptions}
+            series={historyAnalyticsData.stationDistribution.series}
+            type="donut"
+            height={220}
+            width="100%"
+          />
+        </div>
+      </div>
+
+      {/* 3. TABLE CARD */}
       <div className="customer-card history-table-card">
         <div className="history-table-responsive">
           <table className="history-table">

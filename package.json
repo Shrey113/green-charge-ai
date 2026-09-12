@@ -15,12 +15,10 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
-    "leaflet": "^1.9.4",
     "mongoose": "^9.10.0",
     "react": "^19.2.8",
     "react-apexcharts": "^2.1.1",
-    "react-dom": "^19.2.8",
-    "react-leaflet": "^5.0.0"
+    "react-dom": "^19.2.8"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^6.1.1",
