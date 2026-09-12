@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Sidebar from './components/Sidebar.jsx';
 import TopHeader from './components/TopHeader.jsx';
 import TestDev from './pages/TestDev.jsx';
+import TestDatabase from './pages/TestDatabase.jsx';
 import './App.css';
 
 function App() {
@@ -17,8 +18,11 @@ function App() {
         <TopHeader />
 
         <div className="page-content-area">
-          {/* Render API live playground and time slot cards only when 'test - dev' tab is active */}
+          {/* Render API live playground and time slot cards when 'test - dev' tab is active */}
           {activeTab === 'test-dev' && <TestDev />}
+
+          {/* Render MongoDB database explorer and live document stream when 'test - database' tab is active */}
+          {activeTab === 'test-database' && <TestDatabase />}
         </div>
       </div>
     </div>

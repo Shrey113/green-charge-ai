@@ -3,6 +3,7 @@ import cors from 'cors';
 import dotenv from 'dotenv';
 import electricityMapsRouter from './electricityMaps.js';
 import optimizerRouter from './routes/optimizerRoutes.js';
+import databaseRouter from './routes/databaseRoutes.js';
 import { connectDB } from './Database/db.js';
 
 dotenv.config();
@@ -22,6 +23,9 @@ app.use('/api/electricity-maps', electricityMapsRouter);
 // Python CP-SAT Optimizer Bridge Route
 app.use('/api/optimizer', optimizerRouter);
 
+// MongoDB Database Explorer & Live Test Route
+app.use('/api/database', databaseRouter);
+
 // API health and test endpoint
 app.get('/api', (req, res) => {
   res.json({
@@ -36,6 +40,11 @@ app.get('/api', (req, res) => {
       optimizerSampleInput: 'GET /api/optimizer/sample-input',
       optimizerLatestSchedule: 'GET /api/optimizer/latest',
       optimizerRunSolve: 'POST /api/optimizer/optimize',
+      databaseStatus: 'GET /api/database/status',
+      databaseCollections: 'GET /api/database/collections',
+      databaseData: 'GET /api/database/data?collection=data&limit=20',
+      databaseInsertTest: 'POST /api/database/insert-test',
+      databaseReconnect: 'POST /api/database/reconnect',
     },
   });
 });
