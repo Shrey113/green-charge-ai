@@ -1,247 +1,578 @@
 {
   ".oxlintrc.json": {
-    "mtime": 1789193189.1060326,
-    "ast_hash": "5e6e3cea3e89137071c142dd7835b0ef",
-    "semantic_hash": "5e6e3cea3e89137071c142dd7835b0ef"
+    "mtime": 1789196617.040262,
+    "seen": 1789235542.2944105,
+    "ast_hash": "2d750bd852cf8fe072f64a62ab29084b",
+    "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1789214742.6832075,
-    "ast_hash": "260fdc503b8bb52debfd105861594553",
+    "mtime": 1789232330.5465322,
+    "seen": 1789235542.2944312,
+    "ast_hash": "52ca2906fe3edcb9a1821b127983e955",
     "semantic_hash": ""
   },
   "server/index.js": {
-    "mtime": 1789218051.6430457,
-    "ast_hash": "1076f1411d98288a0acde88d31310b57",
+    "mtime": 1789232330.5536976,
+    "seen": 1789235542.294438,
+    "ast_hash": "1b1be365a88d03439a4e1a066b375f76",
     "semantic_hash": ""
   },
   "server/package.json": {
-    "mtime": 1789195992.5810614,
-    "ast_hash": "c6255af9d1833ccdb737b09fba3f0b95",
-    "semantic_hash": "c6255af9d1833ccdb737b09fba3f0b95"
+    "mtime": 1789196617.0459738,
+    "seen": 1789235542.2944398,
+    "ast_hash": "20d864e2cf5ccfffc707cdc6ecd27738",
+    "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1789214373.7539518,
-    "ast_hash": "5920fc2567456f61ce3c5c995604a79a",
+    "mtime": 1789234686.6591272,
+    "seen": 1789235542.2944458,
+    "ast_hash": "7c9ea9a65f01f55413a89b18e2131e48",
     "semantic_hash": ""
   },
   "src/main.jsx": {
-    "mtime": 1789193189.1144817,
-    "ast_hash": "e13723e2574429d9a6d849727e3ff695",
-    "semantic_hash": "e13723e2574429d9a6d849727e3ff695"
+    "mtime": 1789196617.0499883,
+    "seen": 1789235542.2945037,
+    "ast_hash": "51fd21c378330142b61bf8d1ef3795ef",
+    "semantic_hash": ""
   },
   "vite.config.js": {
-    "mtime": 1789193189.115493,
-    "ast_hash": "5d54447744c19ccd28638a5c668d15ea",
-    "semantic_hash": "5d54447744c19ccd28638a5c668d15ea"
+    "mtime": 1789196617.0509677,
+    "seen": 1789235542.2945144,
+    "ast_hash": "9331e7d7740bf0286a7f5666477715da",
+    "semantic_hash": ""
   },
   ".agents/rules/graphify.md": {
-    "mtime": 1789199131.6252093,
+    "mtime": 1789199373.3898742,
+    "seen": 1789235542.2945163,
     "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
     "semantic_hash": "a0e4d192b9e2e17256124dbfc8e24e6a"
   },
   ".agents/workflows/graphify.md": {
-    "mtime": 1789199131.6252093,
+    "mtime": 1789199373.3910098,
+    "seen": 1789235542.294518,
     "ast_hash": "637776aa6f7496d069afe7520c845c8a",
     "semantic_hash": "637776aa6f7496d069afe7520c845c8a"
   },
   "Documentation/GreenCharge_AI_PRD.md": {
-    "mtime": 1789197737.1290808,
-    "ast_hash": "3374efce07ca0bde5f6847ac33baf764",
-    "semantic_hash": "3374efce07ca0bde5f6847ac33baf764"
+    "mtime": 1789197904.3587327,
+    "seen": 1789235542.294522,
+    "ast_hash": "737d91b971afec0efecf3bc1e3bb9b07",
+    "semantic_hash": ""
   },
   "Documentation/GreenCharge_AI_Project_Overview.md": {
-    "mtime": 1789197737.130102,
-    "ast_hash": "61374b84120130f01afae8df81b4096b",
-    "semantic_hash": "61374b84120130f01afae8df81b4096b"
+    "mtime": 1789197904.3593457,
+    "seen": 1789235542.2945232,
+    "ast_hash": "cf0c6e75c89bff29f463364375a3b27a",
+    "semantic_hash": ""
   },
   "Documentation/GreenCharge_AI_SRS.md": {
-    "mtime": 1789197737.130102,
-    "ast_hash": "db5e169d18cc785535de7fd0e795f439",
-    "semantic_hash": "db5e169d18cc785535de7fd0e795f439"
+    "mtime": 1789197904.3609295,
+    "seen": 1789235542.2945244,
+    "ast_hash": "88fb8157ed6f2f6b7bbce226eb578a5c",
+    "semantic_hash": ""
   },
   "README.md": {
-    "mtime": 1789193189.1050053,
-    "ast_hash": "75eb386f17caf77fd6fe3ce1d90968ee",
-    "semantic_hash": "75eb386f17caf77fd6fe3ce1d90968ee"
+    "mtime": 1789196617.0409167,
+    "seen": 1789235542.294527,
+    "ast_hash": "2e7344e9810cbd1b6fdb6aa7efe117e7",
+    "semantic_hash": ""
   },
   "index.html": {
-    "mtime": 1789195478.965532,
-    "ast_hash": "e1d49a07386b38fdaafe5bb0f0e25581",
-    "semantic_hash": "e1d49a07386b38fdaafe5bb0f0e25581"
+    "mtime": 1789196617.0409167,
+    "seen": 1789235542.2945297,
+    "ast_hash": "57e2bc55a7479d04872fa145fda729f5",
+    "semantic_hash": ""
   },
   "project_structure.md": {
-    "mtime": 1789206679.9764705,
-    "ast_hash": "a2fa4c36feed77fab18e1445bc72f52a",
+    "mtime": 1789207525.8012807,
+    "seen": 1789235542.294531,
+    "ast_hash": "159438c4d604cea8772c1d51bd5f355b",
     "semantic_hash": ""
   },
   "public/favicon.svg": {
-    "mtime": 1789193189.1080782,
+    "mtime": 1789196617.0439694,
+    "seen": 1789235542.2945325,
     "ast_hash": "7e840862161341271697daa99a40d76b",
     "semantic_hash": "7e840862161341271697daa99a40d76b"
   },
   "public/icons.svg": {
-    "mtime": 1789193189.1080782,
-    "ast_hash": "3b4fcfcf393eca4d264dca4a4663bc37",
-    "semantic_hash": "3b4fcfcf393eca4d264dca4a4663bc37"
+    "mtime": 1789196617.0439694,
+    "seen": 1789235542.294534,
+    "ast_hash": "21c7473c592c67dc87223d49892c8f0a",
+    "semantic_hash": ""
   },
   "src/assets/hero.png": {
-    "mtime": 1789193189.1113966,
+    "mtime": 1789196617.0490158,
+    "seen": 1789235542.29455,
     "ast_hash": "aead493361b27e7510691c5d7072dfc1",
     "semantic_hash": "aead493361b27e7510691c5d7072dfc1"
   },
   "src/assets/react.svg": {
-    "mtime": 1789193189.1124053,
+    "mtime": 1789196617.0490158,
+    "seen": 1789235542.2945602,
     "ast_hash": "f0402b67b6ce880f65666bb49e841696",
     "semantic_hash": "f0402b67b6ce880f65666bb49e841696"
   },
   "src/assets/vite.svg": {
-    "mtime": 1789193189.1134067,
-    "ast_hash": "9960a24288958394ac50e57ff638b036",
-    "semantic_hash": "9960a24288958394ac50e57ff638b036"
+    "mtime": 1789196617.0499883,
+    "seen": 1789235542.2945616,
+    "ast_hash": "6d5180a782d64c8cf51ba01c2a2184d8",
+    "semantic_hash": ""
   },
   "apisample/electricity_forecast.json": {
-    "mtime": 1789210947.4297338,
-    "ast_hash": "1febd9952a38c4cb4716274f8102a3b3",
+    "mtime": 1789212178.778576,
+    "seen": 1789235542.2944167,
+    "ast_hash": "cc044ff2c98d6c27ef1762a34a867990",
     "semantic_hash": ""
   },
   "apisample/electricity_maps_sample.py": {
-    "mtime": 1789199003.7972171,
-    "ast_hash": "4a30a619ab9b18fc7330dbf9485e62e5",
+    "mtime": 1789199247.3349266,
+    "seen": 1789235542.29442,
+    "ast_hash": "b1da0138e5d2799d41340f168ce845f2",
     "semantic_hash": ""
   },
   "cp_sat/electricity_forecast.json": {
-    "mtime": 1789217400.882629,
-    "ast_hash": "1febd9952a38c4cb4716274f8102a3b3",
+    "mtime": 1789232330.5073407,
+    "seen": 1789235542.2944243,
+    "ast_hash": "cc044ff2c98d6c27ef1762a34a867990",
     "semantic_hash": ""
   },
   "cp_sat/ev_charging_optimizer.py": {
-    "mtime": 1789217400.882629,
-    "ast_hash": "64a598ada847fee28691747cdf4c4a25",
+    "mtime": 1789232330.508907,
+    "seen": 1789235542.2944262,
+    "ast_hash": "df21a6d6a3d39654319e65ca9ecfc195",
     "semantic_hash": ""
   },
   "cp_sat/input_data.json": {
-    "mtime": 1789217400.88315,
-    "ast_hash": "cd02af3a885cac32e2ead12a7413c2c4",
+    "mtime": 1789232330.5099547,
+    "seen": 1789235542.2944276,
+    "ast_hash": "5f370a911ebbf03326b980eda9da7e9b",
     "semantic_hash": ""
   },
   "cp_sat/server.py": {
-    "mtime": 1789217400.883678,
-    "ast_hash": "89fa2b26727acf69617c02899bd6190d",
+    "mtime": 1789232330.5099547,
+    "seen": 1789235542.2944295,
+    "ast_hash": "1b00bef6b9a099ac5e3239ede77559bc",
     "semantic_hash": ""
   },
   "server/Database/dataModel.js": {
-    "mtime": 1789214742.6832075,
-    "ast_hash": "40db7c1882764f4d102fa8132c6f8456",
+    "mtime": 1789234686.656127,
+    "seen": 1789235542.294433,
+    "ast_hash": "e6d2bddd85f37cd4b23dece649aa96bb",
     "semantic_hash": ""
   },
   "server/Database/db.js": {
-    "mtime": 1789214742.6837232,
-    "ast_hash": "4339536c40b442235620b2e599c506c3",
+    "mtime": 1789232330.5526953,
+    "seen": 1789235542.2944345,
+    "ast_hash": "da4d411a4d5b19de981c97e0d4409fe2",
     "semantic_hash": ""
   },
   "server/electricityMaps.js": {
-    "mtime": 1789210611.5364912,
-    "ast_hash": "36b7c1783e243f33e1c89b453b3d7f3f",
+    "mtime": 1789212178.780227,
+    "seen": 1789235542.294436,
+    "ast_hash": "1ab9a3152f75a7a731fd7c5281e68ee2",
     "semantic_hash": ""
   },
   "server/routes/optimizerRoutes.js": {
-    "mtime": 1789218039.2391424,
-    "ast_hash": "6585a94e104b71b67c0961e69bcf9d59",
+    "mtime": 1789232330.554696,
+    "seen": 1789235542.2944427,
+    "ast_hash": "5165da1d1997a0eac2ea32dc7d85a552",
     "semantic_hash": ""
   },
   "server/services/optimizerService.js": {
-    "mtime": 1789218031.9563801,
-    "ast_hash": "479f23031893d0500a0d6ae84e55a84a",
+    "mtime": 1789232330.5556965,
+    "seen": 1789235542.2944443,
+    "ast_hash": "79d83e86cd16c7f5ad90e62172671a24",
     "semantic_hash": ""
   },
   "src/components/Sidebar.jsx": {
-    "mtime": 1789214315.1098952,
-    "ast_hash": "11154190147ada36e632c087427486b3",
+    "mtime": 1789232330.5586958,
+    "seen": 1789235542.2944474,
+    "ast_hash": "e48d91ee39cb7d47682fd1a7940158ac",
     "semantic_hash": ""
   },
   "src/components/SlotDataCard.jsx": {
-    "mtime": 1789214274.026688,
-    "ast_hash": "7c25b8c1d4a07698b15dc7a22940deca",
+    "mtime": 1789215900.7862453,
+    "seen": 1789235542.2944489,
+    "ast_hash": "655edbbc2e1ff60b433cb22d8f762b1a",
     "semantic_hash": ""
   },
   "src/components/SlotSelector.jsx": {
-    "mtime": 1789214261.5428312,
-    "ast_hash": "64972519f24931842f7a3362516e4bef",
+    "mtime": 1789215900.787245,
+    "seen": 1789235542.2944503,
+    "ast_hash": "2fd1b0c3e1add39632aa7de3125b05da",
     "semantic_hash": ""
   },
   "src/components/TopHeader.jsx": {
-    "mtime": 1789213850.518926,
-    "ast_hash": "159dab9e23136f874d753aef1e44def2",
+    "mtime": 1789215900.7882464,
+    "seen": 1789235542.2944517,
+    "ast_hash": "b804b1bd39cc4700f89d0369bb5a8d97",
     "semantic_hash": ""
   },
   "src/pages/TestDev.jsx": {
-    "mtime": 1789214285.6699383,
-    "ast_hash": "15a2323f422c918bab8c0703661218db",
+    "mtime": 1789215900.7882464,
+    "seen": 1789235542.2945094,
+    "ast_hash": "6252f8504de7b106bb7db68250bf1649",
     "semantic_hash": ""
   },
   "src/services/dashboardService.js": {
-    "mtime": 1789212618.664839,
-    "ast_hash": "ec855fd907de35183096b725e0ab98e1",
+    "mtime": 1789215900.789245,
+    "seen": 1789235542.2945106,
+    "ast_hash": "228cebd4fba9d3acea028dca3951bf67",
     "semantic_hash": ""
   },
   "src/services/electricityService.js": {
-    "mtime": 1789210673.2837346,
-    "ast_hash": "6b6119eab8fd184aad82e5b5216735a1",
+    "mtime": 1789212178.7853858,
+    "seen": 1789235542.2945132,
+    "ast_hash": "db205c9cf738e3823a8ea05e6e99fd61",
     "semantic_hash": ""
   },
   "Documentation/GreenCharge_AI_Architecture.md": {
-    "mtime": 1789210947.4297338,
-    "ast_hash": "d1b615af73cff10c63cb5719aadf54ae",
+    "mtime": 1789212178.7775047,
+    "seen": 1789235542.2945192,
+    "ast_hash": "e8d234a264037a2ad44f1c0777ddd125",
     "semantic_hash": ""
   },
   "Documentation/GreenCharge_AI_Development_Plan.md": {
-    "mtime": 1789199640.4629104,
-    "ast_hash": "b1dfa0abf30beeb60e4544577d5e8bad",
+    "mtime": 1789199784.2150047,
+    "seen": 1789235542.2945206,
+    "ast_hash": "88528875092760a3c816d84bcb76024b",
     "semantic_hash": ""
   },
   "Documentation/GreenCharge_AI_UI_UX.md": {
-    "mtime": 1789199640.4629104,
-    "ast_hash": "df85e11e98ae020d58ea373a8f1b3a7a",
+    "mtime": 1789199784.2150047,
+    "seen": 1789235542.2945256,
+    "ast_hash": "be511e5f681eab906f6d323a694aa642",
     "semantic_hash": ""
   },
   "cp_sat/API_PAYLOAD_SPEC.md": {
-    "mtime": 1789217400.8810441,
-    "ast_hash": "49523db2de4827c8b92cf5fe413c5f61",
+    "mtime": 1789232330.50125,
+    "seen": 1789235542.2945285,
+    "ast_hash": "fa7e9823067c363761f36be9063ff75b",
     "semantic_hash": ""
   },
   "src/assets/icons/bolt.svg": {
-    "mtime": 1789213045.2532153,
-    "ast_hash": "ffd7cc6c0381d16a1b8bb07d005b8053",
+    "mtime": 1789215900.7802484,
+    "seen": 1789235542.2945514,
+    "ast_hash": "558b3b875655f2b8146d93504e9994c6",
     "semantic_hash": ""
   },
   "src/assets/icons/car.svg": {
-    "mtime": 1789213066.7626405,
-    "ast_hash": "3473392c74f97278fac51eed201416fe",
+    "mtime": 1789215900.781245,
+    "seen": 1789235542.2945528,
+    "ast_hash": "47ba0d5ef94dc78e55b6c0d673c1fd6c",
     "semantic_hash": ""
   },
   "src/assets/icons/clock.svg": {
-    "mtime": 1789213821.0038798,
-    "ast_hash": "80f54c047b8970e021d9b2720e8f6cfd",
+    "mtime": 1789215900.781245,
+    "seen": 1789235542.294554,
+    "ast_hash": "71d1dc52f97009e0667f5d3f7bccd4c7",
     "semantic_hash": ""
   },
   "src/assets/icons/coin.svg": {
-    "mtime": 1789213054.8417115,
-    "ast_hash": "66a7d52fc902ee49764b2c3e5aa482ab",
+    "mtime": 1789215900.7822459,
+    "seen": 1789235542.2945554,
+    "ast_hash": "57897e161ff6b968101b7ee9301787b4",
     "semantic_hash": ""
   },
   "src/assets/icons/leaf.svg": {
-    "mtime": 1789213836.2811756,
-    "ast_hash": "9196032ea49769af192ebf76138b3c09",
+    "mtime": 1789215900.7832448,
+    "seen": 1789235542.2945564,
+    "ast_hash": "bfae665c9539a561213e3c60311c6078",
     "semantic_hash": ""
   },
   "src/assets/icons/location-pin.svg": {
-    "mtime": 1789213799.8580368,
-    "ast_hash": "1c518001ab298e8db2b3bdfeca23d72c",
+    "mtime": 1789215900.7832448,
+    "seen": 1789235542.2945578,
+    "ast_hash": "daf748b901cb045f1503ca3963d7d1af",
     "semantic_hash": ""
   },
   "src/assets/icons/piggy-bank.svg": {
-    "mtime": 1789213076.9128673,
-    "ast_hash": "885b7fcc8f74b617b27d91f9e782b6ea",
+    "mtime": 1789215900.7842474,
+    "seen": 1789235542.294559,
+    "ast_hash": "1c9facaf92ebb9686b2fb30d79b94266",
+    "semantic_hash": ""
+  },
+  "check_mongodb.js": {
+    "mtime": 1789232330.4990253,
+    "seen": 1789235542.294422,
+    "ast_hash": "a1179047561fecf775192d611b72687d",
+    "semantic_hash": ""
+  },
+  "server/routes/databaseRoutes.js": {
+    "mtime": 1789234686.6571262,
+    "seen": 1789235542.2944412,
+    "ast_hash": "43a01d20bce936c52048f8e2305fefeb",
+    "semantic_hash": ""
+  },
+  "src/components/VehicleLoginForm.jsx": {
+    "mtime": 1789234686.6771266,
+    "seen": 1789235542.2944531,
+    "ast_hash": "814313f88cef53540b2f55ef8772478a",
+    "semantic_hash": ""
+  },
+  "src/customer/CustomerApp.jsx": {
+    "mtime": 1789234773.8343396,
+    "seen": 1789235542.2944548,
+    "ast_hash": "c4063c7c5b7ee934b13c249296b2fd8d",
+    "semantic_hash": ""
+  },
+  "src/customer/components/CustomerHeader.jsx": {
+    "mtime": 1789234773.8685372,
+    "seen": 1789235542.2944562,
+    "ast_hash": "93f2d05496454a7bdb179ff4bf4c22d1",
+    "semantic_hash": ""
+  },
+  "src/customer/components/CustomerSidebar.jsx": {
+    "mtime": 1789234773.8695352,
+    "seen": 1789235542.2944577,
+    "ast_hash": "a97200011a3d6de8f59c38ae9966b55c",
+    "semantic_hash": ""
+  },
+  "src/customer/index.jsx": {
+    "mtime": 1789234773.8720243,
+    "seen": 1789235542.2944722,
+    "ast_hash": "30f7db55aefac25c65784030a4c3c526",
+    "semantic_hash": ""
+  },
+  "src/customer/pages/AllScreensGrid.jsx": {
+    "mtime": 1789234773.8730328,
+    "seen": 1789235542.2944736,
+    "ast_hash": "22d1c4626cbe71ad3a6539fc4899eef2",
+    "semantic_hash": ""
+  },
+  "src/customer/pages/AnalyticsPage.jsx": {
+    "mtime": 1789234773.874032,
+    "seen": 1789235542.294475,
+    "ast_hash": "162c27c615ec38db74a3a1bf7fc2bfeb",
+    "semantic_hash": ""
+  },
+  "src/customer/pages/ChargingHistory.jsx": {
+    "mtime": 1789234773.874032,
+    "seen": 1789235542.2944763,
+    "ast_hash": "5381cfaa56a1445cad34f26c012ad528",
+    "semantic_hash": ""
+  },
+  "src/customer/pages/DashboardOverview.jsx": {
+    "mtime": 1789234773.8750322,
+    "seen": 1789235542.2944775,
+    "ast_hash": "d0ee22a023ad7ceb6ca36bd04072a453",
+    "semantic_hash": ""
+  },
+  "src/customer/pages/FindStations.jsx": {
+    "mtime": 1789234773.8760302,
+    "seen": 1789235542.294479,
+    "ast_hash": "d6729597b33e988c6ac77130a163cb89",
+    "semantic_hash": ""
+  },
+  "src/customer/pages/MyEV.jsx": {
+    "mtime": 1789234773.8760302,
+    "seen": 1789235542.2944798,
+    "ast_hash": "d070cd8ce08e114ccc471b7f95577b62",
+    "semantic_hash": ""
+  },
+  "src/customer/pages/SchedulePage.jsx": {
+    "mtime": 1789234773.877034,
+    "seen": 1789235542.294481,
+    "ast_hash": "4eef9be284bceff722d7f4ce46606ad5",
+    "semantic_hash": ""
+  },
+  "src/customer/pages/SettingsPage.jsx": {
+    "mtime": 1789234773.877034,
+    "seen": 1789235542.2944825,
+    "ast_hash": "4f4926de63e64387eea2d69d2f565cc1",
+    "semantic_hash": ""
+  },
+  "src/customer/services/customerData.js": {
+    "mtime": 1789234773.8790338,
+    "seen": 1789235542.2944834,
+    "ast_hash": "02cf2ee577bc8bb394c0ae1554d83af6",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/GridOperatorApp.jsx": {
+    "mtime": 1789235495.258418,
+    "seen": 1789235542.2944849,
+    "ast_hash": "dcbb531744f66be9985582754d79cc33",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/components/GridOperatorHeader.jsx": {
+    "mtime": 1789235370.3241546,
+    "seen": 1789235542.294486,
+    "ast_hash": "0cce4a0a7bbbdaa44cd163cf594341de",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/components/GridOperatorSidebar.jsx": {
+    "mtime": 1789235363.506074,
+    "seen": 1789235542.2944872,
+    "ast_hash": "b682deb459201d5c6074fbd269353f6c",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/components/GujaratMap.jsx": {
+    "mtime": 1789235380.1690578,
+    "seen": 1789235542.2944887,
+    "ast_hash": "e83ce57bc417747f8e7c495c0d400d6d",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/index.jsx": {
+    "mtime": 1789235501.462396,
+    "seen": 1789235542.2944899,
+    "ast_hash": "0a9ecd9b5a2e252608df836f51d21f4f",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/AlertsPage.jsx": {
+    "mtime": 1789235468.194963,
+    "seen": 1789235542.294491,
+    "ast_hash": "3ee5b2d801ece5fd50ca725ec309c6e3",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/AllScreensGrid.jsx": {
+    "mtime": 1789235487.5789852,
+    "seen": 1789235542.2944925,
+    "ast_hash": "b5f3d4524d74425f4f182711d77bcf12",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/AnalyticsAlertsPage.jsx": {
+    "mtime": 1789235461.8050816,
+    "seen": 1789235542.2944934,
+    "ast_hash": "621a4cd30dcd0cd2769225cd3a2998c8",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/DashboardOverview.jsx": {
+    "mtime": 1789235394.5638583,
+    "seen": 1789235542.2944946,
+    "ast_hash": "e087c409347714ff5a1af5e7743f2bc4",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/EVChargingDemandPage.jsx": {
+    "mtime": 1789235435.0861652,
+    "seen": 1789235542.2944958,
+    "ast_hash": "1bad9cf9b1d0c8e06b7df0ce24f520bc",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/ForecastSchedulingPage.jsx": {
+    "mtime": 1789235449.0074432,
+    "seen": 1789235542.294497,
+    "ast_hash": "3af7fd2e38a2a5272b32ba6b96a6c210",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/GridOverviewPage.jsx": {
+    "mtime": 1789235403.4755878,
+    "seen": 1789235542.2944982,
+    "ast_hash": "c276bd29774ec306463f0008c11be709",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/RenewableEnergyPage.jsx": {
+    "mtime": 1789235419.110864,
+    "seen": 1789235542.2944999,
+    "ast_hash": "1aefb74818c8bec3bbcb695b0764c773",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/pages/SettingsPage.jsx": {
+    "mtime": 1789235476.9764998,
+    "seen": 1789235542.294501,
+    "ast_hash": "8f0e55ea8c374265ed3ee76c6d0c4b7d",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/services/gridData.js": {
+    "mtime": 1789235321.6427834,
+    "seen": 1789235542.2945025,
+    "ast_hash": "282e46d0cff31bdeb76aa3d791cb1c27",
+    "semantic_hash": ""
+  },
+  "src/pages/ChargingStations.jsx": {
+    "mtime": 1789234686.6791253,
+    "seen": 1789235542.2945051,
+    "ast_hash": "8d5ff3ae3320256124d0c2e2348299ea",
+    "semantic_hash": ""
+  },
+  "src/pages/LoginPage.jsx": {
+    "mtime": 1789234686.680126,
+    "seen": 1789235542.2945065,
+    "ast_hash": "33428505adf6b9cf81ba4b452694862d",
+    "semantic_hash": ""
+  },
+  "src/pages/TestDatabase.jsx": {
+    "mtime": 1789232330.559877,
+    "seen": 1789235542.294508,
+    "ast_hash": "689315464227f5fcfcae63e35afe7cd5",
+    "semantic_hash": ""
+  },
+  "src/services/databaseService.js": {
+    "mtime": 1789234686.6811256,
+    "seen": 1789235542.2945118,
+    "ast_hash": "d2586ef41c2e06c4e29877ed6eaa993b",
+    "semantic_hash": ""
+  },
+  "public/images/stations/hub_1.jpg": {
+    "mtime": 1789234686.6326098,
+    "seen": 1789235542.294539,
+    "ast_hash": "24c0e62bc3810f5c57955549471b15dc",
+    "semantic_hash": ""
+  },
+  "public/images/stations/hub_2.jpg": {
+    "mtime": 1789234686.6384556,
+    "seen": 1789235542.2945404,
+    "ast_hash": "2b722255f3f1b2fc4a3e500af5cb47ff",
+    "semantic_hash": ""
+  },
+  "public/images/stations/hub_3.jpg": {
+    "mtime": 1789234686.6454556,
+    "seen": 1789235542.294543,
+    "ast_hash": "2d953396019c7f2a54388ef339ca6321",
+    "semantic_hash": ""
+  },
+  "public/images/stations/hub_4.jpg": {
+    "mtime": 1789234686.6531172,
+    "seen": 1789235542.2945447,
+    "ast_hash": "24c0e62bc3810f5c57955549471b15dc",
+    "semantic_hash": ""
+  },
+  "src/assets/ev-isometric-diorama.jpg": {
+    "mtime": 1789234686.6641765,
+    "seen": 1789235542.294546,
+    "ast_hash": "f57529cd93a4e4e7dcfe4c68c5a18683",
+    "semantic_hash": ""
+  },
+  "src/assets/ev-minimal-showcase.jpg": {
+    "mtime": 1789234686.6701272,
+    "seen": 1789235542.294547,
+    "ast_hash": "b41da04dc21ddb87be58f7b5d68fa463",
+    "semantic_hash": ""
+  },
+  "src/assets/ev-station-bg.jpg": {
+    "mtime": 1789234686.6761723,
+    "seen": 1789235542.2945485,
+    "ast_hash": "bf821b6092bf060f3eeee6372a8e2fde",
+    "semantic_hash": ""
+  },
+  "src/customer/assets/station_central.jpg": {
+    "mtime": 1789234773.840355,
+    "seen": 1789235542.294563,
+    "ast_hash": "4f91ed5cee96d1a21df65664dbb7a6ca",
+    "semantic_hash": ""
+  },
+  "src/customer/assets/station_city_center.jpg": {
+    "mtime": 1789234773.8453567,
+    "seen": 1789235542.2945647,
+    "ast_hash": "b41da04dc21ddb87be58f7b5d68fa463",
+    "semantic_hash": ""
+  },
+  "src/customer/assets/station_daiict.jpg": {
+    "mtime": 1789234773.8575304,
+    "seen": 1789235542.294566,
+    "ast_hash": "53be51c807c985e286cf3a7d764332e3",
+    "semantic_hash": ""
+  },
+  "src/customer/assets/station_sg_highway.jpg": {
+    "mtime": 1789234773.8635378,
+    "seen": 1789235542.294567,
+    "ast_hash": "bf821b6092bf060f3eeee6372a8e2fde",
+    "semantic_hash": ""
+  },
+  "src/customer/assets/tesla_model_3.jpg": {
+    "mtime": 1789234773.8675368,
+    "seen": 1789235542.2945685,
+    "ast_hash": "acd69722968d4f656779b99ddb9a2def",
     "semantic_hash": ""
   }
 }

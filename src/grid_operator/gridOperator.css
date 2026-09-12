@@ -1,0 +1,1400 @@
+/* ==========================================================================
+   GreenCharge AI — Grid Operator Dashboard Stylesheet
+   Pixel-perfect implementation matching all 6 slide screens
+   ========================================================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+:root {
+  --grid-primary: #10B981;
+  --grid-primary-dark: #059669;
+  --grid-primary-darker: #064E3B;
+  --grid-primary-deep: #065F46;
+  --grid-primary-light: #ECFDF5;
+  --grid-primary-border: #A7F3D0;
+  
+  --grid-bg: #F8FAFC;
+  --grid-card-bg: #FFFFFF;
+  --grid-border: #E2E8F0;
+  --grid-border-subtle: #F1F5F9;
+
+  --grid-text-main: #0F172A;
+  --grid-text-muted: #64748B;
+  --grid-text-subtle: #94A3B8;
+
+  --grid-amber: #F59E0B;
+  --grid-amber-light: #FEF3C7;
+  --grid-blue: #3B82F6;
+  --grid-blue-light: #EFF6FF;
+  --grid-red: #EF4444;
+  --grid-red-light: #FEE2E2;
+  --grid-teal: #14B8A6;
+  --grid-teal-light: #F0FDFA;
+  --grid-navy: #1E3A8A;
+
+  --grid-radius: 12px;
+  --grid-radius-sm: 8px;
+  --grid-radius-lg: 16px;
+  --grid-shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.05);
+  --grid-shadow-md: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+  --grid-shadow-lg: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.02);
+}
+
+/* Base Root Container */
+.grid-operator-root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  color: var(--grid-text-main);
+  background-color: var(--grid-bg);
+  min-height: 100vh;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.grid-operator-root *,
+.grid-operator-root *::before,
+.grid-operator-root *::after {
+  box-sizing: border-box;
+}
+
+/* ==========================================================================
+   Interactive Single Screen Layout
+   ========================================================================== */
+.grid-operator-layout {
+  display: flex;
+  min-height: 100vh;
+  width: 100%;
+}
+
+/* Sidebar */
+.grid-operator-sidebar {
+  width: 240px;
+  min-width: 240px;
+  background-color: #FFFFFF;
+  border-right: 1px solid var(--grid-border);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px 14px;
+  height: 100vh;
+  position: sticky;
+  top: 0;
+  z-index: 20;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 24px;
+  padding-left: 6px;
+}
+
+.sidebar-brand-icon {
+  width: 34px;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.sidebar-brand-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.sidebar-brand-name {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--grid-text-main);
+  margin: 0;
+  line-height: 1.2;
+}
+
+.sidebar-brand-role {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--grid-text-muted);
+}
+
+/* Sidebar Navigation Items */
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.nav-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 12px;
+  border-radius: var(--grid-radius-sm);
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 13.5px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.15s ease-in-out;
+  text-align: left;
+  width: 100%;
+}
+
+.nav-item-btn:hover {
+  background-color: #F1F5F9;
+  color: var(--grid-text-main);
+}
+
+.nav-item-btn.active {
+  background-color: #D1FAE5;
+  color: #065F46;
+  font-weight: 600;
+}
+
+.nav-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.nav-label {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Sidebar Slogan Footer */
+.sidebar-footer {
+  padding: 16px 8px 4px 8px;
+  border-top: 1px solid var(--grid-border-subtle);
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+}
+
+.footer-leaf-icon {
+  color: #10B981;
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+
+.footer-slogan-text {
+  font-size: 11px;
+  color: #059669;
+  line-height: 1.35;
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Main Content Area */
+.grid-operator-main-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+  background-color: var(--grid-bg);
+}
+
+/* Top Header */
+.grid-operator-header {
+  background-color: #FFFFFF;
+  border-bottom: 1px solid var(--grid-border);
+  padding: 16px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.header-left-greeting {
+  display: flex;
+  flex-direction: column;
+}
+
+.greeting-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--grid-text-main);
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.greeting-subtitle {
+  font-size: 13px;
+  color: var(--grid-text-muted);
+  margin: 4px 0 0 0;
+}
+
+.header-right-meta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.info-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  background-color: #F8FAFC;
+  border: 1px solid var(--grid-border);
+  border-radius: 20px;
+  font-size: 12.5px;
+  color: var(--grid-text-muted);
+  font-weight: 500;
+}
+
+.info-pill svg {
+  color: var(--grid-primary-dark);
+  flex-shrink: 0;
+}
+
+.datetime-stack {
+  display: flex;
+  flex-direction: column;
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.datetime-date {
+  font-weight: 600;
+  color: var(--grid-text-main);
+}
+
+.datetime-time {
+  color: var(--grid-text-muted);
+}
+
+/* Filter Toolbar (Used in Grid Overview & Forecast) */
+.grid-filter-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 14px;
+  background-color: #FFFFFF;
+  padding: 10px 16px;
+  border: 1px solid var(--grid-border);
+  border-radius: var(--grid-radius-sm);
+  margin-bottom: 16px;
+  flex-wrap: wrap;
+}
+
+.filter-control-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.filter-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--grid-text-muted);
+  text-transform: capitalize;
+}
+
+.filter-select {
+  background-color: #F8FAFC;
+  border: 1px solid var(--grid-border);
+  border-radius: 6px;
+  padding: 6px 28px 6px 10px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--grid-text-main);
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%2364748B' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 14px;
+}
+
+.filter-date-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #F8FAFC;
+  border: 1px solid var(--grid-border);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--grid-text-main);
+}
+
+.filter-date-pill svg {
+  color: var(--grid-text-muted);
+}
+
+/* Page Container */
+.grid-page-container {
+  padding: 20px 28px;
+  flex: 1;
+}
+
+/* ==========================================================================
+   KPI Cards Component Styles
+   ========================================================================== */
+.kpi-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.kpi-grid-4 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.kpi-grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-bottom: 16px;
+}
+
+.grid-kpi-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--grid-border);
+  border-radius: var(--grid-radius);
+  padding: 14px 14px 12px 14px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  box-shadow: var(--grid-shadow-sm);
+  transition: transform 0.15s ease;
+}
+
+.grid-kpi-card:hover {
+  transform: translateY(-1px);
+}
+
+.kpi-icon-box {
+  width: 36px;
+  height: 36px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.kpi-icon-box.blue {
+  background-color: #EFF6FF;
+  color: #3B82F6;
+}
+
+.kpi-icon-box.green {
+  background-color: #ECFDF5;
+  color: #10B981;
+}
+
+.kpi-icon-box.teal {
+  background-color: #F0FDFA;
+  color: #0D9488;
+}
+
+.kpi-icon-box.yellow {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+.kpi-icon-box.red {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+.kpi-content-box {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.kpi-val {
+  font-size: 19px;
+  font-weight: 700;
+  color: var(--grid-text-main);
+  line-height: 1.2;
+}
+
+.kpi-lbl {
+  font-size: 11.5px;
+  font-weight: 500;
+  color: var(--grid-text-muted);
+  margin-top: 2px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.kpi-sub {
+  font-size: 10.5px;
+  color: var(--grid-text-subtle);
+  margin-top: 1px;
+}
+
+/* ==========================================================================
+   Dashboard Generic Card / Panel Styles
+   ========================================================================== */
+.grid-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--grid-border);
+  border-radius: var(--grid-radius);
+  padding: 16px;
+  box-shadow: var(--grid-shadow-sm);
+  display: flex;
+  flex-direction: column;
+}
+
+.card-header-clean {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.card-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--grid-text-main);
+  margin: 0;
+}
+
+.card-subtitle {
+  font-size: 11.5px;
+  color: var(--grid-text-muted);
+  margin: 2px 0 0 0;
+}
+
+/* Two-column layout rows */
+.grid-row-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.grid-row-2col-60-40 {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.grid-row-2col-70-30 {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+/* ==========================================================================
+   Slide 1: Charts (Grid Load vs Renewable & Energy Mix)
+   ========================================================================== */
+.chart-container-svg {
+  width: 100%;
+  position: relative;
+}
+
+.chart-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  margin-top: 10px;
+  flex-wrap: wrap;
+}
+
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--grid-text-muted);
+}
+
+.legend-square {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+}
+
+.legend-line {
+  width: 14px;
+  height: 3px;
+  border-radius: 1px;
+}
+
+.legend-line.dashed {
+  border-top: 2px dashed;
+  height: 0;
+}
+
+/* Energy Mix Donut */
+.donut-layout {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  padding: 10px 0;
+  gap: 16px;
+}
+
+.donut-svg-wrap {
+  position: relative;
+  width: 170px;
+  height: 170px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.donut-center-info {
+  position: absolute;
+  text-align: center;
+  pointer-events: none;
+}
+
+.donut-center-val {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--grid-text-main);
+  display: block;
+}
+
+.donut-legend-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 130px;
+}
+
+.donut-legend-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.donut-legend-left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #475569;
+}
+
+.donut-legend-pct {
+  font-weight: 700;
+  color: var(--grid-text-main);
+}
+
+/* ==========================================================================
+   Slide 2: Grid Overview (Map, Health Gauge, Regional Details Table)
+   ========================================================================== */
+.map-widget-container {
+  position: relative;
+  width: 100%;
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #F0FDF4;
+  border-radius: var(--grid-radius-sm);
+  overflow: hidden;
+}
+
+.gujarat-map-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.map-badge-pill {
+  position: absolute;
+  background: #FFFFFF;
+  border: 1px solid var(--grid-border);
+  border-radius: 6px;
+  padding: 4px 8px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+  font-size: 10px;
+  line-height: 1.2;
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 5;
+}
+
+.map-badge-name {
+  font-weight: 700;
+  color: #334155;
+  font-size: 9.5px;
+}
+
+.map-badge-val {
+  font-weight: 800;
+  color: #064E3B;
+  font-size: 11px;
+}
+
+.map-legend-box {
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(4px);
+  border: 1px solid var(--grid-border);
+  border-radius: 6px;
+  padding: 6px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  font-size: 9.5px;
+  font-weight: 600;
+  color: #475569;
+}
+
+.map-legend-row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.legend-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+/* Grid Health Gauge */
+.health-gauge-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 250px;
+  text-align: center;
+}
+
+.health-circular-meter {
+  position: relative;
+  width: 140px;
+  height: 140px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.health-score-text {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.health-big-num {
+  font-size: 28px;
+  font-weight: 800;
+  color: #065F46;
+  line-height: 1;
+}
+
+.health-out-of {
+  font-size: 12px;
+  color: var(--grid-text-muted);
+  font-weight: 600;
+}
+
+.health-status-title {
+  font-size: 14px;
+  font-weight: 700;
+  color: #0F172A;
+  margin: 0;
+}
+
+.health-status-desc {
+  font-size: 11.5px;
+  color: var(--grid-text-muted);
+  margin: 2px 0 0 0;
+}
+
+/* Generic Table Styles */
+.grid-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.grid-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  text-align: left;
+}
+
+.grid-table th {
+  background-color: #F8FAFC;
+  color: var(--grid-text-muted);
+  font-weight: 600;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--grid-border);
+  font-size: 11px;
+}
+
+.grid-table td {
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--grid-border-subtle);
+  color: var(--grid-text-main);
+  font-weight: 500;
+}
+
+.grid-table tr:hover td {
+  background-color: #F8FAFC;
+}
+
+.pill-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.pill-badge.status-stable,
+.pill-badge.status-normal,
+.pill-badge.status-resolved {
+  background-color: #D1FAE5;
+  color: #047857;
+}
+
+.pill-badge.sev-high {
+  background-color: #FEE2E2;
+  color: #DC2626;
+}
+
+.pill-badge.sev-medium {
+  background-color: #FEF3C7;
+  color: #D97706;
+}
+
+.pill-badge.sev-low {
+  background-color: #EFF6FF;
+  color: #2563EB;
+}
+
+/* ==========================================================================
+   Slide 3: Renewable Energy (Gauge & Key Insights)
+   ========================================================================== */
+.renewable-share-meter-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px 16px;
+}
+
+.renewable-circular-wrap {
+  position: relative;
+  width: 130px;
+  height: 130px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 8px;
+}
+
+.renewable-center-label {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.renewable-pct-big {
+  font-size: 24px;
+  font-weight: 800;
+  color: #065F46;
+  line-height: 1;
+}
+
+.renewable-pct-sub {
+  font-size: 9.5px;
+  color: var(--grid-text-muted);
+}
+
+.renewable-bottom-sub {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--grid-text-main);
+  margin-top: 4px;
+}
+
+.renewable-bottom-total {
+  font-size: 11px;
+  color: var(--grid-text-muted);
+}
+
+/* Key Insights Card */
+.insights-list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  padding: 10px 4px;
+}
+
+.insight-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.insight-icon-pill {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.insight-icon-pill.sun {
+  background: #FEF3C7;
+  color: #D97706;
+}
+
+.insight-icon-pill.wind {
+  background: #CCFBF1;
+  color: #0D9488;
+}
+
+.insight-icon-pill.leaf {
+  background: #D1FAE5;
+  color: #059669;
+}
+
+.insight-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #334155;
+  line-height: 1.35;
+  margin: 0;
+}
+
+/* ==========================================================================
+   Slide 4: EV Charging Demand (Horizontal Bars & Top Stations)
+   ========================================================================== */
+.horiz-bar-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 0;
+}
+
+.horiz-bar-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.horiz-bar-label {
+  width: 100px;
+  color: #475569;
+  font-weight: 500;
+  text-align: left;
+  flex-shrink: 0;
+}
+
+.horiz-bar-track {
+  flex: 1;
+  height: 14px;
+  background-color: #F1F5F9;
+  border-radius: 7px;
+  overflow: hidden;
+}
+
+.horiz-bar-fill {
+  height: 100%;
+  background-color: #10B981;
+  border-radius: 7px;
+  transition: width 0.5s ease;
+}
+
+.horiz-bar-val {
+  width: 55px;
+  font-weight: 600;
+  color: var(--grid-text-main);
+  text-align: right;
+  flex-shrink: 0;
+}
+
+/* ==========================================================================
+   Slide 5: Forecast & Scheduling Impact
+   ========================================================================== */
+.impact-metrics-vertical {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  gap: 12px;
+  padding: 8px 0;
+}
+
+.impact-metric-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 14px;
+  background-color: #F8FAFC;
+  border-radius: var(--grid-radius-sm);
+  border: 1px solid var(--grid-border-subtle);
+}
+
+.impact-metric-left {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.impact-icon-circle {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #ECFDF5;
+  color: #059669;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.impact-metric-title {
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+}
+
+.impact-metric-val {
+  font-size: 14px;
+  font-weight: 800;
+  color: #065F46;
+}
+
+/* ==========================================================================
+   Slide 6: Analytics & Alerts
+   ========================================================================== */
+.analytics-header-filter-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background-color: #FFFFFF;
+  border: 1px solid var(--grid-border);
+  border-radius: 6px;
+  padding: 5px 12px;
+  font-size: 12px;
+  font-weight: 600;
+  color: #334155;
+  cursor: pointer;
+}
+
+/* ==========================================================================
+   ALL SCREENS 6-SLIDE POSTER VIEW STYLES (MATCHES REFERENCE IMAGE)
+   ========================================================================== */
+.all-screens-showcase-container {
+  padding: 18px 24px 40px 24px;
+  background-color: #F8FAFC;
+  min-height: 100vh;
+}
+
+/* Presentation Top Header */
+.showcase-top-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--grid-border);
+}
+
+.showcase-header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.showcase-power-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.showcase-main-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #0F172A;
+  margin: 0;
+  letter-spacing: -0.5px;
+}
+
+.showcase-main-subtitle {
+  font-size: 13px;
+  color: var(--grid-text-muted);
+  margin: 2px 0 0 0;
+  font-weight: 500;
+}
+
+.showcase-header-right {
+  display: flex;
+  align-items: center;
+}
+
+.showcase-brand-pill {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background-color: #D1FAE5;
+  border: 1px solid #A7F3D0;
+  border-radius: 24px;
+  padding: 8px 18px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: #065F46;
+  letter-spacing: 0.2px;
+}
+
+/* 2x3 Grid Layout */
+.showcase-grid-2x3 {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.showcase-slide-card {
+  background-color: #FFFFFF;
+  border: 1px solid var(--grid-border);
+  border-radius: var(--grid-radius);
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
+}
+
+.showcase-slide-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+}
+
+/* Slide Green Header Banner */
+.slide-green-header {
+  background: linear-gradient(135deg, #064E3B 0%, #047857 100%);
+  color: #FFFFFF;
+  padding: 12px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.slide-green-header-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.slide-header-title {
+  font-size: 14.5px;
+  font-weight: 700;
+  margin: 0 0 2px 0;
+  color: #FFFFFF;
+}
+
+.slide-header-subtitle {
+  font-size: 10.5px;
+  color: #D1FAE5;
+  margin: 0;
+  opacity: 0.95;
+}
+
+/* Header pill inside slide header (for screen 6) */
+.slide-header-pill {
+  background: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.4);
+  border-radius: 12px;
+  color: #FFFFFF;
+  font-size: 10px;
+  font-weight: 600;
+  padding: 3px 8px;
+}
+
+/* Slide Content Frame */
+.slide-content-frame {
+  height: 530px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  background-color: #F8FAFC;
+}
+
+.slide-layout-shell {
+  display: flex;
+  min-height: 100%;
+}
+
+/* Mini Sidebar within Slide */
+.grid-operator-sidebar.compact {
+  width: 130px;
+  min-width: 130px;
+  padding: 10px 6px;
+  height: auto;
+  border-right: 1px solid var(--grid-border);
+}
+
+.grid-operator-sidebar.compact .sidebar-brand-name {
+  font-size: 11px;
+}
+
+.grid-operator-sidebar.compact .sidebar-brand-role {
+  font-size: 8.5px;
+}
+
+.grid-operator-sidebar.compact .sidebar-brand {
+  margin-bottom: 12px;
+  gap: 6px;
+  padding-left: 2px;
+}
+
+.grid-operator-sidebar.compact .sidebar-brand-icon svg {
+  width: 18px;
+  height: 18px;
+}
+
+.grid-operator-sidebar.compact .nav-item-btn {
+  padding: 5px 6px;
+  font-size: 10px;
+  gap: 6px;
+}
+
+.grid-operator-sidebar.compact .nav-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.grid-operator-sidebar.compact .sidebar-footer {
+  padding: 8px 4px 0 4px;
+  gap: 4px;
+}
+
+.grid-operator-sidebar.compact .footer-leaf-icon svg {
+  width: 13px;
+  height: 13px;
+}
+
+.grid-operator-sidebar.compact .footer-slogan-text {
+  font-size: 8.5px;
+  line-height: 1.15;
+}
+
+/* Main Area within Slide */
+.slide-layout-main {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.slide-layout-main .grid-operator-header {
+  padding: 10px 14px;
+}
+
+.slide-layout-main .greeting-title {
+  font-size: 15px;
+}
+
+.slide-layout-main .greeting-subtitle {
+  font-size: 10px;
+}
+
+.slide-layout-main .info-pill {
+  padding: 3px 8px;
+  font-size: 10px;
+  gap: 4px;
+}
+
+.slide-layout-main .datetime-stack {
+  font-size: 10px;
+}
+
+.slide-inner-page {
+  padding: 10px 12px 16px 12px;
+}
+
+/* Scaled adjustments inside slide */
+.slide-inner-page .grid-kpi-card {
+  padding: 8px 8px;
+  gap: 8px;
+}
+
+.slide-inner-page .kpi-val {
+  font-size: 14px;
+}
+
+.slide-inner-page .kpi-lbl {
+  font-size: 9.5px;
+}
+
+.slide-inner-page .kpi-sub {
+  font-size: 8.5px;
+}
+
+.slide-inner-page .kpi-icon-box {
+  width: 28px;
+  height: 28px;
+}
+
+.slide-inner-page .kpi-icon-box svg {
+  width: 16px;
+  height: 16px;
+}
+
+.slide-inner-page .card-title {
+  font-size: 12px;
+}
+
+.slide-inner-page .card-subtitle {
+  font-size: 10px;
+}
+
+.slide-inner-page .grid-card {
+  padding: 10px;
+}
+
+.slide-inner-page .grid-filter-toolbar {
+  padding: 6px 10px;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.slide-inner-page .filter-label {
+  font-size: 10.5px;
+}
+
+.slide-inner-page .filter-select {
+  font-size: 11px;
+  padding: 4px 22px 4px 6px;
+}
+
+.slide-inner-page .filter-date-pill {
+  font-size: 11px;
+  padding: 4px 8px;
+}
+
+.slide-inner-page .map-widget-container {
+  height: 180px;
+}
+
+.slide-inner-page .health-gauge-wrap {
+  height: 180px;
+}
+
+.slide-inner-page .health-circular-meter {
+  width: 100px;
+  height: 100px;
+  margin-bottom: 6px;
+}
+
+.slide-inner-page .health-big-num {
+  font-size: 20px;
+}
+
+.slide-inner-page .health-status-title {
+  font-size: 11.5px;
+}
+
+.slide-inner-page .health-status-desc {
+  font-size: 9.5px;
+}
+
+.slide-inner-page .grid-table th,
+.slide-inner-page .grid-table td {
+  padding: 6px 8px;
+  font-size: 10px;
+}
+
+.slide-inner-page .pill-badge {
+  padding: 2px 6px;
+  font-size: 9.5px;
+}
+
+/* Floating Viewmode switcher in All Screens mode */
+.viewmode-banner-floating {
+  position: sticky;
+  top: 16px;
+  z-index: 100;
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.viewmode-toggle-pill {
+  padding: 8px 18px;
+  border-radius: 20px;
+  border: 1px solid var(--grid-border);
+  background-color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 600;
+  color: #475569;
+  cursor: pointer;
+  box-shadow: var(--grid-shadow-md);
+  transition: all 0.15s ease;
+}
+
+.viewmode-toggle-pill.active {
+  background-color: #059669;
+  color: #FFFFFF;
+  border-color: #059669;
+}
+
+/* Responsive adjustments */
+@media (max-width: 1400px) {
+  .showcase-grid-2x3 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 900px) {
+  .showcase-grid-2x3 {
+    grid-template-columns: 1fr;
+  }
+  .grid-operator-layout {
+    flex-direction: column;
+  }
+  .grid-operator-sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  .kpi-grid-6 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .grid-row-2col,
+  .grid-row-2col-60-40,
+  .grid-row-2col-70-30 {
+    grid-template-columns: 1fr;
+  }
+}
