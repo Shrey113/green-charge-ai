@@ -94,7 +94,13 @@ export default function TestDatabase() {
     setErrorNotice(null);
     try {
       const res = await reconnectDatabase();
-      setActionSuccess(res.message || 'Reconnected to database!');
+      if (res.status?.connected) {
+        setActionSuccess('Connected successfully to MongoDB Atlas!');
+      } else if (res.status?.lastError) {
+        setErrorNotice(res.status.lastError);
+      } else {
+        setActionSuccess(res.message);
+      }
       await loadState();
     } catch (err) {
       setErrorNotice(`Reconnect failed: ${err.message}`);
@@ -221,13 +227,13 @@ export default function TestDatabase() {
         </div>
       )}
 
-      {/* General Error Notice */}
-      {errorNotice && !isBadAuth && (
+      {/* General / Connection Error Notice */}
+      {!isConnected && (errorNotice || status?.lastError) && !isBadAuth && (
         <div className="test-db-alert error">
           <div className="alert-icon">❌</div>
           <div className="alert-body">
             <h4>Connection Notice</h4>
-            <p>{errorNotice}</p>
+            <p>{errorNotice || status?.lastError}</p>
           </div>
         </div>
       )}

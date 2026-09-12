@@ -1,4 +1,14 @@
 import mongoose from "mongoose";
+import dotenv from "dotenv";
+import path from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Ensure server/.env and root .env are loaded
+dotenv.config({ path: path.join(__dirname, "..", ".env"), override: true });
+dotenv.config({ path: path.join(__dirname, "..", "..", ".env"), override: true });
 
 let lastConnectionError = null;
 let lastConnectedTime = null;
@@ -16,6 +26,10 @@ export const getMaskedUri = (uri) => {
  * Get the currently configured MongoDB URI strictly from environment variables
  */
 export const getConfiguredUri = () => {
+  // Always refresh from .env in case it was edited
+  dotenv.config({ path: path.join(__dirname, "..", ".env"), override: true });
+  dotenv.config({ path: path.join(__dirname, "..", "..", ".env"), override: true });
+
   return (
     process.env.CONNECTION_STRING ||
     process.env.DATABASE_URL ||
@@ -57,7 +71,7 @@ export const connectDB = async () => {
       );
     }
 
-    // Set connection options for fast failover if credentials are bad
+    // Connect to MongoDB
     await mongoose.connect(uri, {
       serverSelectionTimeoutMS: 5000,
       connectTimeoutMS: 5000,
@@ -65,10 +79,10 @@ export const connectDB = async () => {
 
     lastConnectedTime = new Date();
     lastConnectionError = null;
-    isConnecting = false;
-    console.log(`✅ [MongoDB] Connected successfully to database: '${mongoose.connection.name}' on ${mongoose.connection.host}`);
+    console.log(
+      `✅ [MongoDB] Connected successfully to database: '${mongoose.connection.name}' on ${mongoose.connection.host}`
+    );
   } catch (error) {
-    isConnecting = false;
     lastConnectionError = error.message || String(error);
     console.error("❌ [MongoDB] Connection failed:", lastConnectionError);
     if (lastConnectionError.includes("bad auth") || hasPlaceholder) {
@@ -76,19 +90,25 @@ export const connectDB = async () => {
         "👉 [MongoDB Tip] Replace 'YOUR_NEW_PASSWORD' in server/.env with your real MongoDB Atlas user password."
       );
     }
+  } finally {
+    isConnecting = false;
   }
 };
 
 /**
- * Reconnect to MongoDB (e.g. after user updates .env password)
+ * Reconnect to MongoDB (e.g. after user updates .env password or clicks Test Connection)
  */
 export const reconnectDB = async () => {
+  // Always reload .env files fresh
+  dotenv.config({ path: path.join(__dirname, "..", ".env"), override: true });
+  dotenv.config({ path: path.join(__dirname, "..", "..", ".env"), override: true });
+
   try {
     if (mongoose.connection.readyState !== 0) {
       await mongoose.disconnect();
     }
   } catch (err) {
-    console.warn("[MongoDB] Disconnect error before reconnect:", err.message);
+    console.warn("[MongoDB] Disconnect warning before reconnect:", err.message);
   }
   return connectDB();
 };

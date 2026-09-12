@@ -1,12 +1,19 @@
 import express from 'express';
 import cors from 'cors';
+import path from 'path';
+import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import electricityMapsRouter from './electricityMaps.js';
 import optimizerRouter from './routes/optimizerRoutes.js';
 import databaseRouter from './routes/databaseRoutes.js';
 import { connectDB } from './Database/db.js';
 
-dotenv.config();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+// Explicitly load server/.env first, then root .env as fallback
+dotenv.config({ path: path.join(__dirname, '.env'), override: true });
+dotenv.config({ path: path.join(__dirname, '..', '.env'), override: true });
 
 // Connect to MongoDB asynchronously (non-blocking: won't halt server startup or API routes)
 connectDB();
