@@ -1,0 +1,323 @@
+{
+  "dashboardOverview": {
+    "kpis": {
+      "currentGridLoad": "2,450 MW",
+      "currentGridLoadPercent": "72% of capacity",
+      "totalGridCapacity": "3,400 MW",
+      "renewableShare": "38%",
+      "renewableShareMW": "931 MW",
+      "evChargingLoad": "420 MW",
+      "evChargingLoadPercent": "17% of total load",
+      "loadVsYesterday": "+12%",
+      "activeAlerts": "0"
+    },
+    "hourlyLoadRenewable": [
+      { "time": "00:00", "gridLoad": 1750, "renewable": 480, "evLoad": 210 },
+      { "time": "02:00", "gridLoad": 1550, "renewable": 460, "evLoad": 180 },
+      { "time": "04:00", "gridLoad": 1450, "renewable": 420, "evLoad": 140 },
+      { "time": "06:00", "gridLoad": 1700, "renewable": 520, "evLoad": 170 },
+      { "time": "08:00", "gridLoad": 2200, "renewable": 850, "evLoad": 240 },
+      { "time": "10:00", "gridLoad": 2500, "renewable": 1180, "evLoad": 290 },
+      { "time": "12:00", "gridLoad": 2650, "renewable": 1380, "evLoad": 310 },
+      { "time": "14:00", "gridLoad": 2580, "renewable": 1320, "evLoad": 330 },
+      { "time": "16:00", "gridLoad": 2720, "renewable": 1050, "evLoad": 380 },
+      { "time": "18:00", "gridLoad": 3150, "renewable": 620, "evLoad": 420 },
+      { "time": "20:00", "gridLoad": 2980, "renewable": 510, "evLoad": 390 },
+      { "time": "22:00", "gridLoad": 2350, "renewable": 470, "evLoad": 280 },
+      { "time": "24:00", "gridLoad": 1900, "renewable": 450, "evLoad": 220 }
+    ],
+    "energyMix": [
+      { "name": "Solar", "percent": 24, "mw": 588, "color": "#EAB308" },
+      { "name": "Wind", "percent": 11, "mw": 270, "color": "#14B8A6" },
+      { "name": "Hydro", "percent": 3, "mw": 73, "color": "#3B82F6" },
+      { "name": "Other Renewable", "percent": 0, "mw": 0, "color": "#94A3B8" },
+      { "name": "Fossil Fuel", "percent": 62, "mw": 1519, "color": "#1E3A8A" }
+    ]
+  },
+  "gridOverview": {
+    "healthScore": 78,
+    "healthStatus": "Grid is stable",
+    "healthSubtitle": "Operating within safe limits",
+    "regions": [
+      {
+        "id": "kutch",
+        "name": "Kutch",
+        "mapLabel": "Kutch (Island)",
+        "load": "420 MW",
+        "loadNum": 420,
+        "capacity": "600 MW",
+        "capacityNum": 600,
+        "utilization": "70%",
+        "renewableShare": "52%",
+        "status": "Stable",
+        "colorStatus": "success",
+        "coords": { "x": 130, "y": 115 }
+      },
+      {
+        "id": "north",
+        "name": "North Gujarat",
+        "mapLabel": "North Gujarat",
+        "load": "780 MW",
+        "loadNum": 780,
+        "capacity": "1,100 MW",
+        "capacityNum": 1100,
+        "utilization": "71%",
+        "renewableShare": "28%",
+        "status": "Stable",
+        "colorStatus": "success",
+        "coords": { "x": 260, "y": 90 }
+      },
+      {
+        "id": "saurashtra",
+        "name": "Saurashtra",
+        "mapLabel": "Saurashtra",
+        "load": "650 MW",
+        "loadNum": 650,
+        "capacity": "900 MW",
+        "capacityNum": 900,
+        "utilization": "72%",
+        "renewableShare": "36%",
+        "status": "Stable",
+        "colorStatus": "success",
+        "coords": { "x": 150, "y": 220 }
+      },
+      {
+        "id": "central",
+        "name": "Central Gujarat",
+        "mapLabel": "Central Gujarat",
+        "load": "1,120 MW",
+        "loadNum": 1120,
+        "capacity": "1,400 MW",
+        "capacityNum": 1400,
+        "utilization": "80%",
+        "renewableShare": "42%",
+        "status": "Stable",
+        "colorStatus": "success",
+        "coords": { "x": 275, "y": 175 }
+      },
+      {
+        "id": "south",
+        "name": "South Gujarat",
+        "mapLabel": "South Gujarat",
+        "load": "680 MW",
+        "loadNum": 680,
+        "capacity": "900 MW",
+        "capacityNum": 900,
+        "utilization": "76%",
+        "renewableShare": "40%",
+        "status": "Stable",
+        "colorStatus": "success",
+        "coords": { "x": 285, "y": 260 }
+      }
+    ]
+  },
+  "renewableEnergy": {
+    "kpis": {
+      "solar": "520 MW",
+      "wind": "320 MW",
+      "totalRenewable": "840 MW",
+      "totalRenewablePercent": "(34% of total)",
+      "generationSharePercent": 34,
+      "currentOutTotal": "840 MW out of 2,450 MW"
+    },
+    "generation24h": [
+      { "time": "00:00", "solar": 0, "wind": 330, "hydro": 70 },
+      { "time": "02:00", "solar": 0, "wind": 310, "hydro": 65 },
+      { "time": "04:00", "solar": 0, "wind": 290, "hydro": 60 },
+      { "time": "06:00", "solar": 50, "wind": 280, "hydro": 60 },
+      { "time": "08:00", "solar": 280, "wind": 310, "hydro": 70 },
+      { "time": "10:00", "solar": 550, "wind": 330, "hydro": 75 },
+      { "time": "12:00", "solar": 680, "wind": 350, "hydro": 80 },
+      { "time": "14:00", "solar": 650, "wind": 340, "hydro": 80 },
+      { "time": "16:00", "solar": 480, "wind": 320, "hydro": 75 },
+      { "time": "18:00", "solar": 120, "wind": 330, "hydro": 70 },
+      { "time": "20:00", "solar": 0, "wind": 350, "hydro": 70 },
+      { "time": "22:00", "solar": 0, "wind": 340, "hydro": 65 },
+      { "time": "24:00", "solar": 0, "wind": 320, "hydro": 65 }
+    ],
+    "forecast24h": [
+      { "time": "00:00", "solarForecast": 0, "windForecast": 340 },
+      { "time": "04:00", "solarForecast": 0, "windForecast": 320 },
+      { "time": "08:00", "solarForecast": 380, "windForecast": 310 },
+      { "time": "12:00", "solarForecast": 1200, "windForecast": 350 },
+      { "time": "16:00", "solarForecast": 650, "windForecast": 370 },
+      { "time": "20:00", "solarForecast": 20, "windForecast": 390 },
+      { "time": "24:00", "solarForecast": 0, "windForecast": 360 }
+    ],
+    "insights": [
+      {
+        "id": 1,
+        "icon": "sun",
+        "text": "Solar generation expected to peak at 1,200 MW at 12:00 PM"
+      },
+      {
+        "id": 2,
+        "icon": "wind",
+        "text": "Wind generation stable throughout the day"
+      },
+      {
+        "id": 3,
+        "icon": "leaf",
+        "text": "High renewable availability between 10 AM – 4 PM"
+      }
+    ]
+  },
+  "evChargingDemand": {
+    "kpis": {
+      "currentEvLoad": "420 MW",
+      "activeSessions": "18,240",
+      "gridLoadShare": "17%",
+      "gridLoadShareLabel": "of Total Grid Load"
+    },
+    "evLoadCurve": [
+      { "time": "00:00", "load": 210 },
+      { "time": "02:00", "load": 170 },
+      { "time": "04:00", "load": 130 },
+      { "time": "06:00", "load": 160 },
+      { "time": "08:00", "load": 240 },
+      { "time": "10:00", "load": 290 },
+      { "time": "12:00", "load": 310 },
+      { "time": "14:00", "load": 330 },
+      { "time": "16:00", "load": 380 },
+      { "time": "18:00", "load": 450 },
+      { "time": "20:00", "load": 420 },
+      { "time": "22:00", "load": 310 },
+      { "time": "24:00", "load": 220 }
+    ],
+    "regionalEvLoads": [
+      { "region": "Central Gujarat", "load": 120, "max": 150 },
+      { "region": "South Gujarat", "load": 92, "max": 150 },
+      { "region": "Saurashtra", "load": 85, "max": 150 },
+      { "region": "North Gujarat", "load": 78, "max": 150 },
+      { "region": "Kutch", "load": 45, "max": 150 }
+    ],
+    "topStations": [
+      {
+        "station": "Gandhinagar Central",
+        "location": "Gandhinagar",
+        "currentLoad": "42 MW",
+        "activeSessions": 28,
+        "status": "Normal"
+      },
+      {
+        "station": "SG Highway",
+        "location": "Ahmedabad",
+        "currentLoad": "35 MW",
+        "activeSessions": 24,
+        "status": "Normal"
+      },
+      {
+        "station": "Airport Station",
+        "location": "Ahmedabad",
+        "currentLoad": "28 MW",
+        "activeSessions": 18,
+        "status": "Normal"
+      },
+      {
+        "station": "City Center",
+        "location": "Vadodara",
+        "currentLoad": "22 MW",
+        "activeSessions": 16,
+        "status": "Normal"
+      },
+      {
+        "station": "DAIICT Station",
+        "location": "Gandhinagar",
+        "currentLoad": "18 MW",
+        "activeSessions": 12,
+        "status": "Normal"
+      }
+    ]
+  },
+  "forecastScheduling": {
+    "impact": {
+      "peakLoadReduction": "14%",
+      "loadShifted": "12 sessions",
+      "renewableUtilization": "+18%",
+      "gridStress": "Reduced"
+    },
+    "gridLoadForecast": [
+      { "time": "00:00", "actual": 1800, "noOpt": null, "withOpt": null },
+      { "time": "02:00", "actual": 1600, "noOpt": null, "withOpt": null },
+      { "time": "04:00", "actual": 1480, "noOpt": null, "withOpt": null },
+      { "time": "06:00", "actual": 1750, "noOpt": null, "withOpt": null },
+      { "time": "08:00", "actual": 2150, "noOpt": null, "withOpt": null },
+      { "time": "10:00", "actual": 2450, "noOpt": null, "withOpt": null },
+      { "time": "12:00", "actual": 2580, "noOpt": 2580, "withOpt": 2580 },
+      { "time": "14:00", "actual": null, "noOpt": 2750, "withOpt": 2600 },
+      { "time": "16:00", "actual": null, "noOpt": 2980, "withOpt": 2720 },
+      { "time": "18:00", "actual": null, "noOpt": 3300, "withOpt": 2880 },
+      { "time": "20:00", "actual": null, "noOpt": 3150, "withOpt": 2820 },
+      { "time": "22:00", "actual": null, "noOpt": 2600, "withOpt": 2500 },
+      { "time": "24:00", "actual": null, "noOpt": 2000, "withOpt": 2050 }
+    ],
+    "loadBreakdown": [
+      { "time": "00:00", "base": 1100, "ev": 220, "other": 480 },
+      { "time": "02:00", "base": 1000, "ev": 180, "other": 420 },
+      { "time": "04:00", "base": 950, "ev": 140, "other": 390 },
+      { "time": "06:00", "base": 1100, "ev": 170, "other": 480 },
+      { "time": "08:00", "base": 1350, "ev": 240, "other": 560 },
+      { "time": "10:00", "base": 1450, "ev": 290, "other": 710 },
+      { "time": "12:00", "base": 1500, "ev": 310, "other": 770 },
+      { "time": "14:00", "base": 1480, "ev": 330, "other": 790 },
+      { "time": "16:00", "base": 1550, "ev": 360, "other": 810 },
+      { "time": "18:00", "base": 1650, "ev": 390, "other": 840 },
+      { "time": "20:00", "base": 1600, "ev": 410, "other": 810 },
+      { "time": "22:00", "base": 1350, "ev": 320, "other": 680 },
+      { "time": "24:00", "base": 1150, "ev": 250, "other": 500 }
+    ]
+  },
+  "analyticsAlerts": {
+    "kpis": {
+      "totalEnergySupplied": "2.8 GWh",
+      "avgRenewableShare": "36%",
+      "loadGrowth": "+8%",
+      "loadGrowthSub": "(vs last week)",
+      "alertsTriggered": "3"
+    },
+    "gridLoadTrend": [
+      { "date": "Sep 6", "load": 2200 },
+      { "date": "Sep 7", "load": 2350 },
+      { "date": "Sep 8", "load": 2600 },
+      { "date": "Sep 9", "load": 2520 },
+      { "date": "Sep 10", "load": 2850 },
+      { "date": "Sep 11", "load": 2450 },
+      { "date": "Sep 12", "load": 2600 }
+    ],
+    "renewableTrend": [
+      { "date": "Sep 6", "share": 32 },
+      { "date": "Sep 7", "share": 34 },
+      { "date": "Sep 8", "share": 38 },
+      { "date": "Sep 9", "share": 45 },
+      { "date": "Sep 10", "share": 36 },
+      { "date": "Sep 11", "share": 42 },
+      { "date": "Sep 12", "share": 38 }
+    ],
+    "recentAlerts": [
+      {
+        "id": 1,
+        "time": "Sep 12, 16:20",
+        "type": "Grid Load",
+        "message": "Load above 85% in Central Gujarat",
+        "severity": "High",
+        "status": "Resolved"
+      },
+      {
+        "id": 2,
+        "time": "Sep 12, 14:05",
+        "type": "Renewable",
+        "message": "Solar generation dropped by 40%",
+        "severity": "Medium",
+        "status": "Resolved"
+      },
+      {
+        "id": 3,
+        "time": "Sep 12, 11:30",
+        "type": "EV Load",
+        "message": "High charging demand in Ahmedabad",
+        "severity": "Medium",
+        "status": "Resolved"
+      }
+    ]
+  }
+}

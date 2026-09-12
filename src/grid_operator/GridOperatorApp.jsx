@@ -9,12 +9,10 @@ import ForecastSchedulingPage from './pages/ForecastSchedulingPage.jsx';
 import AnalyticsAlertsPage from './pages/AnalyticsAlertsPage.jsx';
 import AlertsPage from './pages/AlertsPage.jsx';
 import SettingsPage from './pages/SettingsPage.jsx';
-import AllScreensGrid from './pages/AllScreensGrid.jsx';
 import './gridOperator.css';
 
-export default function GridOperatorApp({ initialTab = 'dashboard', defaultViewMode = 'all' }) {
+export default function GridOperatorApp({ initialTab = 'dashboard' }) {
   const [activeTab, setActiveTab] = useState(initialTab);
-  const [viewMode, setViewMode] = useState(defaultViewMode); // 'all' | 'single'
 
   const screenMeta = {
     dashboard: {
@@ -61,56 +59,8 @@ export default function GridOperatorApp({ initialTab = 'dashboard', defaultViewM
 
   const currentMeta = screenMeta[activeTab] || screenMeta.dashboard;
 
-  const handleSelectScreen = (tabId) => {
-    setActiveTab(tabId);
-    setViewMode('single');
-  };
-
-  // If in 'all' view mode, render the 2x3 poster view
-  if (viewMode === 'all') {
-    return (
-      <div className="grid-operator-root mode-all-screens">
-        <div className="viewmode-banner-floating">
-          <button
-            type="button"
-            className="viewmode-toggle-pill active"
-            onClick={() => setViewMode('all')}
-          >
-            All 6 Screens (Poster Mode)
-          </button>
-          <button
-            type="button"
-            className="viewmode-toggle-pill"
-            onClick={() => setViewMode('single')}
-          >
-            Interactive Screen Mode
-          </button>
-        </div>
-        <AllScreensGrid onSelectScreen={handleSelectScreen} />
-      </div>
-    );
-  }
-
-  // Interactive single screen mode
   return (
-    <div className="grid-operator-root mode-single-screen">
-      <div className="viewmode-banner-floating">
-        <button
-          type="button"
-          className="viewmode-toggle-pill"
-          onClick={() => setViewMode('all')}
-        >
-          All 6 Screens (Poster Mode)
-        </button>
-        <button
-          type="button"
-          className="viewmode-toggle-pill active"
-          onClick={() => setViewMode('single')}
-        >
-          Interactive Screen Mode
-        </button>
-      </div>
-
+    <div className="grid-operator-root">
       <div className="grid-operator-layout">
         {/* Left Sidebar */}
         <GridOperatorSidebar

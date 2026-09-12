@@ -13,4 +13,3 @@ export { default as ForecastSchedulingPage } from './pages/ForecastSchedulingPag
 export { default as AnalyticsAlertsPage } from './pages/AnalyticsAlertsPage.jsx';
 export { default as AlertsPage } from './pages/AlertsPage.jsx';
 export { default as SettingsPage } from './pages/SettingsPage.jsx';
-export { default as AllScreensGrid } from './pages/AllScreensGrid.jsx';
