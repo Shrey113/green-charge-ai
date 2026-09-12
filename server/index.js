@@ -2,8 +2,12 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import electricityMapsRouter from './electricityMaps.js';
+import { connectDB } from './Database/db.js';
 
 dotenv.config();
+
+// Connect to MongoDB asynchronously (non-blocking: won't halt server startup or API routes)
+connectDB();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
