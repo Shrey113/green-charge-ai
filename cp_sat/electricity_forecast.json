@@ -1,0 +1,574 @@
+{
+    "location": {
+        "latitude": 23.0225,
+        "longitude": 72.5714
+    },
+    "forecast_settings": {
+        "horizon_hours": 24,
+        "temporal_granularity": "hourly"
+    },
+    "renewable_energy_share": {
+        "unit": "%",
+        "data": [
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T09:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T09:27:56.710Z",
+                "unit": "%",
+                "value": 32,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T10:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T10:26:59.183Z",
+                "unit": "%",
+                "value": 27,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T11:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T11:27:17.499Z",
+                "unit": "%",
+                "value": 23,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T12:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T12:27:20.057Z",
+                "unit": "%",
+                "value": 18,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T13:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T13:27:18.745Z",
+                "unit": "%",
+                "value": 14,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T14:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T14:27:06.091Z",
+                "unit": "%",
+                "value": 14,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T15:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T15:28:17.797Z",
+                "unit": "%",
+                "value": 14,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T16:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T16:27:06.524Z",
+                "unit": "%",
+                "value": 14,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T17:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T17:27:05.326Z",
+                "unit": "%",
+                "value": 13,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T18:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T18:26:57.008Z",
+                "unit": "%",
+                "value": 13,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T19:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T19:26:43.894Z",
+                "unit": "%",
+                "value": 13,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T20:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T20:27:00.659Z",
+                "unit": "%",
+                "value": 12,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T21:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T21:26:54.198Z",
+                "unit": "%",
+                "value": 12,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T22:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T22:27:03.803Z",
+                "unit": "%",
+                "value": 11,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T23:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-08T23:26:54.393Z",
+                "unit": "%",
+                "value": 11,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T00:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T00:26:50.069Z",
+                "unit": "%",
+                "value": 11,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T01:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T01:26:53.258Z",
+                "unit": "%",
+                "value": 13,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T02:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T02:26:50.887Z",
+                "unit": "%",
+                "value": 19,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T03:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T03:26:54.865Z",
+                "unit": "%",
+                "value": 24,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T04:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T04:26:50.751Z",
+                "unit": "%",
+                "value": 29,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T05:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T05:26:52.475Z",
+                "unit": "%",
+                "value": 30,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T06:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T06:26:51.743Z",
+                "unit": "%",
+                "value": 31,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T07:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T07:29:31.474Z",
+                "unit": "%",
+                "value": 31,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T08:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T08:26:53.432Z",
+                "unit": "%",
+                "value": 29,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T09:00:00.000Z",
+                "updatedAt": "2026-09-12T09:20:15.144Z",
+                "createdAt": "2026-09-09T09:27:43.241Z",
+                "unit": "%",
+                "value": 27,
+                "flowTraced": true,
+                "isEstimated": false,
+                "estimationMethod": null
+            }
+        ]
+    },
+    "total_grid_load": {
+        "unit": "MW",
+        "data": [
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T09:00:00.000Z",
+                "createdAt": "2026-09-08T09:27:56.710Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 90310.52,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T10:00:00.000Z",
+                "createdAt": "2026-09-08T10:26:59.183Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 89240.33,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T11:00:00.000Z",
+                "createdAt": "2026-09-08T11:27:17.499Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 86631.89,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T12:00:00.000Z",
+                "createdAt": "2026-09-08T12:27:20.057Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 83650.11,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T13:00:00.000Z",
+                "createdAt": "2026-09-08T13:27:18.745Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 80199.6,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T14:00:00.000Z",
+                "createdAt": "2026-09-08T14:27:06.091Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 79878.19,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T15:00:00.000Z",
+                "createdAt": "2026-09-08T15:28:17.797Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 79935.39,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T16:00:00.000Z",
+                "createdAt": "2026-09-08T16:27:06.524Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 79648.88,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T17:00:00.000Z",
+                "createdAt": "2026-09-08T17:27:05.326Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 79474.26,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T18:00:00.000Z",
+                "createdAt": "2026-09-08T18:26:57.008Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 78164.13,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T19:00:00.000Z",
+                "createdAt": "2026-09-08T19:26:43.894Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 76981.75,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T20:00:00.000Z",
+                "createdAt": "2026-09-08T20:27:00.659Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 76606.57,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T21:00:00.000Z",
+                "createdAt": "2026-09-08T21:26:54.198Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 76341.32,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T22:00:00.000Z",
+                "createdAt": "2026-09-08T22:27:03.803Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 75978.44,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-12T23:00:00.000Z",
+                "createdAt": "2026-09-08T23:26:54.393Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 75980.33,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T00:00:00.000Z",
+                "createdAt": "2026-09-09T00:26:50.069Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 76193.75,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T01:00:00.000Z",
+                "createdAt": "2026-09-09T01:26:53.258Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 77562.27,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T02:00:00.000Z",
+                "createdAt": "2026-09-09T02:26:50.887Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 81277.71,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T03:00:00.000Z",
+                "createdAt": "2026-09-09T03:26:54.865Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 82990.13,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T04:00:00.000Z",
+                "createdAt": "2026-09-09T04:26:50.751Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 82833.71,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T05:00:00.000Z",
+                "createdAt": "2026-09-09T05:26:52.475Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 81287.21,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T06:00:00.000Z",
+                "createdAt": "2026-09-09T06:26:51.743Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 81010.13,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T07:00:00.000Z",
+                "createdAt": "2026-09-09T07:29:31.474Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 80601.2,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T08:00:00.000Z",
+                "createdAt": "2026-09-09T08:26:53.432Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 78378.73,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            },
+            {
+                "zone": "IN-WE",
+                "datetime": "2026-09-13T09:00:00.000Z",
+                "createdAt": "2026-09-09T09:27:43.241Z",
+                "updatedAt": "2026-09-12T09:20:15.781Z",
+                "value": 80865.11,
+                "unit": "MW",
+                "source": null,
+                "isEstimated": false,
+                "estimationMethod": null
+            }
+        ]
+    },
+    "carbon_intensity": {
+        "unit": "gCO2eq/kWh",
+        "data": []
+    }
+}
