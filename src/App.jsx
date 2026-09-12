@@ -54,31 +54,6 @@ function App() {
   if (currentRoute === 'customer') {
     return (
       <div className="portal-root-wrapper">
-        {/* Top Floating Switcher Bar */}
-        <div className="global-portal-banner">
-          <div className="portal-banner-left">
-            <span className="portal-badge-indicator customer">EV DRIVER APP</span>
-            <span className="portal-banner-text">Viewing Customer Portal (/customer)</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <button
-              type="button"
-              className="btn-switch-portal-action"
-              onClick={() => navigateTo('operator')}
-            >
-              &larr; Operator Portal
-            </button>
-            <button
-              type="button"
-              className="btn-switch-portal-action"
-              onClick={() => navigateTo('grid')}
-            >
-              ⚡ Grid Operator (/grid) &rarr;
-            </button>
-          </div>
-        </div>
-
-        {/* Dedicated Customer App Layout */}
         <CustomerApp />
       </div>
     );
@@ -88,31 +63,6 @@ function App() {
   if (currentRoute === 'grid') {
     return (
       <div className="portal-root-wrapper">
-        {/* Top Floating Switcher Bar */}
-        <div className="global-portal-banner">
-          <div className="portal-banner-left">
-            <span className="portal-badge-indicator grid">GRID OPERATOR PORTAL</span>
-            <span className="portal-banner-text">Regional Electricity Grid & Renewable Balancing (/grid)</span>
-          </div>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-            <button
-              type="button"
-              className="btn-switch-portal-action"
-              onClick={() => navigateTo('operator')}
-            >
-              &larr; Operator Portal
-            </button>
-            <button
-              type="button"
-              className="btn-switch-portal-action"
-              onClick={() => navigateTo('customer')}
-            >
-              🚗 Customer App (/customer) &rarr;
-            </button>
-          </div>
-        </div>
-
-        {/* Dedicated Grid Operator App Layout */}
         <GridOperatorApp />
       </div>
     );
@@ -121,29 +71,6 @@ function App() {
   // --- ROUTE 3: Network Operator Control Center (/) ---
   return (
     <div className="portal-root-wrapper">
-      {/* Top Floating Switcher Bar */}
-      <div className="global-portal-banner">
-        <div className="portal-banner-left">
-          <span className="portal-badge-indicator operator">OPERATOR PORTAL</span>
-          <span className="portal-banner-text">EV Charging Network Operator Control Center (/)</span>
-        </div>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <button
-            type="button"
-            className="btn-switch-portal-action"
-            onClick={() => navigateTo('customer')}
-          >
-            🚗 Customer App (/customer) &rarr;
-          </button>
-          <button
-            type="button"
-            className="btn-switch-portal-action"
-            onClick={() => navigateTo('grid')}
-          >
-            ⚡ Grid Operator (/grid) &rarr;
-          </button>
-        </div>
-      </div>
 
       <div className="app-layout">
         {/* 1. Left Sidebar */}
@@ -160,12 +87,14 @@ function App() {
           }}
         />
 
-        {/* 2. Main Right Area with Title Bar */}
+        {/* 2. Main Right Area with Title Bar (rendered only on Dashboard) */}
         <div className="app-main-content">
-          <TopHeader
-            onSwitchToCustomer={() => navigateTo('customer')}
-            onSwitchToGrid={() => navigateTo('grid')}
-          />
+          {activeTab === 'dashboard' && (
+            <TopHeader
+              onSwitchToCustomer={() => navigateTo('customer')}
+              onSwitchToGrid={() => navigateTo('grid')}
+            />
+          )}
 
           <div className="page-content-area">
             {/* Charging Stations page with search, cards list, pagination & interactive map */}

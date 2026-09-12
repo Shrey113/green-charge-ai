@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 import { fetchStations } from '../services/databaseService.js';
+import EVStationMap from '../components/EVStationMap.jsx';
 
 // Default station thumbnails matching generated architectural EV hub photos
 const STATION_IMAGES = [
@@ -198,9 +199,9 @@ function calculateDistanceKm(lat1, lon1, lat2, lon2) {
   const a =
     Math.sin(dLat / 2) * Math.sin(dLat / 2) +
     Math.cos((lat1 * Math.PI) / 180) *
-      Math.cos((lat2 * Math.PI) / 180) *
-      Math.sin(dLon / 2) *
-      Math.sin(dLon / 2);
+    Math.cos((lat2 * Math.PI) / 180) *
+    Math.sin(dLon / 2) *
+    Math.sin(dLon / 2);
   const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
   return Number((R * c).toFixed(1));
 }
@@ -221,19 +222,15 @@ export default function ChargingStations() {
   const [selectedStationId, setSelectedStationId] = useState('ST001');
   const [modalStation, setModalStation] = useState(null);
 
-  // Map zoom level
-  const [mapZoom, setMapZoom] = useState(1);
 
-  // Load stations from MongoDB 'station_operator'
+  // Load stations from MongoDB 'station_operator' (only on mount)
   const loadStationsData = useCallback(async () => {
     setLoading(true);
     try {
       const res = await fetchStations({ page: 1, limit: 50 });
       if (res.documents && res.documents.length > 0) {
         setStations(res.documents);
-        if (!selectedStationId) {
-          setSelectedStationId(res.documents[0].stationId || res.documents[0]._id);
-        }
+        setSelectedStationId((prev) => prev || res.documents[0].stationId || res.documents[0]._id);
       } else {
         setStations(FALLBACK_STATIONS);
       }
@@ -243,7 +240,7 @@ export default function ChargingStations() {
     } finally {
       setLoading(false);
     }
-  }, [selectedStationId]);
+  }, []);
 
   useEffect(() => {
     loadStationsData();
@@ -408,16 +405,16 @@ export default function ChargingStations() {
         </div>
       )}
 
+      {/* Google-Style Linear Loading Progress Bar */}
+      <div className={`google-linear-loader ${loading ? 'active' : ''}`}>
+        <div className="linear-loader-bar"></div>
+      </div>
+
       {/* Main Two-Column Layout */}
       <div className="stations-layout-grid">
         {/* Left Column: Station Cards List & Pagination */}
         <div className="stations-list-container">
-          {loading ? (
-            <div className="loading-container" style={{ padding: '60px 0' }}>
-              <div className="spinner"></div>
-              <p>Loading charging stations from MongoDB Atlas...</p>
-            </div>
-          ) : currentStationsSlice.length === 0 ? (
+          {currentStationsSlice.length === 0 && !loading ? (
             <div className="empty-db-state">
               <h3 className="empty-db-title">No Stations Found</h3>
               <p className="empty-db-desc">
@@ -485,11 +482,28 @@ export default function ChargingStations() {
                   {/* Station Details Content */}
                   <div className="station-info-content">
                     <div className="station-header-row">
-                      <h3 className="station-name-title">{st.stationName || `Charging Hub #${id}`}</h3>
-                      <span className={`station-status-badge ${badgeClass}`}>
-                        <span style={{ fontSize: '9px' }}>●</span>
-                        {badgeLabel}
-                      </span>
+                      <div className="station-title-group">
+                        <h3 className="station-name-title">{st.stationName || `Charging Hub #${id}`}</h3>
+                        <span className={`station-status-badge ${badgeClass}`}>
+                          <span style={{ fontSize: '8px' }}>●</span>
+                          {badgeLabel}
+                        </span>
+                      </div>
+
+                      {/* Top Right: "i" Info Icon Button */}
+                      <button
+                        type="button"
+                        className="station-info-btn"
+                        title="View Station Details"
+                        aria-label="View Station Details"
+                        onClick={(e) => handleOpenDetails(st, e)}
+                      >
+                        <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round">
+                          <circle cx="12" cy="12" r="10" />
+                          <line x1="12" y1="16" x2="12" y2="12" />
+                          <line x1="12" y1="8" x2="12.01" y2="8" />
+                        </svg>
+                      </button>
                     </div>
 
                     <p className="station-location-subtitle">
@@ -502,7 +516,7 @@ export default function ChargingStations() {
                         <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="#10b981" strokeWidth="2">
                           <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2" />
                         </svg>
-                        <strong>{availableChargers}/{totalChargers}</strong> Chargers Available
+                        <strong>{availableChargers}/{totalChargers}</strong> Available
                       </span>
 
                       <span className="spec-item">
@@ -516,17 +530,6 @@ export default function ChargingStations() {
                       <span className="spec-item highlight">
                         ₹{tariff} <span style={{ fontSize: '11px', color: '#64748b', fontWeight: '400' }}>per kWh</span>
                       </span>
-                    </div>
-
-                    {/* Action Button */}
-                    <div className="station-actions-row">
-                      <button
-                        type="button"
-                        className="btn-view-details"
-                        onClick={(e) => handleOpenDetails(st, e)}
-                      >
-                        View Details &rarr;
-                      </button>
                     </div>
                   </div>
                 </div>
@@ -583,241 +586,35 @@ export default function ChargingStations() {
           )}
         </div>
 
-        {/* Right Column: Interactive Map View */}
+        {/* Right Column: Leaflet OpenStreetMap View */}
         <div className="stations-map-card">
-          <div className="map-container-inner">
-            {/* Top Legend */}
-            <div className="map-floating-legend">
-              <div className="legend-item">
-                <span className="legend-color-dot available"></span>
-                <span>Available</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-color-dot busy"></span>
-                <span>Busy</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-color-dot unavailable"></span>
-                <span>Unavailable</span>
-              </div>
+          <div className="map-header-bar">
+            <div>
+              <span className="map-badge">LIVE LEAFLET MAP</span>
+              <h3 className="map-title">{activeStationObj?.stationName || 'Gandhinagar EV Hub'}</h3>
+              <p className="map-subtitle">
+                {activeStationObj?.location?.city || 'Gandhinagar'}, Gujarat &bull;{' '}
+                {activeStationObj?.location?.latitude || '23.188551'}° N,{' '}
+                {activeStationObj?.location?.longitude || '72.626715'}° E
+              </p>
             </div>
-
-            {/* Interactive SVG Map with Roads and Gujarat Stations */}
-            <svg
-              className="interactive-map-svg"
-              viewBox="0 0 500 560"
-              preserveAspectRatio="xMidYMid slice"
-            >
-              {/* Map Background Canvas */}
-              <rect width="500" height="560" fill="#f8fafc" />
-
-              {/* Urban Grid Lines */}
-              <g stroke="#e2e8f0" strokeWidth="1" strokeDasharray="3 3">
-                <line x1="0" y1="100" x2="500" y2="100" />
-                <line x1="0" y1="200" x2="500" y2="200" />
-                <line x1="0" y1="300" x2="500" y2="300" />
-                <line x1="0" y1="400" x2="500" y2="400" />
-                <line x1="100" y1="0" x2="100" y2="560" />
-                <line x1="200" y1="0" x2="200" y2="560" />
-                <line x1="300" y1="0" x2="300" y2="560" />
-                <line x1="400" y1="0" x2="400" y2="560" />
-              </g>
-
-              {/* Sabarmati River Water Body */}
-              <path
-                d="M 320 0 Q 300 120 330 200 T 290 340 T 310 560"
-                fill="none"
-                stroke="#bae6fd"
-                strokeWidth="28"
-                strokeLinecap="round"
-              />
-              <path
-                d="M 320 0 Q 300 120 330 200 T 290 340 T 310 560"
-                fill="none"
-                stroke="#7dd3fc"
-                strokeWidth="14"
-                strokeLinecap="round"
-              />
-
-              {/* Major Highway Corridors (SG Highway & Ring Road) */}
-              <path
-                d="M 80 50 L 420 500"
-                fill="none"
-                stroke="#fed7aa"
-                strokeWidth="10"
-                strokeLinecap="round"
-              />
-              <path
-                d="M 80 50 L 420 500"
-                fill="none"
-                stroke="#fdba74"
-                strokeWidth="4"
-              />
-
-              <path
-                d="M 40 320 Q 250 360 460 300"
-                fill="none"
-                stroke="#e2e8f0"
-                strokeWidth="8"
-              />
-
-              <path
-                d="M 120 180 Q 260 140 400 190"
-                fill="none"
-                stroke="#e2e8f0"
-                strokeWidth="8"
-              />
-
-              {/* City Region Labels */}
-              <text x="210" y="270" fill="#64748b" fontSize="20" fontWeight="700" letterSpacing="1">
-                Gandhinagar
-              </text>
-              <text x="140" y="420" fill="#94a3b8" fontSize="16" fontWeight="600">
-                Ahmedabad West
-              </text>
-              <text x="310" y="480" fill="#94a3b8" fontSize="14" fontWeight="600">
-                Surat Corridor
-              </text>
-
-              {/* User Location Radar Pulse */}
-              <g transform="translate(260, 280)">
-                <circle className="user-pulse-circle" cx="0" cy="0" r="14" fill="#3b82f6" opacity="0.4" />
-                <circle cx="0" cy="0" r="6" fill="#2563eb" stroke="#ffffff" strokeWidth="2" />
-              </g>
-
-              {/* Station Map Pins */}
-              {stations.map((st, idx) => {
-                const id = st.stationId || st._id || `pin-${idx}`;
-                const isSelected = selectedStationId === id;
-
-                // Relative pin coordinates on SVG canvas
-                const pinCoordinates = [
-                  { x: 260, y: 160 }, // Gandhinagar Central
-                  { x: 200, y: 220 }, // DAIICT
-                  { x: 190, y: 320 }, // SG Highway
-                  { x: 280, y: 380 }, // Ahmedabad Hub
-                  { x: 330, y: 440 }, // Surat Plaza
-                  { x: 140, y: 400 }, // Vadodara Sayaji
-                ];
-
-                const pos = pinCoordinates[idx % pinCoordinates.length];
-                const rawStatus = (st.stationStatus || 'operational').toLowerCase();
-
-                let pinColor = '#10b981';
-                if (rawStatus === 'busy') pinColor = '#f59e0b';
-                if (rawStatus === 'unavailable' || rawStatus === 'maintenance') pinColor = '#ef4444';
-
-                return (
-                  <g
-                    key={id}
-                    className={`map-pin-group ${isSelected ? 'active' : ''}`}
-                    transform={`translate(${pos.x}, ${pos.y})`}
-                    onClick={() => handleSelectStation(id)}
-                  >
-                    {/* Selected highlight ring */}
-                    {isSelected && (
-                      <circle cx="0" cy="-14" r="22" fill={pinColor} opacity="0.25" />
-                    )}
-
-                    {/* Teardrop Pin Shape */}
-                    <path
-                      d="M 0 0 C -12 -12 -14 -24 0 -32 C 14 -24 12 -12 0 0 Z"
-                      fill={pinColor}
-                      stroke="#ffffff"
-                      strokeWidth="2"
-                    />
-
-                    {/* Lightning bolt inside pin */}
-                    <path
-                      d="M 1 -24 L -4 -17 L 0 -17 L -1 -10 L 4 -17 L 0 -17 Z"
-                      fill="#ffffff"
-                    />
-
-                    {/* Pin Label on Hover/Selected */}
-                    {isSelected && (
-                      <g transform="translate(0, -40)">
-                        <rect
-                          x="-60"
-                          y="-16"
-                          width="120"
-                          height="22"
-                          rx="6"
-                          fill="#1e293b"
-                          opacity="0.92"
-                        />
-                        <text
-                          x="0"
-                          y="-2"
-                          textAnchor="middle"
-                          fill="#ffffff"
-                          fontSize="10"
-                          fontWeight="700"
-                        >
-                          {st.stationName?.slice(0, 16) || id}
-                        </text>
-                      </g>
-                    )}
-                  </g>
-                );
-              })}
-            </svg>
-
-            {/* Selected Station Floating Card on Map */}
             {activeStationObj && (
-              <div className="map-station-popup">
-                <div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-                    <h4 style={{ margin: 0, fontSize: '14px', fontWeight: '700', color: '#0f172a' }}>
-                      {activeStationObj.stationName}
-                    </h4>
-                    <span
-                      style={{
-                        fontSize: '11px',
-                        padding: '2px 6px',
-                        borderRadius: '4px',
-                        background: '#ecfdf5',
-                        color: '#059669',
-                        fontWeight: '700',
-                      }}
-                    >
-                      {activeStationObj.stationStatus || 'Operational'}
-                    </span>
-                  </div>
-                  <p style={{ margin: '3px 0 0', fontSize: '12px', color: '#64748b' }}>
-                    {activeStationObj.location?.city || 'Gandhinagar'}, Gujarat &bull;{' '}
-                    <strong>{activeStationObj.totalPowerCapacityKW || 100} kW</strong>
-                  </p>
-                </div>
-
-                <button
-                  type="button"
-                  className="btn-view-details"
-                  onClick={() => handleOpenDetails(activeStationObj)}
-                >
-                  Details &rarr;
-                </button>
-              </div>
+              <button
+                type="button"
+                className="btn-view-details"
+                onClick={() => handleOpenDetails(activeStationObj)}
+              >
+                Details &rarr;
+              </button>
             )}
-
-            {/* Zoom Controls */}
-            <div className="map-zoom-controls">
-              <button
-                type="button"
-                className="btn-zoom"
-                onClick={() => setMapZoom((z) => Math.min(2, z + 0.2))}
-                title="Zoom In"
-              >
-                +
-              </button>
-              <button
-                type="button"
-                className="btn-zoom"
-                onClick={() => setMapZoom((z) => Math.max(0.8, z - 0.2))}
-                title="Zoom Out"
-              >
-                &minus;
-              </button>
-            </div>
+          </div>
+          <div className="map-leaflet-wrapper">
+            <EVStationMap
+              station={activeStationObj}
+              stations={stations}
+              onSelectStation={handleSelectStation}
+              height="100%"
+            />
           </div>
         </div>
       </div>
