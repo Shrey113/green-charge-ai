@@ -3,10 +3,11 @@ import Sidebar from './components/Sidebar.jsx';
 import TopHeader from './components/TopHeader.jsx';
 import TestDev from './pages/TestDev.jsx';
 import TestDatabase from './pages/TestDatabase.jsx';
+import ChargingStations from './pages/ChargingStations.jsx';
 import './App.css';
 
 function App() {
-  const [activeTab, setActiveTab] = useState('dashboard');
+  const [activeTab, setActiveTab] = useState('stations');
 
   return (
     <div className="app-layout">
@@ -18,6 +19,9 @@ function App() {
         <TopHeader />
 
         <div className="page-content-area">
+          {/* Charging Stations page with search, cards list, pagination & interactive map */}
+          {activeTab === 'stations' && <ChargingStations />}
+
           {/* Render API live playground and time slot cards when 'test - dev' tab is active */}
           {activeTab === 'test-dev' && <TestDev />}
 

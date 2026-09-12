@@ -111,6 +111,51 @@ router.get('/data', async (req, res) => {
 });
 
 /**
+ * GET /api/database/stations
+ * Query charging stations from 'station_operator' collection with search, status filtering, and pagination
+ */
+router.get('/stations', async (req, res) => {
+  const { search, status, city, limit = 20, page = 1 } = req.query;
+  const parsedLimit = Math.min(100, Math.max(1, parseInt(limit, 10) || 20));
+  const parsedPage = Math.max(1, parseInt(page, 10) || 1);
+
+  try {
+    const filter = {};
+    if (status && status !== 'all') {
+      filter.stationStatus = status;
+    }
+    if (city && city !== 'all') {
+      filter['location.city'] = new RegExp(city, 'i');
+    }
+    if (search) {
+      filter.$or = [
+        { stationName: new RegExp(search, 'i') },
+        { 'location.city': new RegExp(search, 'i') },
+        { 'location.state': new RegExp(search, 'i') },
+        { stationId: new RegExp(search, 'i') },
+      ];
+    }
+
+    const result = await getCollectionDocuments('station_operator', {
+      limit: parsedLimit,
+      page: parsedPage,
+      filter,
+    });
+
+    res.json({
+      success: true,
+      ...result,
+    });
+  } catch (error) {
+    res.status(500).json({
+      success: false,
+      message: 'Failed to fetch charging stations',
+      error: error.message,
+    });
+  }
+});
+
+/**
  * POST /api/database/insert-test
  * Insert a sample EV customer/charging data record into the database for live testing
  */

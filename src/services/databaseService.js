@@ -100,3 +100,27 @@ export async function reconnectDatabase() {
     throw err;
   }
 }
+
+/**
+ * Fetch charging stations from 'station_operator' with search, filter, and pagination
+ */
+export async function fetchStations({ search = '', status = 'all', city = 'all', page = 1, limit = 12 } = {}) {
+  try {
+    const params = new URLSearchParams({
+      page: String(page),
+      limit: String(limit),
+    });
+    if (search) params.set('search', search);
+    if (status && status !== 'all') params.set('status', status);
+    if (city && city !== 'all') params.set('city', city);
+
+    const res = await fetch(`${API_BASE}/stations?${params.toString()}`);
+    if (!res.ok) {
+      throw new Error(`HTTP Error ${res.status}: ${res.statusText}`);
+    }
+    return await res.json();
+  } catch (err) {
+    console.error('[databaseService] fetchStations error:', err);
+    throw err;
+  }
+}
