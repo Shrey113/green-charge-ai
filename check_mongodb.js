@@ -13,9 +13,15 @@ dotenv.config({ path: path.join(__dirname, ".env") });
 const CONNECTION_STRING =
   process.env.CONNECTION_STRING ||
   process.env.DATABASE_URL ||
-  "mongodb+srv://pushparajsinhwork_db_user:wc51sEMXOgLZAe9v@cluster0.5uottmj.mongodb.net/green_charge_ai?appName=Cluster0";
+  process.env.MONGO_URI ||
+  "";
 
 async function checkMongoDB() {
+  if (!CONNECTION_STRING) {
+    console.error("❌ No CONNECTION_STRING or DATABASE_URL found in server/.env");
+    return;
+  }
+
   const isPlaceholder = CONNECTION_STRING.includes("YOUR_NEW_PASSWORD");
 
   console.log("========================================");

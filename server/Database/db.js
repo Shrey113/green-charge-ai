@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
 
-// MongoDB Atlas Cloud Connection String (green_charge_ai)
-const ATLAS_URI =
-  "mongodb+srv://pushparajsinhwork_db_user:wc51sEMXOgLZAe9v@cluster0.5uottmj.mongodb.net/green_charge_ai?appName=Cluster0";
-
 let lastConnectionError = null;
 let lastConnectedTime = null;
 let isConnecting = false;
@@ -17,14 +13,14 @@ export const getMaskedUri = (uri) => {
 };
 
 /**
- * Get the currently configured MongoDB URI (always Atlas cloud database)
+ * Get the currently configured MongoDB URI strictly from environment variables
  */
 export const getConfiguredUri = () => {
   return (
     process.env.CONNECTION_STRING ||
     process.env.DATABASE_URL ||
     process.env.MONGO_URI ||
-    ATLAS_URI
+    ""
   );
 };
 
@@ -33,6 +29,14 @@ export const getConfiguredUri = () => {
  */
 export const connectDB = async () => {
   const uri = getConfiguredUri();
+
+  if (!uri) {
+    lastConnectionError =
+      "No connection string found in environment. Set CONNECTION_STRING or DATABASE_URL in server/.env";
+    console.warn("⚠️  [MongoDB]", lastConnectionError);
+    return;
+  }
+
   const maskedUri = getMaskedUri(uri);
   const hasPlaceholder = uri.includes("YOUR_NEW_PASSWORD");
 
