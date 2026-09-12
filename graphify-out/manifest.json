@@ -5,14 +5,14 @@
     "semantic_hash": "5e6e3cea3e89137071c142dd7835b0ef"
   },
   "package.json": {
-    "mtime": 1789196063.748783,
-    "ast_hash": "ee99f0d0010f30a93d1d7e2f6cfe343b",
-    "semantic_hash": "ee99f0d0010f30a93d1d7e2f6cfe343b"
+    "mtime": 1789214742.6832075,
+    "ast_hash": "260fdc503b8bb52debfd105861594553",
+    "semantic_hash": ""
   },
   "server/index.js": {
-    "mtime": 1789195999.94706,
-    "ast_hash": "e6688072acb5702b036d9faaf19d6c5d",
-    "semantic_hash": "e6688072acb5702b036d9faaf19d6c5d"
+    "mtime": 1789218051.6430457,
+    "ast_hash": "1076f1411d98288a0acde88d31310b57",
+    "semantic_hash": ""
   },
   "server/package.json": {
     "mtime": 1789195992.5810614,
@@ -20,9 +20,9 @@
     "semantic_hash": "c6255af9d1833ccdb737b09fba3f0b95"
   },
   "src/App.jsx": {
-    "mtime": 1789196278.531439,
-    "ast_hash": "591289a43c66dfe594c944c9cb6cab6b",
-    "semantic_hash": "591289a43c66dfe594c944c9cb6cab6b"
+    "mtime": 1789214373.7539518,
+    "ast_hash": "5920fc2567456f61ce3c5c995604a79a",
+    "semantic_hash": ""
   },
   "src/main.jsx": {
     "mtime": 1789193189.1144817,
@@ -35,12 +35,12 @@
     "semantic_hash": "5d54447744c19ccd28638a5c668d15ea"
   },
   ".agents/rules/graphify.md": {
-    "mtime": 1789198188.9683878,
+    "mtime": 1789199131.6252093,
     "ast_hash": "a0e4d192b9e2e17256124dbfc8e24e6a",
     "semantic_hash": "a0e4d192b9e2e17256124dbfc8e24e6a"
   },
   ".agents/workflows/graphify.md": {
-    "mtime": 1789198188.9697018,
+    "mtime": 1789199131.6252093,
     "ast_hash": "637776aa6f7496d069afe7520c845c8a",
     "semantic_hash": "637776aa6f7496d069afe7520c845c8a"
   },
@@ -70,9 +70,9 @@
     "semantic_hash": "e1d49a07386b38fdaafe5bb0f0e25581"
   },
   "project_structure.md": {
-    "mtime": 1789196082.7122362,
-    "ast_hash": "5ca07bfe39c4341781c18daa572b6bd4",
-    "semantic_hash": "5ca07bfe39c4341781c18daa572b6bd4"
+    "mtime": 1789206679.9764705,
+    "ast_hash": "a2fa4c36feed77fab18e1445bc72f52a",
+    "semantic_hash": ""
   },
   "public/favicon.svg": {
     "mtime": 1789193189.1080782,
@@ -98,5 +98,150 @@
     "mtime": 1789193189.1134067,
     "ast_hash": "9960a24288958394ac50e57ff638b036",
     "semantic_hash": "9960a24288958394ac50e57ff638b036"
+  },
+  "apisample/electricity_forecast.json": {
+    "mtime": 1789210947.4297338,
+    "ast_hash": "1febd9952a38c4cb4716274f8102a3b3",
+    "semantic_hash": ""
+  },
+  "apisample/electricity_maps_sample.py": {
+    "mtime": 1789199003.7972171,
+    "ast_hash": "4a30a619ab9b18fc7330dbf9485e62e5",
+    "semantic_hash": ""
+  },
+  "cp_sat/electricity_forecast.json": {
+    "mtime": 1789217400.882629,
+    "ast_hash": "1febd9952a38c4cb4716274f8102a3b3",
+    "semantic_hash": ""
+  },
+  "cp_sat/ev_charging_optimizer.py": {
+    "mtime": 1789217400.882629,
+    "ast_hash": "64a598ada847fee28691747cdf4c4a25",
+    "semantic_hash": ""
+  },
+  "cp_sat/input_data.json": {
+    "mtime": 1789217400.88315,
+    "ast_hash": "cd02af3a885cac32e2ead12a7413c2c4",
+    "semantic_hash": ""
+  },
+  "cp_sat/server.py": {
+    "mtime": 1789217400.883678,
+    "ast_hash": "89fa2b26727acf69617c02899bd6190d",
+    "semantic_hash": ""
+  },
+  "server/Database/dataModel.js": {
+    "mtime": 1789214742.6832075,
+    "ast_hash": "40db7c1882764f4d102fa8132c6f8456",
+    "semantic_hash": ""
+  },
+  "server/Database/db.js": {
+    "mtime": 1789214742.6837232,
+    "ast_hash": "4339536c40b442235620b2e599c506c3",
+    "semantic_hash": ""
+  },
+  "server/electricityMaps.js": {
+    "mtime": 1789210611.5364912,
+    "ast_hash": "36b7c1783e243f33e1c89b453b3d7f3f",
+    "semantic_hash": ""
+  },
+  "server/routes/optimizerRoutes.js": {
+    "mtime": 1789218039.2391424,
+    "ast_hash": "6585a94e104b71b67c0961e69bcf9d59",
+    "semantic_hash": ""
+  },
+  "server/services/optimizerService.js": {
+    "mtime": 1789218031.9563801,
+    "ast_hash": "479f23031893d0500a0d6ae84e55a84a",
+    "semantic_hash": ""
+  },
+  "src/components/Sidebar.jsx": {
+    "mtime": 1789214315.1098952,
+    "ast_hash": "11154190147ada36e632c087427486b3",
+    "semantic_hash": ""
+  },
+  "src/components/SlotDataCard.jsx": {
+    "mtime": 1789214274.026688,
+    "ast_hash": "7c25b8c1d4a07698b15dc7a22940deca",
+    "semantic_hash": ""
+  },
+  "src/components/SlotSelector.jsx": {
+    "mtime": 1789214261.5428312,
+    "ast_hash": "64972519f24931842f7a3362516e4bef",
+    "semantic_hash": ""
+  },
+  "src/components/TopHeader.jsx": {
+    "mtime": 1789213850.518926,
+    "ast_hash": "159dab9e23136f874d753aef1e44def2",
+    "semantic_hash": ""
+  },
+  "src/pages/TestDev.jsx": {
+    "mtime": 1789214285.6699383,
+    "ast_hash": "15a2323f422c918bab8c0703661218db",
+    "semantic_hash": ""
+  },
+  "src/services/dashboardService.js": {
+    "mtime": 1789212618.664839,
+    "ast_hash": "ec855fd907de35183096b725e0ab98e1",
+    "semantic_hash": ""
+  },
+  "src/services/electricityService.js": {
+    "mtime": 1789210673.2837346,
+    "ast_hash": "6b6119eab8fd184aad82e5b5216735a1",
+    "semantic_hash": ""
+  },
+  "Documentation/GreenCharge_AI_Architecture.md": {
+    "mtime": 1789210947.4297338,
+    "ast_hash": "d1b615af73cff10c63cb5719aadf54ae",
+    "semantic_hash": ""
+  },
+  "Documentation/GreenCharge_AI_Development_Plan.md": {
+    "mtime": 1789199640.4629104,
+    "ast_hash": "b1dfa0abf30beeb60e4544577d5e8bad",
+    "semantic_hash": ""
+  },
+  "Documentation/GreenCharge_AI_UI_UX.md": {
+    "mtime": 1789199640.4629104,
+    "ast_hash": "df85e11e98ae020d58ea373a8f1b3a7a",
+    "semantic_hash": ""
+  },
+  "cp_sat/API_PAYLOAD_SPEC.md": {
+    "mtime": 1789217400.8810441,
+    "ast_hash": "49523db2de4827c8b92cf5fe413c5f61",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/bolt.svg": {
+    "mtime": 1789213045.2532153,
+    "ast_hash": "ffd7cc6c0381d16a1b8bb07d005b8053",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/car.svg": {
+    "mtime": 1789213066.7626405,
+    "ast_hash": "3473392c74f97278fac51eed201416fe",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/clock.svg": {
+    "mtime": 1789213821.0038798,
+    "ast_hash": "80f54c047b8970e021d9b2720e8f6cfd",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/coin.svg": {
+    "mtime": 1789213054.8417115,
+    "ast_hash": "66a7d52fc902ee49764b2c3e5aa482ab",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/leaf.svg": {
+    "mtime": 1789213836.2811756,
+    "ast_hash": "9196032ea49769af192ebf76138b3c09",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/location-pin.svg": {
+    "mtime": 1789213799.8580368,
+    "ast_hash": "1c518001ab298e8db2b3bdfeca23d72c",
+    "semantic_hash": ""
+  },
+  "src/assets/icons/piggy-bank.svg": {
+    "mtime": 1789213076.9128673,
+    "ast_hash": "885b7fcc8f74b617b27d91f9e782b6ea",
+    "semantic_hash": ""
   }
 }

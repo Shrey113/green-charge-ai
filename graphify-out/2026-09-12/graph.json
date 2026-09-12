@@ -1,0 +1,1585 @@
+{
+  "directed": false,
+  "multigraph": false,
+  "graph": {
+    "hyperedges": [
+      {
+        "id": "hyperedge_dashboards",
+        "label": "Role-based Dashboards Suite",
+        "nodes": [
+          "documentation_greencharge_ai_project_overview_ev_driver_dashboard",
+          "documentation_greencharge_ai_project_overview_grid_operator_dashboard",
+          "documentation_greencharge_ai_project_overview_ev_network_operator_dashboard"
+        ],
+        "relation": "participate_in",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "Documentation/GreenCharge_AI_Project_Overview.md"
+      },
+      {
+        "id": "hyperedge_services",
+        "label": "GreenCharge Core Backend Services",
+        "nodes": [
+          "documentation_greencharge_ai_srs_driver_service",
+          "documentation_greencharge_ai_srs_grid_service",
+          "documentation_greencharge_ai_srs_network_service",
+          "documentation_greencharge_ai_srs_optimization_service"
+        ],
+        "relation": "implement",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "Documentation/GreenCharge_AI_SRS.md"
+      },
+      {
+        "id": "hyperedge_optimization_pipeline",
+        "label": "CP-SAT Charging Optimization Pipeline",
+        "nodes": [
+          "documentation_greencharge_ai_project_overview_google_or_tools_cp_sat",
+          "documentation_greencharge_ai_prd_charging_optimization",
+          "documentation_greencharge_ai_prd_load_shifting",
+          "documentation_greencharge_ai_prd_renewable_matching"
+        ],
+        "relation": "form",
+        "confidence": "INFERRED",
+        "confidence_score": 0.95,
+        "source_file": "Documentation/GreenCharge_AI_PRD.md"
+      }
+    ]
+  },
+  "nodes": [
+    {
+      "label": ".oxlintrc.json",
+      "file_type": "code",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "oxlintrc",
+      "community": 2,
+      "norm_label": ".oxlintrc.json"
+    },
+    {
+      "label": "$schema",
+      "file_type": "code",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "oxlintrc_schema",
+      "community": 2,
+      "norm_label": "$schema"
+    },
+    {
+      "label": "plugins",
+      "file_type": "code",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "oxlintrc_plugins",
+      "community": 2,
+      "norm_label": "plugins"
+    },
+    {
+      "label": "rules",
+      "file_type": "code",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "oxlintrc_rules",
+      "community": 2,
+      "norm_label": "rules"
+    },
+    {
+      "label": "react/rules-of-hooks",
+      "file_type": "code",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "oxlintrc_rules_react_rules_of_hooks",
+      "community": 2,
+      "norm_label": "react/rules-of-hooks"
+    },
+    {
+      "label": "react/only-export-components",
+      "file_type": "code",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "oxlintrc_rules_react_only_export_components",
+      "community": 2,
+      "norm_label": "react/only-export-components"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "package",
+      "community": 3,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "package_name",
+      "community": 3,
+      "norm_label": "name"
+    },
+    {
+      "label": "private",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "package_private",
+      "community": 3,
+      "norm_label": "private"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "package_version",
+      "community": 3,
+      "norm_label": "version"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "package_type",
+      "community": 3,
+      "norm_label": "type"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "package_scripts",
+      "community": 5,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "package_scripts_dev",
+      "community": 5,
+      "norm_label": "dev"
+    },
+    {
+      "label": "client",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "package_scripts_client",
+      "community": 5,
+      "norm_label": "client"
+    },
+    {
+      "label": "server",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "_origin": "ast",
+      "id": "package_scripts_server",
+      "community": 5,
+      "norm_label": "server"
+    },
+    {
+      "label": "build",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "package_scripts_build",
+      "community": 5,
+      "norm_label": "build"
+    },
+    {
+      "label": "preview",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "package_scripts_preview",
+      "community": 5,
+      "norm_label": "preview"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "package_dependencies",
+      "community": 4,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "cors",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "_origin": "ast",
+      "id": "package_dependencies_cors",
+      "community": 4,
+      "norm_label": "cors"
+    },
+    {
+      "label": "dotenv",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "_origin": "ast",
+      "id": "package_dependencies_dotenv",
+      "community": 4,
+      "norm_label": "dotenv"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "_origin": "ast",
+      "id": "package_dependencies_express",
+      "community": 4,
+      "norm_label": "express"
+    },
+    {
+      "label": "react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "_origin": "ast",
+      "id": "package_dependencies_react",
+      "community": 4,
+      "norm_label": "react"
+    },
+    {
+      "label": "react-dom",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "_origin": "ast",
+      "id": "package_dependencies_react_dom",
+      "community": 4,
+      "norm_label": "react-dom"
+    },
+    {
+      "label": "devDependencies",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "_origin": "ast",
+      "id": "package_devdependencies",
+      "community": 3,
+      "norm_label": "devdependencies"
+    },
+    {
+      "label": "@vitejs/plugin-react",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "_origin": "ast",
+      "id": "package_devdependencies_vitejs_plugin_react",
+      "community": 3,
+      "norm_label": "@vitejs/plugin-react"
+    },
+    {
+      "label": "concurrently",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "_origin": "ast",
+      "id": "package_devdependencies_concurrently",
+      "community": 3,
+      "norm_label": "concurrently"
+    },
+    {
+      "label": "vite",
+      "file_type": "code",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "_origin": "ast",
+      "id": "package_devdependencies_vite",
+      "community": 3,
+      "norm_label": "vite"
+    },
+    {
+      "label": "index.js",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_index",
+      "community": 0,
+      "norm_label": "index.js"
+    },
+    {
+      "label": "app",
+      "file_type": "code",
+      "source_file": "server/index.js",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "server_index_app",
+      "community": 0,
+      "norm_label": "app"
+    },
+    {
+      "label": "package.json",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "server_package",
+      "community": 0,
+      "norm_label": "package.json"
+    },
+    {
+      "label": "name",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L2",
+      "_origin": "ast",
+      "id": "server_package_name",
+      "community": 0,
+      "norm_label": "name"
+    },
+    {
+      "label": "version",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L3",
+      "_origin": "ast",
+      "id": "server_package_version",
+      "community": 0,
+      "norm_label": "version"
+    },
+    {
+      "label": "type",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "server_package_type",
+      "community": 0,
+      "norm_label": "type"
+    },
+    {
+      "label": "main",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L5",
+      "_origin": "ast",
+      "id": "server_package_main",
+      "community": 0,
+      "norm_label": "main"
+    },
+    {
+      "label": "scripts",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L6",
+      "_origin": "ast",
+      "id": "server_package_scripts",
+      "community": 0,
+      "norm_label": "scripts"
+    },
+    {
+      "label": "start",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L7",
+      "_origin": "ast",
+      "id": "server_package_scripts_start",
+      "community": 0,
+      "norm_label": "start"
+    },
+    {
+      "label": "dev",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L8",
+      "_origin": "ast",
+      "id": "server_package_scripts_dev",
+      "community": 0,
+      "norm_label": "dev"
+    },
+    {
+      "label": "dependencies",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L10",
+      "_origin": "ast",
+      "id": "server_package_dependencies",
+      "community": 0,
+      "norm_label": "dependencies"
+    },
+    {
+      "label": "cors",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L11",
+      "_origin": "ast",
+      "id": "server_package_dependencies_cors",
+      "community": 0,
+      "norm_label": "cors"
+    },
+    {
+      "label": "dotenv",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L12",
+      "_origin": "ast",
+      "id": "server_package_dependencies_dotenv",
+      "community": 0,
+      "norm_label": "dotenv"
+    },
+    {
+      "label": "express",
+      "file_type": "code",
+      "source_file": "server/package.json",
+      "source_location": "L13",
+      "_origin": "ast",
+      "id": "server_package_dependencies_express",
+      "community": 0,
+      "norm_label": "express"
+    },
+    {
+      "label": "App.jsx",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_app",
+      "community": 1,
+      "norm_label": "app.jsx"
+    },
+    {
+      "label": "App()",
+      "file_type": "code",
+      "source_file": "src/App.jsx",
+      "source_location": "L4",
+      "_origin": "ast",
+      "id": "src_app_app",
+      "community": 1,
+      "norm_label": "app()"
+    },
+    {
+      "label": "main.jsx",
+      "file_type": "code",
+      "source_file": "src/main.jsx",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "src_main",
+      "community": 1,
+      "norm_label": "main.jsx"
+    },
+    {
+      "label": "vite.config.js",
+      "file_type": "code",
+      "source_file": "vite.config.js",
+      "source_location": "L1",
+      "_origin": "ast",
+      "id": "vite_config",
+      "community": 2,
+      "norm_label": "vite.config.js"
+    },
+    {
+      "label": "GreenCharge AI Project Overview",
+      "file_type": "document",
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md",
+      "source_location": "L1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_project_overview_core",
+      "community": 7,
+      "norm_label": "greencharge ai project overview"
+    },
+    {
+      "label": "Google OR-Tools CP-SAT Optimizer",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md",
+      "source_location": "L11",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_project_overview_google_or_tools_cp_sat",
+      "community": 6,
+      "norm_label": "google or-tools cp-sat optimizer"
+    },
+    {
+      "label": "EV Driver Dashboard",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md",
+      "source_location": "L72",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_project_overview_ev_driver_dashboard",
+      "community": 1,
+      "norm_label": "ev driver dashboard"
+    },
+    {
+      "label": "Grid Operator Dashboard",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md",
+      "source_location": "L80",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_project_overview_grid_operator_dashboard",
+      "community": 9,
+      "norm_label": "grid operator dashboard"
+    },
+    {
+      "label": "EV Network Operator Dashboard",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md",
+      "source_location": "L88",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_project_overview_ev_network_operator_dashboard",
+      "community": 8,
+      "norm_label": "ev network operator dashboard"
+    },
+    {
+      "label": "Minimal Green-White UI Theme",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md",
+      "source_location": "L122",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_project_overview_green_white_ui_theme",
+      "community": 1,
+      "norm_label": "minimal green-white ui theme"
+    },
+    {
+      "label": "GreenCharge AI PRD",
+      "file_type": "document",
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_prd_core",
+      "community": 7,
+      "norm_label": "greencharge ai prd"
+    },
+    {
+      "label": "EV Charging Optimization Feature (F1)",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L97",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_prd_charging_optimization",
+      "community": 11,
+      "norm_label": "ev charging optimization feature (f1)"
+    },
+    {
+      "label": "Load Shifting & Peak Reduction",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L19",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_prd_load_shifting",
+      "community": 6,
+      "norm_label": "load shifting & peak reduction"
+    },
+    {
+      "label": "Renewable Energy Matching",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L10",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_prd_renewable_matching",
+      "community": 6,
+      "norm_label": "renewable energy matching"
+    },
+    {
+      "label": "EV Driver Green Score Metric",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L58",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_prd_green_score",
+      "community": 1,
+      "norm_label": "ev driver green score metric"
+    },
+    {
+      "label": "GreenCharge AI SRS",
+      "file_type": "document",
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_srs_core",
+      "community": 7,
+      "norm_label": "greencharge ai srs"
+    },
+    {
+      "label": "Optimization Service Architecture",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L73",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_srs_optimization_service",
+      "community": 6,
+      "norm_label": "optimization service architecture"
+    },
+    {
+      "label": "Driver Service",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L70",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_srs_driver_service",
+      "community": 1,
+      "norm_label": "driver service"
+    },
+    {
+      "label": "Grid Service",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L71",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_srs_grid_service",
+      "community": 9,
+      "norm_label": "grid service"
+    },
+    {
+      "label": "Network Service",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L72",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_srs_network_service",
+      "community": 8,
+      "norm_label": "network service"
+    },
+    {
+      "label": "GreenCharge REST API",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L65",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_srs_rest_api",
+      "community": 0,
+      "norm_label": "greencharge rest api"
+    },
+    {
+      "label": "Role-Based Access Control (RBAC)",
+      "file_type": "concept",
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L84",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "documentation_greencharge_ai_srs_rbac",
+      "community": 12,
+      "norm_label": "role-based access control (rbac)"
+    },
+    {
+      "label": "GreenCharge AI Project Architecture Guide",
+      "file_type": "document",
+      "source_file": "project_structure.md",
+      "source_location": "L1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "project_structure_core",
+      "community": 13,
+      "norm_label": "greencharge ai project architecture guide"
+    },
+    {
+      "label": "React Vite Frontend Architecture",
+      "file_type": "concept",
+      "source_file": "project_structure.md",
+      "source_location": "L18",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "project_structure_frontend",
+      "community": 1,
+      "norm_label": "react vite frontend architecture"
+    },
+    {
+      "label": "Express Backend Architecture",
+      "file_type": "concept",
+      "source_file": "project_structure.md",
+      "source_location": "L12",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "project_structure_backend",
+      "community": 0,
+      "norm_label": "express backend architecture"
+    },
+    {
+      "label": "React Vite Oxlint Template Documentation",
+      "file_type": "document",
+      "source_file": "README.md",
+      "source_location": "L1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "readme_core",
+      "community": 2,
+      "norm_label": "react vite oxlint template documentation"
+    },
+    {
+      "label": "Web Application HTML Root",
+      "file_type": "document",
+      "source_file": "index.html",
+      "source_location": "L1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "index_core",
+      "community": 1,
+      "norm_label": "web application html root"
+    },
+    {
+      "label": "Graphify Coding Assistant Rules",
+      "file_type": "document",
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "rules_graphify_core",
+      "community": 10,
+      "norm_label": "graphify coding assistant rules"
+    },
+    {
+      "label": "Graphify Knowledge Graph Workflow",
+      "file_type": "document",
+      "source_file": ".agents/workflows/graphify.md",
+      "source_location": "L1",
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "workflows_graphify_core",
+      "community": 10,
+      "norm_label": "graphify knowledge graph workflow"
+    },
+    {
+      "label": "GreenCharge Favicon",
+      "file_type": "image",
+      "source_file": "public/favicon.svg",
+      "source_location": null,
+      "source_url": null,
+      "captured_at": null,
+      "author": null,
+      "contributor": null,
+      "id": "public_favicon_core",
+      "community": 1,
+      "norm_label": "greencharge favicon"
+    },
+    {
+      "label": "SVG Icons Sprite Sheet",
+      "file_type": "image",
+      "source_file": "public/icons.svg",
+      "source_location": null,
+      "source_url": null,
+      "author": null,
+      "contributor": null,
+      "id": "public_icons_core",
+      "community": 14,
+      "norm_label": "svg icons sprite sheet"
+    },
+    {
+      "label": "Landing Hero Illustration",
+      "file_type": "image",
+      "source_file": "src/assets/hero.png",
+      "source_location": null,
+      "source_url": null,
+      "author": null,
+      "contributor": null,
+      "id": "assets_hero_core",
+      "community": 1,
+      "norm_label": "landing hero illustration"
+    },
+    {
+      "label": "React Logo Vector",
+      "file_type": "image",
+      "source_file": "src/assets/react.svg",
+      "source_location": null,
+      "source_url": null,
+      "author": null,
+      "contributor": null,
+      "id": "assets_react_core",
+      "community": 1,
+      "norm_label": "react logo vector"
+    },
+    {
+      "label": "Vite Logo Vector",
+      "file_type": "image",
+      "source_file": "src/assets/vite.svg",
+      "source_location": null,
+      "source_url": null,
+      "author": null,
+      "contributor": null,
+      "id": "assets_vite_core",
+      "community": 2,
+      "norm_label": "vite logo vector"
+    }
+  ],
+  "links": [
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "oxlintrc",
+      "target": "oxlintrc_plugins",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "oxlintrc",
+      "target": "oxlintrc_rules",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "oxlintrc",
+      "target": "oxlintrc_schema",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "readme_core",
+      "target": "oxlintrc"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "oxlintrc_rules",
+      "target": "oxlintrc_rules_react_only_export_components",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": ".oxlintrc.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "oxlintrc_rules",
+      "target": "oxlintrc_rules_react_rules_of_hooks",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_devdependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_private",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "package",
+      "target": "package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_build",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_client",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_preview",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L9",
+      "weight": 1.0,
+      "source": "package_scripts",
+      "target": "package_scripts_server",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_cors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L15",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_dotenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L16",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_express",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L17",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L18",
+      "weight": 1.0,
+      "source": "package_dependencies",
+      "target": "package_dependencies_react_dom",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L22",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_concurrently",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L23",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vite",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0,
+      "source": "package_devdependencies",
+      "target": "package_devdependencies_vitejs_plugin_react",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L65",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_srs_rest_api",
+      "target": "server_index"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "project_structure.md",
+      "source_location": "L42",
+      "weight": 1.0,
+      "source": "project_structure_backend",
+      "target": "server_index"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/index.js",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_index",
+      "target": "server_index_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "project_structure.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "project_structure_backend",
+      "target": "server_package"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "server_package",
+      "target": "server_package_dependencies",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "server_package",
+      "target": "server_package_main",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L2",
+      "weight": 1.0,
+      "source": "server_package",
+      "target": "server_package_name",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L6",
+      "weight": 1.0,
+      "source": "server_package",
+      "target": "server_package_scripts",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "server_package",
+      "target": "server_package_type",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "server_package",
+      "target": "server_package_version",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L8",
+      "weight": 1.0,
+      "source": "server_package_scripts",
+      "target": "server_package_scripts_dev",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L7",
+      "weight": 1.0,
+      "source": "server_package_scripts",
+      "target": "server_package_scripts_start",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "server_package_dependencies",
+      "target": "server_package_dependencies_cors",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L12",
+      "weight": 1.0,
+      "source": "server_package_dependencies",
+      "target": "server_package_dependencies_dotenv",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "server/package.json",
+      "source_location": "L13",
+      "weight": 1.0,
+      "source": "server_package_dependencies",
+      "target": "server_package_dependencies_express",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.75,
+      "source_file": "src/assets/hero.png",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "assets_hero_core",
+      "target": "src_app"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/react.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "assets_react_core",
+      "target": "src_app"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_project_overview_ev_driver_dashboard",
+      "target": "src_app"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md",
+      "source_location": "L124",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_project_overview_green_white_ui_theme",
+      "target": "src_app"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "project_structure.md",
+      "source_location": "L20",
+      "weight": 1.0,
+      "source": "project_structure_frontend",
+      "target": "src_app"
+    },
+    {
+      "relation": "contains",
+      "confidence": "EXTRACTED",
+      "source_file": "src/App.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_app",
+      "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports_from",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "imports",
+      "context": "import",
+      "confidence": "EXTRACTED",
+      "source_file": "src/main.jsx",
+      "source_location": "L4",
+      "weight": 1.0,
+      "source": "src_main",
+      "target": "src_app_app",
+      "confidence_score": 1.0
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "L11",
+      "weight": 1.0,
+      "source": "index_core",
+      "target": "src_main"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "project_structure.md",
+      "source_location": "L41",
+      "weight": 1.0,
+      "source": "project_structure_frontend",
+      "target": "src_main"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "src/assets/vite.svg",
+      "source_location": null,
+      "weight": 1.0,
+      "source": "assets_vite_core",
+      "target": "vite_config"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "project_structure.md",
+      "source_location": "L31",
+      "weight": 1.0,
+      "source": "project_structure_frontend",
+      "target": "vite_config"
+    },
+    {
+      "relation": "references",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "README.md",
+      "source_location": "L3",
+      "weight": 1.0,
+      "source": "readme_core",
+      "target": "vite_config"
+    },
+    {
+      "relation": "cites",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_prd_core",
+      "target": "documentation_greencharge_ai_project_overview_core"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L19",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_prd_load_shifting",
+      "target": "documentation_greencharge_ai_project_overview_google_or_tools_cp_sat"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L10",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_prd_renewable_matching",
+      "target": "documentation_greencharge_ai_project_overview_google_or_tools_cp_sat"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L75",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_srs_optimization_service",
+      "target": "documentation_greencharge_ai_project_overview_google_or_tools_cp_sat"
+    },
+    {
+      "relation": "conceptually_related_to",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_PRD.md",
+      "source_location": "L58",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_prd_green_score",
+      "target": "documentation_greencharge_ai_project_overview_ev_driver_dashboard"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L70",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_srs_driver_service",
+      "target": "documentation_greencharge_ai_project_overview_ev_driver_dashboard"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L71",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_srs_grid_service",
+      "target": "documentation_greencharge_ai_project_overview_grid_operator_dashboard"
+    },
+    {
+      "relation": "implements",
+      "confidence": "INFERRED",
+      "confidence_score": 0.85,
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L72",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_srs_network_service",
+      "target": "documentation_greencharge_ai_project_overview_ev_network_operator_dashboard"
+    },
+    {
+      "relation": "cites",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_SRS.md",
+      "source_location": "L14",
+      "weight": 1.0,
+      "source": "documentation_greencharge_ai_srs_core",
+      "target": "documentation_greencharge_ai_prd_core"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "index.html",
+      "source_location": "L5",
+      "weight": 1.0,
+      "source": "index_core",
+      "target": "public_favicon_core"
+    },
+    {
+      "relation": "references",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": ".agents/rules/graphify.md",
+      "source_location": "L1",
+      "weight": 1.0,
+      "source": "rules_graphify_core",
+      "target": "workflows_graphify_core"
+    }
+  ],
+  "hyperedges": [
+    {
+      "id": "hyperedge_dashboards",
+      "label": "Role-based Dashboards Suite",
+      "nodes": [
+        "documentation_greencharge_ai_project_overview_ev_driver_dashboard",
+        "documentation_greencharge_ai_project_overview_grid_operator_dashboard",
+        "documentation_greencharge_ai_project_overview_ev_network_operator_dashboard"
+      ],
+      "relation": "participate_in",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_Project_Overview.md"
+    },
+    {
+      "id": "hyperedge_services",
+      "label": "GreenCharge Core Backend Services",
+      "nodes": [
+        "documentation_greencharge_ai_srs_driver_service",
+        "documentation_greencharge_ai_srs_grid_service",
+        "documentation_greencharge_ai_srs_network_service",
+        "documentation_greencharge_ai_srs_optimization_service"
+      ],
+      "relation": "implement",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_SRS.md"
+    },
+    {
+      "id": "hyperedge_optimization_pipeline",
+      "label": "CP-SAT Charging Optimization Pipeline",
+      "nodes": [
+        "documentation_greencharge_ai_project_overview_google_or_tools_cp_sat",
+        "documentation_greencharge_ai_prd_charging_optimization",
+        "documentation_greencharge_ai_prd_load_shifting",
+        "documentation_greencharge_ai_prd_renewable_matching"
+      ],
+      "relation": "form",
+      "confidence": "INFERRED",
+      "confidence_score": 0.95,
+      "source_file": "Documentation/GreenCharge_AI_PRD.md"
+    }
+  ],
+  "built_at_commit": "4f18a6794c3775acc2c5d52c7821f2e186385940"
+}

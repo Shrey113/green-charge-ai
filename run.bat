@@ -52,7 +52,7 @@ echo [1/2] Checking Node.js and npm...
 where node >nul 2>&1
 if errorlevel 1 (
     echo ERROR: Node.js is not installed.
-    echo Please install Node.js (v18+) from https://nodejs.org/ to continue.
+    echo Please install Node.js [v18+] from https://nodejs.org/ to continue.
     pause
     goto MENU
 )
@@ -82,7 +82,7 @@ if errorlevel 1 (
     echo.
     echo WARNING: Python was not found in PATH or virtual environment.
     echo The React Frontend and Express Backend are installed and ready.
-    echo To use the CP-SAT Optimizer microservice, please install Python (v3.9+)
+    echo To use the CP-SAT Optimizer microservice, please install Python [v3.9+]
     echo from https://www.python.org/ and rerun Setup.
 ) else (
     echo   Python executable: %PYTHON_CMD%
@@ -138,8 +138,8 @@ echo Starting Frontend (Port 5173) and Express Backend (Port 5000)...
 start "GreenCharge AI Web App (React + Express)" cmd /k "cd /d ""%~dp0"" && npm run dev"
 
 if "%START_PY%"=="1" (
-    echo Starting CP-SAT Optimization Microservice (Port 8000)...
-    start "GreenCharge AI CP-SAT Optimizer (Python)" cmd /k "cd /d ""%~dp0cp_sat"" && %PYTHON_CMD% server.py"
+    echo Starting CP-SAT Optimization Microservice [Port 8000]...
+    start "GreenCharge AI CP-SAT Optimizer [Python]" cmd /k "cd /d ""%~dp0cp_sat"" && %PYTHON_CMD% server.py"
 )
 
 echo Waiting for services to initialize...
@@ -159,7 +159,7 @@ echo - CP-SAT Server:      http://localhost:8000/
 echo - CP-SAT API Docs:    http://localhost:8000/docs
 echo - CP-SAT WebSocket:   ws://localhost:8000/ws/schedule
 ) else (
-echo - CP-SAT Server:      NOT RUNNING (Python not found)
+echo - CP-SAT Server:      NOT RUNNING [Python not found]
 )
 echo ==================================================
 echo.
@@ -254,7 +254,7 @@ echo.
 call :DETECT_PYTHON
 if errorlevel 1 (
     echo ERROR: Python is not installed or not found in PATH.
-    echo Please install Python (v3.9+) to run the CP-SAT Optimizer.
+    echo Please install Python [v3.9+] to run the CP-SAT Optimizer.
     pause
     goto MENU
 )
