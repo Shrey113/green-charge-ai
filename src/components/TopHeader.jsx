@@ -3,7 +3,7 @@ import leafIcon from '../assets/icons/leaf.svg';
 import locationPinIcon from '../assets/icons/location-pin.svg';
 import clockIcon from '../assets/icons/clock.svg';
 
-export default function TopHeader() {
+export default function TopHeader({ onSwitchToCustomer }) {
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'short',
@@ -50,6 +50,18 @@ export default function TopHeader() {
             <span className="meta-secondary">{currentTime} (IST)</span>
           </div>
         </div>
+
+        {/* Customer Portal Quick Switch Button */}
+        {onSwitchToCustomer && (
+          <button
+            type="button"
+            className="btn-switch-role-pill"
+            onClick={onSwitchToCustomer}
+            title="Switch to EV Driver Portal (/customer)"
+          >
+            🚗 Open EV Driver View &rarr;
+          </button>
+        )}
 
         {/* Operator Avatar */}
         <div className="operator-avatar" title="Operator Profile">

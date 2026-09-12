@@ -114,3 +114,24 @@
   margin-left: 8px;
   user-select: none;
 }
+
+.btn-switch-role-pill {
+  background: #ecfdf5;
+  color: #065f46;
+  border: 1px solid #a7f3d0;
+  border-radius: 9999px;
+  padding: 6px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.btn-switch-role-pill:hover {
+  background: #10b981;
+  color: #ffffff;
+  border-color: #059669;
+}
