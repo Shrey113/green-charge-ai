@@ -17,20 +17,29 @@ body {
 /* Main App Shell Layout */
 .app-layout {
   display: flex;
-  min-height: 100vh;
+  height: 100vh;
+  height: 100svh;
+  max-height: 100svh;
   background-color: #ffffff;
+  overflow: hidden;
 }
 
 .app-main-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 24px 32px 40px;
+  padding: 16px 24px;
   max-width: calc(100vw - 240px);
   box-sizing: border-box;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .page-content-area {
   flex: 1;
   width: 100%;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
 }

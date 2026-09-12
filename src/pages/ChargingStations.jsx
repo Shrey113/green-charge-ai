@@ -312,117 +312,119 @@ export default function ChargingStations() {
 
   return (
     <div className="stations-page">
-      {/* Top Search & Filter Bar */}
-      <div className="stations-top-bar">
-        <div className="stations-search-wrapper">
-          <span className="stations-search-icon">
-            <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
-              <circle cx="11" cy="11" r="8" />
-              <line x1="21" y1="21" x2="16.65" y2="16.65" />
-            </svg>
-          </span>
-          <input
-            type="text"
-            className="stations-search-input"
-            placeholder="Search location (e.g., Gandhinagar, Ahmedabad)"
-            value={searchQuery}
-            onChange={(e) => {
-              setSearchQuery(e.target.value);
-              setCurrentPage(1);
-            }}
-          />
-        </div>
-
-        <div className="stations-filter-actions">
-          <button
-            type="button"
-            className={`btn-filter-toggle ${showFilters || statusFilter !== 'all' || cityFilter !== 'all' ? 'active' : ''}`}
-            onClick={() => setShowFilters(!showFilters)}
-          >
-            <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
-              <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
-            </svg>
-            Filters
-            {(statusFilter !== 'all' || cityFilter !== 'all') && <span>(Active)</span>}
-          </button>
-        </div>
-      </div>
-
-      {/* Expandable Filter Panel */}
-      {showFilters && (
-        <div className="filter-dropdown-panel">
-          <div className="filter-group">
-            <label>Status</label>
-            <select
-              className="filter-select"
-              value={statusFilter}
-              onChange={(e) => {
-                setStatusFilter(e.target.value);
-                setCurrentPage(1);
-              }}
-            >
-              <option value="all">All Statuses</option>
-              <option value="available">Available (Operational)</option>
-              <option value="busy">Busy</option>
-              <option value="unavailable">Unavailable</option>
-            </select>
-          </div>
-
-          <div className="filter-group">
-            <label>City</label>
-            <select
-              className="filter-select"
-              value={cityFilter}
-              onChange={(e) => {
-                setCityFilter(e.target.value);
-                setCurrentPage(1);
-              }}
-            >
-              <option value="all">All Cities</option>
-              {cityOptions.map((c) => (
-                <option key={c} value={c}>
-                  {c}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {(statusFilter !== 'all' || cityFilter !== 'all' || searchQuery) && (
-            <button
-              type="button"
-              className="btn-filter-toggle"
-              style={{ marginTop: '16px', padding: '6px 12px', fontSize: '12px' }}
-              onClick={() => {
-                setStatusFilter('all');
-                setCityFilter('all');
-                setSearchQuery('');
-                setCurrentPage(1);
-              }}
-            >
-              Reset Filters
-            </button>
-          )}
-        </div>
-      )}
-
-      {/* Google-Style Linear Loading Progress Bar */}
-      <div className={`google-linear-loader ${loading ? 'active' : ''}`}>
-        <div className="linear-loader-bar"></div>
-      </div>
-
-      {/* Main Two-Column Layout */}
+      {/* Main Two-Column Layout filling 100svh */}
       <div className="stations-layout-grid">
-        {/* Left Column: Station Cards List & Pagination */}
-        <div className="stations-list-container">
-          {currentStationsSlice.length === 0 && !loading ? (
-            <div className="empty-db-state">
-              <h3 className="empty-db-title">No Stations Found</h3>
-              <p className="empty-db-desc">
-                No charging hubs matched your search query. Try adjusting your search term or clearing the filters.
-              </p>
+        {/* Left Column: Top Search & Filter + Cards List + Pagination */}
+        <div className="stations-left-column">
+          {/* Top Search & Filter Bar on Left Side */}
+          <div className="stations-top-bar">
+            <div className="stations-search-wrapper">
+              <span className="stations-search-icon">
+                <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" strokeWidth="2">
+                  <circle cx="11" cy="11" r="8" />
+                  <line x1="21" y1="21" x2="16.65" y2="16.65" />
+                </svg>
+              </span>
+              <input
+                type="text"
+                className="stations-search-input"
+                placeholder="Search location (e.g., Gandhinagar, Ahmedabad)"
+                value={searchQuery}
+                onChange={(e) => {
+                  setSearchQuery(e.target.value);
+                  setCurrentPage(1);
+                }}
+              />
             </div>
-          ) : (
-            currentStationsSlice.map((st, idx) => {
+
+            <div className="stations-filter-actions">
+              <button
+                type="button"
+                className={`btn-filter-toggle ${showFilters || statusFilter !== 'all' || cityFilter !== 'all' ? 'active' : ''}`}
+                onClick={() => setShowFilters(!showFilters)}
+              >
+                <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="2">
+                  <polygon points="22 3 2 3 10 12.46 10 19 14 21 14 12.46 22 3" />
+                </svg>
+                Filters
+                {(statusFilter !== 'all' || cityFilter !== 'all') && <span>(Active)</span>}
+              </button>
+            </div>
+          </div>
+
+          {/* Expandable Filter Panel */}
+          {showFilters && (
+            <div className="filter-dropdown-panel">
+              <div className="filter-group">
+                <label>Status</label>
+                <select
+                  className="filter-select"
+                  value={statusFilter}
+                  onChange={(e) => {
+                    setStatusFilter(e.target.value);
+                    setCurrentPage(1);
+                  }}
+                >
+                  <option value="all">All Statuses</option>
+                  <option value="available">Available (Operational)</option>
+                  <option value="busy">Busy</option>
+                  <option value="unavailable">Unavailable</option>
+                </select>
+              </div>
+
+              <div className="filter-group">
+                <label>City</label>
+                <select
+                  className="filter-select"
+                  value={cityFilter}
+                  onChange={(e) => {
+                    setCityFilter(e.target.value);
+                    setCurrentPage(1);
+                  }}
+                >
+                  <option value="all">All Cities</option>
+                  {cityOptions.map((c) => (
+                    <option key={c} value={c}>
+                      {c}
+                    </option>
+                  ))}
+                </select>
+              </div>
+
+              {(statusFilter !== 'all' || cityFilter !== 'all' || searchQuery) && (
+                <button
+                  type="button"
+                  className="btn-filter-toggle"
+                  style={{ marginTop: '16px', padding: '6px 12px', fontSize: '12px' }}
+                  onClick={() => {
+                    setStatusFilter('all');
+                    setCityFilter('all');
+                    setSearchQuery('');
+                    setCurrentPage(1);
+                  }}
+                >
+                  Reset Filters
+                </button>
+              )}
+            </div>
+          )}
+
+          {/* Google-Style Linear Loading Progress Bar */}
+          <div className={`google-linear-loader ${loading ? 'active' : ''}`}>
+            <div className="linear-loader-bar"></div>
+          </div>
+
+          {/* Scrollable Stations List Area */}
+          <div className="stations-scroll-list">
+            {currentStationsSlice.length === 0 && !loading ? (
+              <div className="empty-db-state">
+                <h3 className="empty-db-title">No Stations Found</h3>
+                <p className="empty-db-desc">
+                  No charging hubs matched your search query. Try adjusting your search term or clearing the filters.
+                </p>
+              </div>
+            ) : (
+              currentStationsSlice.map((st, idx) => {
               const id = st.stationId || st._id || `st-${idx}`;
               const isSelected = selectedStationId === id;
 
@@ -536,6 +538,7 @@ export default function ChargingStations() {
               );
             })
           )}
+          </div>
 
           {/* Pagination Controls */}
           {filteredStations.length > 0 && (
