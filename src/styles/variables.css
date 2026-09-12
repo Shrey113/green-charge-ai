@@ -1,0 +1,26 @@
+/* ============================================================
+   GreenCharge AI — Design System Variables & Color Tokens
+============================================================ */
+
+:root {
+  --primary-green: #10b981;
+  --primary-dark: #059669;
+  --primary-deep: #065f46;
+  --primary-light: #ecfdf5;
+  --primary-soft: #d1fae5;
+  --accent-blue: #3b82f6;
+  --blue-soft: #eff6ff;
+  --bg-app: #f4faf6;
+  --card-bg: #ffffff;
+  --border-light: #e6eee8;
+  --border-subtle: #f0f5f1;
+  --text-main: #1e293b;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+  --radius-lg: 16px;
+  --radius-md: 12px;
+  --radius-sm: 8px;
+  --radius-pill: 30px;
+  --shadow-card: 0 2px 8px rgba(16, 185, 129, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+  --shadow-hover: 0 6px 16px rgba(16, 185, 129, 0.08);
+}

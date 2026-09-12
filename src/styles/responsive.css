@@ -1,0 +1,46 @@
+/* ============================================================
+   GreenCharge AI — Responsive Design Breakpoints
+============================================================ */
+
+@media (max-width: 1200px) {
+  .kpi-cards-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .dashboard-main-grid {
+    grid-template-columns: 1fr;
+  }
+  .chargers-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 860px) {
+  .app-layout {
+    flex-direction: column;
+  }
+  .app-sidebar {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+    position: relative;
+    border-right: none;
+    border-bottom: 1px solid var(--border-light);
+  }
+  .sidebar-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  .nav-item-btn {
+    width: auto;
+  }
+  .app-main-content {
+    max-width: 100%;
+    padding: 16px;
+  }
+  .chargers-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .settings-form-grid {
+    grid-template-columns: 1fr;
+  }
+}

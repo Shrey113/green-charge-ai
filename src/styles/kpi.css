@@ -1,0 +1,127 @@
+/* ============================================================
+   GreenCharge AI — Top KPI Cards Grid
+============================================================ */
+
+.kpi-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.kpi-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 18px 20px;
+  box-shadow: var(--shadow-card);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover);
+}
+
+.kpi-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.kpi-icon-container {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  background: #f0fdf4;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.kpi-badge {
+  font-size: 10.5px;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: var(--radius-pill);
+}
+
+.kpi-badge.positive {
+  background: #dcfce7;
+  color: #15803d;
+}
+
+.kpi-title {
+  margin: 0 0 6px;
+  font-size: 12.5px;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.kpi-value-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 4px;
+}
+
+.kpi-main-value {
+  font-size: 24px;
+  font-weight: 800;
+  color: var(--text-main);
+  letter-spacing: -0.5px;
+}
+
+.kpi-graphic {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.graphic-symbol {
+  font-size: 18px;
+}
+
+.graphic-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: #15803d;
+}
+
+.kpi-subtext {
+  margin: 0;
+  font-size: 11px;
+  color: var(--text-light);
+}
+
+.kpi-progress-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.kpi-progress-bar {
+  flex: 1;
+  height: 6px;
+  background: #e2e8f0;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.kpi-progress-fill {
+  height: 100%;
+  background: #10b981;
+  border-radius: 3px;
+}
+
+.kpi-progress-text {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--text-muted);
+}

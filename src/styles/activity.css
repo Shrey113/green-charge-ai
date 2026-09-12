@@ -1,0 +1,107 @@
+/* ============================================================
+   GreenCharge AI — Recent Charging Activity Table
+============================================================ */
+
+.activity-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-card);
+  text-align: left;
+}
+
+.activity-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.activity-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.activity-icon {
+  font-size: 16px;
+  color: #10b981;
+}
+
+.activity-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.btn-view-all {
+  background: none;
+  border: none;
+  color: #059669;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-view-all:hover {
+  text-decoration: underline;
+}
+
+.table-responsive {
+  width: 100%;
+  overflow-x: auto;
+}
+
+.activity-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+
+.activity-table th {
+  text-align: left;
+  padding: 8px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-light);
+  border-bottom: 1px solid #f1f5f9;
+}
+
+.activity-table td {
+  padding: 12px 10px;
+  border-bottom: 1px solid #f8fafc;
+  color: var(--text-main);
+}
+
+.bullet-dot {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #10b981;
+  margin-right: 6px;
+}
+
+.ev-id-cell {
+  font-weight: 600;
+}
+
+.table-status-pill {
+  display: inline-block;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.status-charging {
+  background: #eff6ff;
+  color: #2563eb;
+}
+
+.status-completed {
+  background: #ecfdf5;
+  color: #059669;
+}

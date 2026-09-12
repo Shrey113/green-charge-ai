@@ -1,0 +1,125 @@
+/* ============================================================
+   GreenCharge AI — Left Sidebar Navigation
+============================================================ */
+
+.app-sidebar {
+  width: 240px;
+  min-width: 240px;
+  background: #f2f9f5;
+  border-right: 1px solid #e5eee8;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 24px 16px;
+  box-sizing: border-box;
+  position: sticky;
+  top: 0;
+  height: 100vh;
+}
+
+.sidebar-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 0 8px 24px 8px;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.brand-leaf-icon {
+  width: 38px;
+  height: 38px;
+  background: linear-gradient(135deg, #10b981, #059669);
+  color: #ffffff;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 10px rgba(16, 185, 129, 0.25);
+}
+
+.brand-text {
+  text-align: left;
+}
+
+.brand-name {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text-main);
+  letter-spacing: -0.3px;
+}
+
+.brand-role {
+  font-size: 11px;
+  color: var(--text-muted);
+  display: block;
+  margin-top: 2px;
+}
+
+.sidebar-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 20px;
+  flex: 1;
+}
+
+.nav-item-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: 100%;
+  padding: 10px 14px;
+  border-radius: var(--radius-md);
+  border: none;
+  background: transparent;
+  color: #475569;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s ease;
+}
+
+.nav-item-btn:hover {
+  background: #f0fdf4;
+  color: var(--primary-dark);
+}
+
+.nav-item-btn.active {
+  background: #dcfce7;
+  color: #065f46;
+  font-weight: 600;
+}
+
+.nav-icon {
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.nav-label {
+  font-size: 13.5px;
+}
+
+.sidebar-footer {
+  padding: 16px 8px 0;
+  border-top: 1px solid var(--border-subtle);
+  text-align: left;
+}
+
+.footer-leaf-art {
+  font-size: 26px;
+  margin-bottom: 6px;
+}
+
+.footer-slogan {
+  margin: 0;
+  font-size: 11.5px;
+  line-height: 1.4;
+  color: #64748b;
+}
+
+.footer-slogan strong {
+  color: #059669;
+}

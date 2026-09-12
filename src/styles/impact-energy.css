@@ -1,0 +1,182 @@
+/* ============================================================
+   GreenCharge AI — Environmental Impact & Energy Usage Chart
+============================================================ */
+
+/* Environmental Impact Card */
+.environmental-impact-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-card);
+  text-align: left;
+}
+
+.impact-header {
+  margin-bottom: 18px;
+}
+
+.impact-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.impact-icon {
+  font-size: 16px;
+}
+
+.impact-title {
+  margin: 0;
+  font-size: 15px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.impact-subtitle {
+  margin: 2px 0 0;
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.impact-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  text-align: center;
+}
+
+.impact-stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.stat-circle-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+
+.icon-leaf {
+  background: #ecfdf5;
+}
+
+.icon-co2 {
+  background: #ecfdf5;
+}
+
+.icon-sprout {
+  background: #ecfdf5;
+}
+
+.stat-label {
+  font-size: 10.5px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.stat-value {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--text-main);
+}
+
+.stat-detail {
+  font-size: 10px;
+  color: #10b981;
+  font-weight: 600;
+  margin-top: 2px;
+}
+
+/* Energy Usage (Last 24 Hours) Chart */
+.energy-usage-card {
+  background: #ffffff;
+  border: 1px solid var(--border-light);
+  border-radius: var(--radius-lg);
+  padding: 22px;
+  box-shadow: var(--shadow-card);
+  text-align: left;
+}
+
+.energy-chart-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 14px;
+}
+
+.chart-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chart-icon {
+  font-size: 16px;
+}
+
+.chart-title {
+  margin: 0;
+  font-size: 14.5px;
+  font-weight: 700;
+  color: var(--text-main);
+}
+
+.chart-legend {
+  display: flex;
+  gap: 12px;
+  font-size: 11.5px;
+  color: var(--text-muted);
+}
+
+.dot-renewable {
+  background-color: #10b981;
+}
+
+.dot-grid {
+  background-color: #cbd5e1;
+}
+
+.chart-container {
+  display: flex;
+  align-items: stretch;
+  gap: 8px;
+  height: 180px;
+}
+
+.chart-y-axis {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-light);
+  padding-bottom: 20px;
+  text-align: right;
+  width: 24px;
+}
+
+.chart-svg-area {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.usage-svg {
+  width: 100%;
+  height: 155px;
+}
+
+.chart-x-axis {
+  display: flex;
+  justify-content: space-between;
+  font-size: 10px;
+  color: var(--text-light);
+  margin-top: 4px;
+}
