@@ -10,17 +10,25 @@ green-charge-ai/
 │   └── icons.svg
 │
 ├── server/                       # Node.js + Express backend
-│   ├── index.js                  # Express server entry point & /api routes
+│   ├── index.js                  # Express server entry point & route mounting
+│   ├── electricityMaps.js        # Electricity Maps API integration router
 │   ├── package.json              # Server dependencies (express, cors, dotenv)
-│   ├── .env                      # Server local environment variables (ignored)
+│   ├── .env                      # Server environment (ELECTRICITY_MAPS_TOKEN & URL)
 │   └── .env.example              # Server environment template
 │
-├── src/                          # React frontend (Pure JavaScript / JSX)
-│   ├── assets/                   # Images and styling assets
-│   ├── App.jsx                   # Main React component (server connection test)
-│   ├── App.css                   # Component styles & status indicators
-│   ├── index.css                 # Global CSS variables & layout
-│   └── main.jsx                  # React application DOM entry point
+├── src/                          # React frontend
+│   ├── components/               # Reusable UI components
+│   │   ├── Header.jsx            # Top bar with user coordinates & refresh
+│   │   ├── SlotSelector.jsx      # Time slot selector & "Show Data" trigger
+│   │   └── SlotDataCard.jsx      # Clean 3-metric cards (Renewable, Load, Carbon)
+│   ├── pages/                    # Page level components
+│   │   └── Dashboard.jsx         # Main dashboard coordinating data & slot views
+│   ├── services/                 # Services and data models
+│   │   └── electricityService.js # Geolocation & forecast API data model mapper
+│   ├── App.jsx                   # Root component
+│   ├── App.css                   # Component styles & card layouts
+│   ├── index.css                 # Global CSS baseline
+│   └── main.jsx                  # React DOM entry point
 │
 ├── .env                          # Frontend environment variables (ignored)
 ├── .env.example                  # Frontend environment template
