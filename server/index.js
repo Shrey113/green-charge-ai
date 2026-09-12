@@ -30,5 +30,6 @@ app.get('/api', (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`Electricity Maps API: http://localhost:${PORT}/api/electricity-maps/forecast?lat=23.0225&lon=72.5714`);
+  console.log(`Electricity Maps API (Fixed EV Station): http://localhost:${PORT}/api/electricity-maps/forecast?lat=23.188551&lon=72.626715`);
 });
+

@@ -75,6 +75,11 @@ export default function SlotDataCard({ slot }) {
           <div className="metric-header">
             <span className="metric-icon">💨</span>
             <span className="metric-title">Carbon Intensity</span>
+            {slot.isCarbonEstimated && (
+              <span className="est-badge" title="Calculated using Central Electricity Authority (CEA) Indian grid baseline factor">
+                Estimated
+              </span>
+            )}
           </div>
           <div className="metric-value-row">
             <span className="metric-number">
@@ -82,7 +87,11 @@ export default function SlotDataCard({ slot }) {
             </span>
             <span className="metric-unit">{slot.carbonUnit}</span>
           </div>
-          <p className="metric-hint">Emissions per kWh generated</p>
+          <p className="metric-hint">
+            {slot.isCarbonEstimated
+              ? 'Derived from renewable mix (CEA Grid Baseline)'
+              : 'Emissions per kWh generated'}
+          </p>
         </div>
       </div>
     </div>

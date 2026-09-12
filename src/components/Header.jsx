@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default function Header({ location, onRefresh, loading }) {
+export default function Header({ station, onRefresh, loading }) {
   return (
     <header className="app-header">
       <div className="brand-section">
@@ -14,9 +14,9 @@ export default function Header({ location, onRefresh, loading }) {
       <div className="location-badge">
         <span className="location-dot"></span>
         <div className="location-info">
-          <span className="location-label">User Location:</span>
+          <span className="location-label">Fixed EV Station:</span>
           <span className="location-coords">
-            {location ? `${location.latitude.toFixed(4)}° N, ${location.longitude.toFixed(4)}° E` : 'Detecting...'}
+            {station ? `${station.name} (${station.latitude}, ${station.longitude})` : '23.188551° N, 72.626715° E'}
           </span>
         </div>
         <button className="refresh-btn" onClick={onRefresh} disabled={loading} title="Refresh Live Forecast">
