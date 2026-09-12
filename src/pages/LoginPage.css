@@ -1,0 +1,494 @@
+/* ============================================================
+   GreenCharge AI — 3D Isometric Minimalist Vehicle Login
+   Inspired by Reference Image (Clean White 3D Diorama + Airy Auth)
+   Layout: Seamless Canvas, Strict 100 SVH
+   ============================================================ */
+
+.iso-login-container {
+  display: flex;
+  height: 100vh;
+  height: 100svh;
+  max-height: 100svh;
+  width: 100vw;
+  background-color: #f2f3f5;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  color: #1e293b;
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Blue grid fading in smoothly from left to right (0% on left, visible on right) */
+.iso-login-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(to right, rgba(2, 132, 199, 0.08) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(2, 132, 199, 0.08) 1px, transparent 1px);
+  background-size: 40px 40px;
+  /* Pure solid background on left where car sits, gradually fading into blue grid on right */
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, transparent 35%, rgba(0, 0, 0, 0.4) 65%, black 100%);
+  mask-image: linear-gradient(to right, transparent 0%, transparent 35%, rgba(0, 0, 0, 0.4) 65%, black 100%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ============================================================
+   1. LEFT: 3D ISOMETRIC DIORAMA SHOWCASE (SEAMLESS CANVAS)
+   ============================================================ */
+.iso-visual-side {
+  flex: 1.25;
+  height: 100%;
+  max-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  box-sizing: border-box;
+  position: relative;
+  background: transparent;
+  z-index: 1;
+}
+
+.iso-image-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 780px;
+  height: 90%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.iso-diorama-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: transform 0.5s ease;
+  user-select: none;
+  -webkit-mask-image: radial-gradient(ellipse at 50% 50%, black 72%, transparent 99%);
+  mask-image: radial-gradient(ellipse at 50% 50%, black 72%, transparent 99%);
+}
+
+.iso-diorama-img:hover {
+  transform: translateY(-4px) scale(1.01);
+}
+
+/* Floating Status Tag */
+.iso-node-badge {
+  position: absolute;
+  top: 16px;
+  left: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid rgba(226, 232, 240, 0.9);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #334155;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 6px 14px;
+  border-radius: 30px;
+  box-shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+}
+
+.iso-pulse {
+  width: 7px;
+  height: 7px;
+  background-color: #10b981;
+  border-radius: 50%;
+  box-shadow: 0 0 8px #10b981;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ============================================================
+   2. RIGHT: MINIMALIST FORM (SEAMLESS CANVAS, NO SEPARATE PART)
+   ============================================================ */
+.iso-form-side {
+  flex: 0.95;
+  height: 100%;
+  max-height: 100svh;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  padding: 24px 64px 24px 32px;
+  box-sizing: border-box;
+  background: transparent;
+  border: none;
+  position: relative;
+  z-index: 2;
+}
+
+.iso-form-wrapper {
+  width: 100%;
+  max-width: 390px;
+  display: flex;
+  flex-direction: column;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+/* Reference-Style Header */
+.iso-header {
+  margin-bottom: 20px;
+}
+
+.iso-title {
+  font-size: 32px;
+  font-weight: 400;
+  color: #1e293b;
+  margin: 0 0 8px 0;
+  letter-spacing: -0.8px;
+}
+
+.iso-subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+  line-height: 1.5;
+  font-weight: 400;
+}
+
+/* ============================================================
+   3. LICENSE PLATE BADGE PREVIEW
+   ============================================================ */
+.plate-preview-wrapper {
+  margin-bottom: 14px;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.plate-preview-badge {
+  display: inline-flex;
+  align-items: center;
+  background: #065f46;
+  color: #ffffff;
+  border: 1.5px solid #047857;
+  border-radius: 7px;
+  padding: 3px 10px;
+  box-shadow: 0 2px 6px rgba(6, 95, 70, 0.15);
+  gap: 10px;
+  letter-spacing: 1.5px;
+}
+
+.plate-ind-strip {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 7.5px;
+  font-weight: 800;
+  line-height: 1;
+  padding-right: 6px;
+  border-right: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.plate-ind-text {
+  color: #6ee7b7;
+  font-size: 7.5px;
+  letter-spacing: 0.5px;
+}
+
+.plate-chakra-dot {
+  font-size: 8px;
+  color: #ffffff;
+}
+
+.plate-number-text {
+  font-family: 'Courier New', Courier, monospace, sans-serif;
+  font-size: 14px;
+  font-weight: 800;
+  color: #ffffff;
+  letter-spacing: 1.5px;
+}
+
+.plate-ev-tag {
+  font-size: 9px;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.15);
+  padding: 1px 5px;
+  border-radius: 4px;
+  color: #d1fae5;
+  letter-spacing: 0.5px;
+}
+
+/* ============================================================
+   4. FORM FIELDS (MATCHING REFERENCE FILLED INPUT STYLE)
+   ============================================================ */
+.vehicle-login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.login-form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.label-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.form-field-label {
+  font-size: 12px;
+  font-weight: 500;
+  color: #64748b;
+}
+
+.req-star {
+  display: none;
+}
+
+.field-hint {
+  font-size: 11px;
+  color: #94a3b8;
+}
+
+.input-icon-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-prefix-icon {
+  position: absolute;
+  left: 14px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+}
+
+/* Reference Clean Input Style on #f2f3f5 Canvas */
+.login-text-input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  font-size: 13.5px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  outline: none;
+  color: #1e293b;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.uppercase-input {
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.login-text-input::placeholder {
+  color: #94a3b8;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+
+.login-text-input:focus {
+  background-color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+}
+
+.input-icon-wrapper:focus-within .input-prefix-icon {
+  color: #0284c7;
+}
+
+.input-suffix-btn {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #94a3b8;
+  cursor: pointer;
+  padding: 4px;
+  display: flex;
+  align-items: center;
+}
+
+.input-suffix-btn:hover {
+  color: #475569;
+}
+
+.login-select-input {
+  width: 100%;
+  padding: 12px 14px 12px 40px;
+  font-size: 13px;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  outline: none;
+  color: #1e293b;
+  background-color: #ffffff;
+  transition: all 0.2s ease;
+  font-weight: 500;
+  cursor: pointer;
+  box-sizing: border-box;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.02);
+}
+
+.login-select-input:focus {
+  background-color: #ffffff;
+  border-color: #0284c7;
+  box-shadow: 0 0 0 3px rgba(2, 132, 199, 0.12);
+}
+
+/* Error Banner */
+.login-error-banner {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #fef2f2;
+  border: 1px solid #fecaca;
+  color: #b91c1c;
+  padding: 8px 12px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+/* Checkbox & Extras */
+.login-extras-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 12px;
+  margin-top: 2px;
+}
+
+.remember-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: #64748b;
+  user-select: none;
+}
+
+.remember-checkbox-label input[type="checkbox"] {
+  accent-color: #0284c7;
+  width: 15px;
+  height: 15px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.security-note {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: #059669;
+  font-weight: 600;
+  font-size: 11px;
+}
+
+/* ============================================================
+   5. SOLID PRIMARY BUTTON (MATCHING REFERENCE BUTTON)
+   ============================================================ */
+.btn-login-submit {
+  width: 100%;
+  padding: 13px 20px;
+  background: #0284c7;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  margin-top: 6px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.btn-login-submit:hover:not(:disabled) {
+  background: #0369a1;
+  box-shadow: 0 6px 16px rgba(2, 132, 199, 0.35);
+  transform: translateY(-1px);
+}
+
+.btn-login-submit:active:not(:disabled) {
+  transform: translateY(0);
+}
+
+.btn-login-submit:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+}
+
+.btn-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.btn-loading-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.spinner-dot {
+  width: 14px;
+  height: 14px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top-color: #ffffff;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Footer note */
+.iso-footer {
+  margin-top: 18px;
+  text-align: center;
+}
+
+.iso-footer-text {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ============================================================
+   6. RESPONSIVE BREAKPOINTS
+   ============================================================ */
+@media (max-width: 960px) {
+  .iso-login-container {
+    flex-direction: column;
+    height: auto;
+    min-height: 100svh;
+    max-height: none;
+    overflow-y: auto;
+  }
+
+  .iso-visual-side {
+    height: 320px;
+    max-height: 320px;
+    padding: 20px;
+  }
+
+  .iso-form-side {
+    padding: 24px 20px 40px;
+    justify-content: center;
+    background: #ffffff;
+  }
+}
