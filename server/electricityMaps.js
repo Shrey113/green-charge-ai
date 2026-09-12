@@ -75,25 +75,21 @@ function getFallbackData(lat, lon) {
   return null;
 }
 
+// Default Fixed EV Station Coordinates
+const DEFAULT_STATION_LAT = 23.188551;
+const DEFAULT_STATION_LON = 72.626715;
+
 /**
  * GET /api/electricity-maps/forecast
  * GET /api/electricity-maps
  *
- * Query Params:
- *  - lat: Latitude from browser geolocation
- *  - lon: Longitude from browser geolocation
+ * Uses fixed EV station coordinates by default (23.188551, 72.626715).
+ * No browser location prompt required.
  */
 const handleForecastRequest = async (req, res) => {
-  const { lat, lon } = req.query;
-
-  // 1. Validate coordinates passed from browser
-  if (!lat || !lon) {
-    return res.status(400).json({
-      error: 'MISSING_COORDINATES',
-      message: 'Latitude and Longitude are required. Please provide ?lat=...&lon=... from browser location.',
-      example: '/api/electricity-maps/forecast?lat=23.0225&lon=72.5714',
-    });
-  }
+  // Use query params if provided, otherwise default to fixed EV station
+  const lat = req.query.lat ? parseFloat(req.query.lat) : DEFAULT_STATION_LAT;
+  const lon = req.query.lon ? parseFloat(req.query.lon) : DEFAULT_STATION_LON;
 
   const token = getApiToken();
 
@@ -131,6 +127,24 @@ const handleForecastRequest = async (req, res) => {
       });
     }
 
+    // If carbon_intensity data is empty from API (e.g. IN-WE zone), estimate using CEA grid baseline formula
+    let carbonData = carbon?.data || [];
+    if (carbonData.length === 0 && renewable?.data && renewable.data.length > 0) {
+      carbonData = renewable.data.map((r) => {
+        const renewPct = Math.min(100, Math.max(0, Number(r.value) || 0));
+        // CEA Grid Standard: ~820 gCO2/kWh thermal baseline, ~25 gCO2/kWh renewable
+        const estCarbon = Math.round(820 * (1 - renewPct / 100) + 25 * (renewPct / 100));
+        return {
+          zone: r.zone,
+          datetime: r.datetime,
+          value: estCarbon,
+          unit: 'gCO2eq/kWh',
+          isEstimated: true,
+          estimationMethod: 'CEA_GRID_BASELINE_FORMULA',
+        };
+      });
+    }
+
     // Build unified JSON response matching electricity_forecast.json
     const responseData = {
       location: {
@@ -151,7 +165,7 @@ const handleForecastRequest = async (req, res) => {
       },
       carbon_intensity: {
         unit: 'gCO2eq/kWh',
-        data: carbon?.data || [],
+        data: carbonData,
       },
       source: 'electricity_maps_api_v4',
       fetched_at: new Date().toISOString(),

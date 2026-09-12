@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="22" height="22" fill="none">
+  <circle cx="12" cy="12" r="9" fill="url(#coinGrad)" stroke="#059669" stroke-width="1.2"/>
+  <circle cx="12" cy="12" r="7" stroke="#34D399" stroke-width="1" stroke-dasharray="2 2"/>
+  <path d="M10 8h4M10 11h4M12 8v8M10 16h4" stroke="#047857" stroke-width="1.8" stroke-linecap="round"/>
+  <defs>
+    <linearGradient id="coinGrad" x1="3" y1="3" x2="21" y2="21" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#A7F3D0"/>
+      <stop offset="1" stop-color="#34D399"/>
+    </linearGradient>
+  </defs>
+</svg>

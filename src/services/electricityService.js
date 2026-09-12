@@ -1,36 +1,29 @@
 /**
  * Electricity Forecast Data Service & Model Mapper
- * Handles browser geolocation, API fetching, and slot formatting
+ * Uses fixed EV Network Station Location:
+ * Latitude: 23.188551, Longitude: 72.626715
+ * No browser location prompt required.
  */
 
 const API_BASE_URL = 'http://localhost:5000/api/electricity-maps/forecast';
-const DEFAULT_LAT = 23.0225;
-const DEFAULT_LON = 72.5714;
+
+export const FIXED_EV_STATION = {
+  name: 'Gandhinagar EV Charging Hub',
+  latitude: 23.188551,
+  longitude: 72.626715,
+};
 
 /**
- * Get current browser coordinates via HTML5 Geolocation API
+ * Calculate estimated Carbon Intensity (gCO2eq/kWh) when API returns empty data
+ * Uses Central Electricity Authority (CEA) Indian Grid baseline:
+ * - Thermal coal generation factor: ~820 gCO2eq/kWh
+ * - Clean renewable factor: ~25 gCO2eq/kWh
+ * Formula: 820 * (1 - renew%/100) + 25 * (renew%/100)
  */
-export function getBrowserCoordinates() {
-  return new Promise((resolve) => {
-    if (!('geolocation' in navigator)) {
-      return resolve({ lat: DEFAULT_LAT, lon: DEFAULT_LON, source: 'default' });
-    }
-
-    navigator.geolocation.getCurrentPosition(
-      (position) => {
-        resolve({
-          lat: position.coords.latitude,
-          lon: position.coords.longitude,
-          source: 'browser',
-        });
-      },
-      (error) => {
-        console.warn('Geolocation unavailable or denied, using default:', error.message);
-        resolve({ lat: DEFAULT_LAT, lon: DEFAULT_LON, source: 'default' });
-      },
-      { timeout: 5000 }
-    );
-  });
+export function calculateCarbonIntensity(renewablePercent) {
+  if (renewablePercent === null || renewablePercent === undefined) return 720;
+  const renewFraction = Math.min(1, Math.max(0, Number(renewablePercent) / 100));
+  return Math.round(820 * (1 - renewFraction) + 25 * renewFraction);
 }
 
 /**
@@ -51,9 +44,12 @@ export function formatSlotLabel(dateObj) {
 }
 
 /**
- * Fetch 24-hour electricity forecast and normalize into structured hourly slots model
+ * Fetch 24-hour electricity forecast for the fixed station location
  */
-export async function fetchElectricityForecast(lat, lon) {
+export async function fetchElectricityForecast(
+  lat = FIXED_EV_STATION.latitude,
+  lon = FIXED_EV_STATION.longitude
+) {
   const url = `${API_BASE_URL}?lat=${lat}&lon=${lon}`;
   const response = await fetch(url);
 
@@ -93,9 +89,17 @@ export async function fetchElectricityForecast(lat, lon) {
       ? Math.round(Number(lItem.value))
       : null;
 
-    const carbonVal = cItem?.value !== undefined && cItem?.value !== null
-      ? Math.round(Number(cItem.value))
-      : null;
+    let carbonVal = null;
+    let isCarbonEstimated = false;
+
+    if (cItem?.value !== undefined && cItem?.value !== null) {
+      carbonVal = Math.round(Number(cItem.value));
+      isCarbonEstimated = Boolean(cItem.isEstimated);
+    } else {
+      // Zone IN-WE has no direct forecast from API; calculate via CEA grid baseline
+      carbonVal = calculateCarbonIntensity(renewableVal);
+      isCarbonEstimated = true;
+    }
 
     slots.push({
       id: `slot-${i}`,
@@ -109,6 +113,7 @@ export async function fetchElectricityForecast(lat, lon) {
       totalGridLoad: loadVal,
       loadUnit: raw.total_grid_load?.unit || 'MW',
       carbonIntensity: carbonVal,
+      isCarbonEstimated,
       carbonUnit: raw.carbon_intensity?.unit || 'gCO2eq/kWh',
       isCurrent,
     });
@@ -119,7 +124,11 @@ export async function fetchElectricityForecast(lat, lon) {
   const defaultIndex = currentSlotIndex !== -1 ? currentSlotIndex : 0;
 
   return {
-    location: raw.location || { latitude: lat, longitude: lon },
+    location: {
+      stationName: FIXED_EV_STATION.name,
+      latitude: lat,
+      longitude: lon,
+    },
     status: raw.status || 'success',
     source: raw.source || 'live',
     slots,
