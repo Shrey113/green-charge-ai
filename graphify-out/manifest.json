@@ -6,9 +6,9 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1789232330.5465322,
-    "seen": 1789235542.2944312,
-    "ast_hash": "52ca2906fe3edcb9a1821b127983e955",
+    "mtime": 1789237053.060551,
+    "seen": 1789237541.505145,
+    "ast_hash": "ff56d65fd5cfecfb95eb0a72d3f94e21",
     "semantic_hash": ""
   },
   "server/index.js": {
@@ -414,9 +414,9 @@
     "semantic_hash": ""
   },
   "src/grid_operator/index.jsx": {
-    "mtime": 1789236190.7657967,
-    "seen": 1789236236.7641332,
-    "ast_hash": "6309d8e8280e945842a9e9b37634772d",
+    "mtime": 1789237529.0797472,
+    "seen": 1789237541.5052042,
+    "ast_hash": "9e90e195e203c0dead125fb0d4d1d5f7",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/AlertsPage.jsx": {
@@ -426,39 +426,39 @@
     "semantic_hash": ""
   },
   "src/grid_operator/pages/AnalyticsAlertsPage.jsx": {
-    "mtime": 1789235461.8050816,
-    "seen": 1789235542.2944934,
-    "ast_hash": "621a4cd30dcd0cd2769225cd3a2998c8",
+    "mtime": 1789237503.038915,
+    "seen": 1789237541.5052073,
+    "ast_hash": "ff33fe9bc730dc7e07382403ca45bc1b",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/DashboardOverview.jsx": {
-    "mtime": 1789235394.5638583,
-    "seen": 1789235542.2944946,
-    "ast_hash": "e087c409347714ff5a1af5e7743f2bc4",
+    "mtime": 1789237441.9490528,
+    "seen": 1789237541.5052085,
+    "ast_hash": "a425856db54d8dd3bb0f5451790e03d5",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/EVChargingDemandPage.jsx": {
-    "mtime": 1789235435.0861652,
-    "seen": 1789235542.2944958,
-    "ast_hash": "1bad9cf9b1d0c8e06b7df0ce24f520bc",
+    "mtime": 1789237477.6606271,
+    "seen": 1789237541.5052102,
+    "ast_hash": "ef316e87a61ef8d73811b6228b3b0f1a",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/ForecastSchedulingPage.jsx": {
-    "mtime": 1789235449.0074432,
-    "seen": 1789235542.294497,
-    "ast_hash": "3af7fd2e38a2a5272b32ba6b96a6c210",
+    "mtime": 1789237490.321418,
+    "seen": 1789237541.5052116,
+    "ast_hash": "0b69b5a915bde69303f6c80cedc701aa",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/GridOverviewPage.jsx": {
-    "mtime": 1789235403.4755878,
-    "seen": 1789235542.2944982,
-    "ast_hash": "c276bd29774ec306463f0008c11be709",
+    "mtime": 1789237452.135647,
+    "seen": 1789237541.5052133,
+    "ast_hash": "0df52759c2afaa95fdff4ddefd03365d",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/RenewableEnergyPage.jsx": {
-    "mtime": 1789235419.110864,
-    "seen": 1789235542.2944999,
-    "ast_hash": "1aefb74818c8bec3bbcb695b0764c773",
+    "mtime": 1789237466.4380014,
+    "seen": 1789237541.5052147,
+    "ast_hash": "09753dffc2f3f4f8177defc5e9d34169",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/SettingsPage.jsx": {
@@ -468,9 +468,9 @@
     "semantic_hash": ""
   },
   "src/grid_operator/services/gridData.js": {
-    "mtime": 1789235321.6427834,
-    "seen": 1789235542.2945025,
-    "ast_hash": "282e46d0cff31bdeb76aa3d791cb1c27",
+    "mtime": 1789237397.130864,
+    "seen": 1789237541.505218,
+    "ast_hash": "222746a1e4a859cab975cdedf42d3e73",
     "semantic_hash": ""
   },
   "src/pages/ChargingStations.jsx": {
@@ -567,6 +567,18 @@
     "mtime": 1789234773.8675368,
     "seen": 1789235542.2945685,
     "ast_hash": "acd69722968d4f656779b99ddb9a2def",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/components/ApexChart.jsx": {
+    "mtime": 1789237403.5870564,
+    "seen": 1789237541.5051956,
+    "ast_hash": "9a33fd91836c6c1e37bd94ff4d432455",
+    "semantic_hash": ""
+  },
+  "src/grid_operator/data/gridData.json": {
+    "mtime": 1789237389.1155236,
+    "seen": 1789237541.5052025,
+    "ast_hash": "3eed223892fb1f8634177ac44d8a96b2",
     "semantic_hash": ""
   }
 }

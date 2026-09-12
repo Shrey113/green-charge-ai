@@ -1,12 +1,12 @@
 {
   "0": "server/package.json",
-  "1": "App.jsx",
+  "1": "ChargingStations.jsx",
   "2": "ev_charging_optimizer.py",
   "3": "package.json",
   "4": "GreenCharge AI — Product Requirements Document (PRD)",
   "5": "GreenCharge_AI_UI_UX.md",
-  "6": "react",
-  "7": "CustomerApp.jsx",
+  "6": "GridOperatorApp.jsx",
+  "7": "react",
   "8": "GreenCharge AI",
   "9": "db.js",
   "10": "customerData.js",
@@ -96,5 +96,6 @@
   "94": "30. Loading States",
   "95": "40. Implementation Guidelines",
   "96": "6. Shape and Elevation",
-  "97": "19. Grid Operator Dashboard"
+  "97": "14. Login Screen",
+  "98": "4. Typography"
 }

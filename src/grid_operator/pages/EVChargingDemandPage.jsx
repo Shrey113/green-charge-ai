@@ -1,27 +1,130 @@
 import React from 'react';
+import ApexChart from '../components/ApexChart.jsx';
 import { evDemandData } from '../services/gridData.js';
 
 export default function EVChargingDemandPage() {
   const { kpis, evLoadCurve, regionalEvLoads, topStations } = evDemandData;
 
-  // Chart coordinates for 24h EV Load
-  const chartW = 460;
-  const chartH = 175;
-  const padL = 38;
-  const padR = 15;
-  const padT = 15;
-  const padB = 25;
-  const graphW = chartW - padL - padR;
-  const graphH = chartH - padT - padB;
-  const maxEVLoad = 600;
+  // 1. EV Charging Load Area Chart Options
+  const evAreaOptions = {
+    chart: {
+      type: 'area',
+      height: 180,
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#10B981'],
+    stroke: { curve: 'smooth', width: 2.5 },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.4,
+        opacityTo: 0.05,
+        stops: [0, 90, 100],
+      },
+    },
+    dataLabels: { enabled: false },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+    },
+    xaxis: {
+      categories: evLoadCurve.map((d) => d.time),
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      min: 0,
+      max: 600,
+      tickAmount: 3,
+      title: {
+        text: 'Load (MW)',
+        style: { color: '#94A3B8', fontSize: '10px', fontWeight: 600 },
+      },
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: { formatter: (val) => `${val} MW` },
+    },
+  };
 
-  const pointsEV = evLoadCurve.map((d, i) => {
-    const x = padL + (i / (evLoadCurve.length - 1)) * graphW;
-    const y = padT + graphH - (d.load / maxEVLoad) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  const evAreaSeries = [
+    {
+      name: 'EV Load',
+      data: evLoadCurve.map((d) => d.load),
+    },
+  ];
 
-  const areaEV = `${padL},${padT + graphH} ${pointsEV} ${padL + graphW},${padT + graphH}`;
+  // 2. Charging Load by Region Horizontal Bar Chart Options
+  const barOptions = {
+    chart: {
+      type: 'bar',
+      height: 180,
+      toolbar: { show: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    plotOptions: {
+      bar: {
+        horizontal: true,
+        borderRadius: 4,
+        barHeight: '52%',
+        dataLabels: {
+          position: 'top',
+        },
+      },
+    },
+    colors: ['#10B981'],
+    dataLabels: {
+      enabled: true,
+      formatter: (val) => `${val} MW`,
+      offsetX: 28,
+      style: {
+        fontSize: '10.5px',
+        fontWeight: 700,
+        colors: ['#0F172A'],
+      },
+    },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+      xaxis: { lines: { show: true } },
+      yaxis: { lines: { show: false } },
+    },
+    xaxis: {
+      categories: regionalEvLoads.map((d) => d.region),
+      max: 150,
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+        formatter: (val) => `${val} MW`,
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      labels: {
+        style: { colors: '#475569', fontSize: '11px', fontWeight: 500 },
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: { formatter: (val) => `${val} MW` },
+    },
+  };
+
+  const barSeries = [
+    {
+      name: 'Load',
+      data: regionalEvLoads.map((d) => d.load),
+    },
+  ];
 
   return (
     <div className="grid-page-content ev-charging-demand-page">
@@ -81,50 +184,13 @@ export default function EVChargingDemandPage() {
             <h3 className="card-title">EV Charging Load (Last 24 Hours)</h3>
           </div>
 
-          <div className="chart-container-svg">
-            <svg viewBox={`0 0 ${chartW} ${chartH}`} width="100%" height="165">
-              {/* Y Axis ticks */}
-              {[0, 200, 400, 600].map((val) => {
-                const y = padT + graphH - (val / maxEVLoad) * graphH;
-                return (
-                  <g key={val}>
-                    <line x1={padL} y1={y} x2={padL + graphW} y2={y} stroke="#F1F5F9" strokeWidth="1" />
-                    <text x={padL - 8} y={y + 3} textAnchor="end" fontSize="10" fill="#94A3B8">
-                      {val}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {/* Y Axis Label */}
-              <text
-                x={-chartH / 2}
-                y="12"
-                transform="rotate(-90)"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#94A3B8"
-                fontWeight="600"
-              >
-                Load (MW)
-              </text>
-
-              {/* Area Fill */}
-              <polygon points={areaEV} fill="#10B981" fillOpacity="0.25" />
-
-              {/* Smooth Line */}
-              <polyline points={pointsEV} fill="none" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-
-              {/* X Axis labels */}
-              {evLoadCurve.filter((_, idx) => idx % 2 === 0).map((d, i, arr) => {
-                const x = padL + (i / (arr.length - 1)) * graphW;
-                return (
-                  <text key={d.time} x={x} y={chartH - 8} textAnchor="middle" fontSize="10" fill="#94A3B8">
-                    {d.time}
-                  </text>
-                );
-              })}
-            </svg>
+          <div style={{ minHeight: '185px' }}>
+            <ApexChart
+              options={evAreaOptions}
+              series={evAreaSeries}
+              type="area"
+              height={185}
+            />
           </div>
         </div>
 
@@ -134,19 +200,13 @@ export default function EVChargingDemandPage() {
             <h3 className="card-title">Charging Load by Region</h3>
           </div>
 
-          <div className="horiz-bar-list">
-            {regionalEvLoads.map((item) => (
-              <div key={item.region} className="horiz-bar-row">
-                <span className="horiz-bar-label">{item.region}</span>
-                <div className="horiz-bar-track">
-                  <div
-                    className="horiz-bar-fill"
-                    style={{ width: `${(item.load / item.max) * 100}%` }}
-                  />
-                </div>
-                <span className="horiz-bar-val">{item.load} MW</span>
-              </div>
-            ))}
+          <div style={{ minHeight: '185px' }}>
+            <ApexChart
+              options={barOptions}
+              series={barSeries}
+              type="bar"
+              height={185}
+            />
           </div>
         </div>
       </div>

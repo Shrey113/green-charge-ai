@@ -202,12 +202,72 @@
       "source_location": "L114"
     },
     {
+      "id": "src_app_app",
+      "label": "App()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "app()",
+      "source_file": "src/App.jsx",
+      "source_location": "L11"
+    },
+    {
+      "id": "src_components_sidebar_sidebar",
+      "label": "Sidebar()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "sidebar()",
+      "source_file": "src/components/Sidebar.jsx",
+      "source_location": "L112"
+    },
+    {
+      "id": "src_components_slotdatacard_slotdatacard",
+      "label": "SlotDataCard()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "slotdatacard()",
+      "source_file": "src/components/SlotDataCard.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_components_slotselector_slotselector",
+      "label": "SlotSelector()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "slotselector()",
+      "source_file": "src/components/SlotSelector.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_components_topheader_topheader",
+      "label": "TopHeader()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "topheader()",
+      "source_file": "src/components/TopHeader.jsx",
+      "source_location": "L6"
+    },
+    {
       "id": "src_pages_chargingstations_calculatedistancekm",
       "label": "calculateDistanceKm()",
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "calculatedistancekm()",
       "source_file": "src/pages/ChargingStations.jsx",
@@ -219,7 +279,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "chargingstations()",
       "source_file": "src/pages/ChargingStations.jsx",
@@ -231,11 +291,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "testdatabase()",
       "source_file": "src/pages/TestDatabase.jsx",
       "source_location": "L10"
+    },
+    {
+      "id": "src_pages_testdev_testdev",
+      "label": "TestDev()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "testdev()",
+      "source_file": "src/pages/TestDev.jsx",
+      "source_location": "L9"
     },
     {
       "id": "src_services_databaseservice_fetchcollectiondata",
@@ -243,7 +315,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "fetchcollectiondata()",
       "source_file": "src/services/databaseService.js",
@@ -255,7 +327,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "fetchdatabasecollections()",
       "source_file": "src/services/databaseService.js",
@@ -267,7 +339,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "fetchdatabasestatus()",
       "source_file": "src/services/databaseService.js",
@@ -279,7 +351,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "fetchstations()",
       "source_file": "src/services/databaseService.js",
@@ -291,7 +363,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "inserttestrecord()",
       "source_file": "src/services/databaseService.js",
@@ -303,11 +375,47 @@
       "_callable": true,
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "reconnectdatabase()",
       "source_file": "src/services/databaseService.js",
       "source_location": "L88"
+    },
+    {
+      "id": "src_services_electricityservice_calculatecarbonintensity",
+      "label": "calculateCarbonIntensity()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "calculatecarbonintensity()",
+      "source_file": "src/services/electricityService.js",
+      "source_location": "L23"
+    },
+    {
+      "id": "src_services_electricityservice_fetchelectricityforecast",
+      "label": "fetchElectricityForecast()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "fetchelectricityforecast()",
+      "source_file": "src/services/electricityService.js",
+      "source_location": "L49"
+    },
+    {
+      "id": "src_services_electricityservice_formatslotlabel",
+      "label": "formatSlotLabel()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "formatslotlabel()",
+      "source_file": "src/services/electricityService.js",
+      "source_location": "L32"
     },
     {
       "id": "check_mongodb_checkmongodb",
@@ -730,12 +838,24 @@
       "source_location": "L145"
     },
     {
+      "id": "src_components_vehicleloginform_vehicleloginform",
+      "label": "VehicleLoginForm()",
+      "_callable": true,
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "react",
+      "file_type": "code",
+      "norm_label": "vehicleloginform()",
+      "source_file": "src/components/VehicleLoginForm.jsx",
+      "source_location": "L3"
+    },
+    {
       "id": "src_grid_operator_components_gridoperatorheader_gridoperatorheader",
       "label": "GridOperatorHeader()",
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoperatorheader()",
       "source_file": "src/grid_operator/components/GridOperatorHeader.jsx",
@@ -747,7 +867,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoperatorsidebar()",
       "source_file": "src/grid_operator/components/GridOperatorSidebar.jsx",
@@ -759,7 +879,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gujaratmap()",
       "source_file": "src/grid_operator/components/GujaratMap.jsx",
@@ -771,7 +891,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoperatorapp()",
       "source_file": "src/grid_operator/GridOperatorApp.jsx",
@@ -783,7 +903,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "alertspage()",
       "source_file": "src/grid_operator/pages/AlertsPage.jsx",
@@ -795,11 +915,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "analyticsalertspage()",
       "source_file": "src/grid_operator/pages/AnalyticsAlertsPage.jsx",
-      "source_location": "L4"
+      "source_location": "L5"
     },
     {
       "id": "src_grid_operator_pages_dashboardoverview_dashboardoverview",
@@ -807,23 +927,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "dashboardoverview()",
       "source_file": "src/grid_operator/pages/DashboardOverview.jsx",
-      "source_location": "L4"
-    },
-    {
-      "id": "src_grid_operator_pages_dashboardoverview_dashboardoverview_getcoordinatesforpercent",
-      "label": "getCoordinatesForPercent()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 6,
-      "community_name": "GridOperatorApp.jsx",
-      "file_type": "code",
-      "norm_label": "getcoordinatesforpercent()",
-      "source_file": "src/grid_operator/pages/DashboardOverview.jsx",
-      "source_location": "L41"
+      "source_location": "L5"
     },
     {
       "id": "src_grid_operator_pages_evchargingdemandpage_evchargingdemandpage",
@@ -831,11 +939,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "evchargingdemandpage()",
       "source_file": "src/grid_operator/pages/EVChargingDemandPage.jsx",
-      "source_location": "L4"
+      "source_location": "L5"
     },
     {
       "id": "src_grid_operator_pages_forecastschedulingpage_forecastschedulingpage",
@@ -843,11 +951,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "forecastschedulingpage()",
       "source_file": "src/grid_operator/pages/ForecastSchedulingPage.jsx",
-      "source_location": "L4"
+      "source_location": "L5"
     },
     {
       "id": "src_grid_operator_pages_gridoverviewpage_gridoverviewpage",
@@ -855,11 +963,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoverviewpage()",
       "source_file": "src/grid_operator/pages/GridOverviewPage.jsx",
-      "source_location": "L5"
+      "source_location": "L6"
     },
     {
       "id": "src_grid_operator_pages_renewableenergypage_renewableenergypage",
@@ -867,11 +975,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "renewableenergypage()",
       "source_file": "src/grid_operator/pages/RenewableEnergyPage.jsx",
-      "source_location": "L4"
+      "source_location": "L5"
     },
     {
       "id": "src_grid_operator_pages_settingspage_settingspage",
@@ -879,83 +987,23 @@
       "_callable": true,
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "settingspage()",
       "source_file": "src/grid_operator/pages/SettingsPage.jsx",
       "source_location": "L3"
     },
     {
-      "id": "src_app_app",
-      "label": "App()",
+      "id": "src_pages_loginpage_loginpage",
+      "label": "LoginPage()",
       "_callable": true,
       "_origin": "ast",
-      "community": 7,
+      "community": 6,
       "community_name": "react",
       "file_type": "code",
-      "norm_label": "app()",
-      "source_file": "src/App.jsx",
-      "source_location": "L11"
-    },
-    {
-      "id": "src_components_sidebar_sidebar",
-      "label": "Sidebar()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "sidebar()",
-      "source_file": "src/components/Sidebar.jsx",
-      "source_location": "L112"
-    },
-    {
-      "id": "src_components_slotdatacard_slotdatacard",
-      "label": "SlotDataCard()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "slotdatacard()",
-      "source_file": "src/components/SlotDataCard.jsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_components_slotselector_slotselector",
-      "label": "SlotSelector()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "slotselector()",
-      "source_file": "src/components/SlotSelector.jsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_components_topheader_topheader",
-      "label": "TopHeader()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "topheader()",
-      "source_file": "src/components/TopHeader.jsx",
+      "norm_label": "loginpage()",
+      "source_file": "src/pages/LoginPage.jsx",
       "source_location": "L6"
-    },
-    {
-      "id": "src_components_vehicleloginform_vehicleloginform",
-      "label": "VehicleLoginForm()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "vehicleloginform()",
-      "source_file": "src/components/VehicleLoginForm.jsx",
-      "source_location": "L3"
     },
     {
       "id": "src_customer_components_customerheader_customerheader",
@@ -963,7 +1011,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customerheader()",
       "source_file": "src/customer/components/CustomerHeader.jsx",
@@ -975,7 +1023,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customersidebar()",
       "source_file": "src/customer/components/CustomerSidebar.jsx",
@@ -987,7 +1035,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customerapp()",
       "source_file": "src/customer/CustomerApp.jsx",
@@ -999,7 +1047,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "allscreensgrid()",
       "source_file": "src/customer/pages/AllScreensGrid.jsx",
@@ -1011,7 +1059,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "analyticspage()",
       "source_file": "src/customer/pages/AnalyticsPage.jsx",
@@ -1023,7 +1071,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "charginghistory()",
       "source_file": "src/customer/pages/ChargingHistory.jsx",
@@ -1035,7 +1083,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "dashboardoverview()",
       "source_file": "src/customer/pages/DashboardOverview.jsx",
@@ -1047,7 +1095,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "findstations()",
       "source_file": "src/customer/pages/FindStations.jsx",
@@ -1059,7 +1107,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "myev()",
       "source_file": "src/customer/pages/MyEV.jsx",
@@ -1071,7 +1119,7 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "schedulepage()",
       "source_file": "src/customer/pages/SchedulePage.jsx",
@@ -1083,71 +1131,11 @@
       "_callable": true,
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "settingspage()",
       "source_file": "src/customer/pages/SettingsPage.jsx",
       "source_location": "L3"
-    },
-    {
-      "id": "src_pages_loginpage_loginpage",
-      "label": "LoginPage()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "loginpage()",
-      "source_file": "src/pages/LoginPage.jsx",
-      "source_location": "L6"
-    },
-    {
-      "id": "src_pages_testdev_testdev",
-      "label": "TestDev()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "testdev()",
-      "source_file": "src/pages/TestDev.jsx",
-      "source_location": "L9"
-    },
-    {
-      "id": "src_services_electricityservice_calculatecarbonintensity",
-      "label": "calculateCarbonIntensity()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "calculatecarbonintensity()",
-      "source_file": "src/services/electricityService.js",
-      "source_location": "L23"
-    },
-    {
-      "id": "src_services_electricityservice_fetchelectricityforecast",
-      "label": "fetchElectricityForecast()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "fetchelectricityforecast()",
-      "source_file": "src/services/electricityService.js",
-      "source_location": "L49"
-    },
-    {
-      "id": "src_services_electricityservice_formatslotlabel",
-      "label": "formatSlotLabel()",
-      "_callable": true,
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "formatslotlabel()",
-      "source_file": "src/services/electricityService.js",
-      "source_location": "L32"
     },
     {
       "id": "server_database_db_connectdb",
@@ -1371,8 +1359,8 @@
       "_origin": "ast",
       "author": null,
       "captured_at": null,
-      "community": 7,
-      "community_name": "react",
+      "community": 1,
+      "community_name": "App.jsx",
       "contributor": null,
       "file_type": "document",
       "norm_label": "web application html root",
@@ -1546,11 +1534,88 @@
       "source_location": "L13"
     },
     {
+      "id": "src_app",
+      "label": "App.jsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "app.jsx",
+      "source_file": "src/App.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_sidebar",
+      "label": "Sidebar.jsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "sidebar.jsx",
+      "source_file": "src/components/Sidebar.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_sidebar_navitems",
+      "label": "navItems",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "navitems",
+      "source_file": "src/components/Sidebar.jsx",
+      "source_location": "L3"
+    },
+    {
+      "id": "src_components_slotdatacard",
+      "label": "SlotDataCard.jsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "slotdatacard.jsx",
+      "source_file": "src/components/SlotDataCard.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_slotselector",
+      "label": "SlotSelector.jsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "slotselector.jsx",
+      "source_file": "src/components/SlotSelector.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_components_topheader",
+      "label": "TopHeader.jsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "topheader.jsx",
+      "source_file": "src/components/TopHeader.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_main",
+      "label": "main.jsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "main.jsx",
+      "source_file": "src/main.jsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_pages_chargingstations",
       "label": "ChargingStations.jsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "chargingstations.jsx",
       "source_file": "src/pages/ChargingStations.jsx",
@@ -1561,7 +1626,7 @@
       "label": "FALLBACK_STATIONS",
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "fallback_stations",
       "source_file": "src/pages/ChargingStations.jsx",
@@ -1572,7 +1637,7 @@
       "label": "STATION_IMAGES",
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "station_images",
       "source_file": "src/pages/ChargingStations.jsx",
@@ -1583,7 +1648,7 @@
       "label": "USER_LOCATION",
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "user_location",
       "source_file": "src/pages/ChargingStations.jsx",
@@ -1594,10 +1659,21 @@
       "label": "TestDatabase.jsx",
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "testdatabase.jsx",
       "source_file": "src/pages/TestDatabase.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_pages_testdev",
+      "label": "TestDev.jsx",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "testdev.jsx",
+      "source_file": "src/pages/TestDev.jsx",
       "source_location": "L1"
     },
     {
@@ -1605,11 +1681,33 @@
       "label": "databaseService.js",
       "_origin": "ast",
       "community": 1,
-      "community_name": "ChargingStations.jsx",
+      "community_name": "App.jsx",
       "file_type": "code",
       "norm_label": "databaseservice.js",
       "source_file": "src/services/databaseService.js",
       "source_location": "L1"
+    },
+    {
+      "id": "src_services_electricityservice",
+      "label": "electricityService.js",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "electricityservice.js",
+      "source_file": "src/services/electricityService.js",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_services_electricityservice_fixed_ev_station",
+      "label": "FIXED_EV_STATION",
+      "_origin": "ast",
+      "community": 1,
+      "community_name": "App.jsx",
+      "file_type": "code",
+      "norm_label": "fixed_ev_station",
+      "source_file": "src/services/electricityService.js",
+      "source_location": "L10"
     },
     {
       "id": "src_customer_services_customerdata",
@@ -4347,6 +4445,17 @@
       "source_location": "L13"
     },
     {
+      "id": "package_dependencies_apexcharts",
+      "label": "apexcharts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "apexcharts",
+      "source_file": "package.json",
+      "source_location": "L14"
+    },
+    {
       "id": "package_dependencies_cors",
       "label": "cors",
       "_origin": "ast",
@@ -4355,7 +4464,7 @@
       "file_type": "code",
       "norm_label": "cors",
       "source_file": "package.json",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "package_dependencies_dotenv",
@@ -4366,7 +4475,7 @@
       "file_type": "code",
       "norm_label": "dotenv",
       "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "package_dependencies_express",
@@ -4377,7 +4486,7 @@
       "file_type": "code",
       "norm_label": "express",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L17"
     },
     {
       "id": "package_dependencies_mongoose",
@@ -4388,7 +4497,7 @@
       "file_type": "code",
       "norm_label": "mongoose",
       "source_file": "package.json",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "package_dependencies_react",
@@ -4399,7 +4508,18 @@
       "file_type": "code",
       "norm_label": "react",
       "source_file": "package.json",
-      "source_location": "L18"
+      "source_location": "L19"
+    },
+    {
+      "id": "package_dependencies_react_apexcharts",
+      "label": "react-apexcharts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "package.json",
+      "file_type": "code",
+      "norm_label": "react-apexcharts",
+      "source_file": "package.json",
+      "source_location": "L20"
     },
     {
       "id": "package_dependencies_react_dom",
@@ -4410,7 +4530,7 @@
       "file_type": "code",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L21"
     },
     {
       "id": "package_devdependencies",
@@ -4421,7 +4541,7 @@
       "file_type": "code",
       "norm_label": "devdependencies",
       "source_file": "package.json",
-      "source_location": "L21"
+      "source_location": "L23"
     },
     {
       "id": "package_devdependencies_concurrently",
@@ -4432,7 +4552,7 @@
       "file_type": "code",
       "norm_label": "concurrently",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L25"
     },
     {
       "id": "package_devdependencies_vite",
@@ -4443,7 +4563,7 @@
       "file_type": "code",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L26"
     },
     {
       "id": "package_devdependencies_vitejs_plugin_react",
@@ -4454,7 +4574,7 @@
       "file_type": "code",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L24"
     },
     {
       "id": "package_name",
@@ -4586,7 +4706,7 @@
       "file_type": "concept",
       "norm_label": "cors",
       "source_file": "package.json",
-      "source_location": "L14"
+      "source_location": "L15"
     },
     {
       "id": "package_json_ref_dotenv",
@@ -4597,7 +4717,7 @@
       "file_type": "concept",
       "norm_label": "dotenv",
       "source_file": "package.json",
-      "source_location": "L15"
+      "source_location": "L16"
     },
     {
       "id": "package_json_ref_express",
@@ -4608,7 +4728,18 @@
       "file_type": "concept",
       "norm_label": "express",
       "source_file": "package.json",
-      "source_location": "L16"
+      "source_location": "L17"
+    },
+    {
+      "id": "ref_apexcharts",
+      "label": "apexcharts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "apexcharts",
+      "source_file": "package.json",
+      "source_location": "L14"
     },
     {
       "id": "ref_concurrently",
@@ -4619,7 +4750,18 @@
       "file_type": "concept",
       "norm_label": "concurrently",
       "source_file": "package.json",
-      "source_location": "L23"
+      "source_location": "L25"
+    },
+    {
+      "id": "ref_react_apexcharts",
+      "label": "react-apexcharts",
+      "_origin": "ast",
+      "community": 3,
+      "community_name": "package.json",
+      "file_type": "concept",
+      "norm_label": "react-apexcharts",
+      "source_file": "package.json",
+      "source_location": "L20"
     },
     {
       "id": "ref_react_dom",
@@ -4630,7 +4772,7 @@
       "file_type": "concept",
       "norm_label": "react-dom",
       "source_file": "package.json",
-      "source_location": "L19"
+      "source_location": "L21"
     },
     {
       "id": "ref_vite",
@@ -4641,7 +4783,7 @@
       "file_type": "concept",
       "norm_label": "vite",
       "source_file": "package.json",
-      "source_location": "L24"
+      "source_location": "L26"
     },
     {
       "id": "ref_vitejs_plugin_react",
@@ -4652,7 +4794,7 @@
       "file_type": "concept",
       "norm_label": "@vitejs/plugin-react",
       "source_file": "package.json",
-      "source_location": "L22"
+      "source_location": "L24"
     },
     {
       "id": "documentation_greencharge_ai_development_plan_15_phase_10_network_operator_dashboard",
@@ -6959,16 +7101,16 @@
       "source_location": "L393"
     },
     {
-      "id": "documentation_greencharge_ai_ui_ux_16_driver_recommendation_card",
-      "label": "16. Driver Recommendation Card",
+      "id": "documentation_greencharge_ai_ui_ux_14_login_screen",
+      "label": "14. Login Screen",
       "_origin": "ast",
       "community": 5,
       "community_name": "GreenCharge_AI_UI_UX.md",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "16. driver recommendation card",
+      "norm_label": "14. login screen",
       "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
-      "source_location": "L511"
+      "source_location": "L451"
     },
     {
       "id": "documentation_greencharge_ai_ui_ux_18_green_score_component",
@@ -7151,6 +7293,18 @@
       "source_location": "L1392"
     },
     {
+      "id": "documentation_greencharge_ai_ui_ux_4_typography",
+      "label": "4. Typography",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "GreenCharge_AI_UI_UX.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "4. typography",
+      "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
+      "source_location": "L144"
+    },
+    {
       "id": "documentation_greencharge_ai_ui_ux_5_spacing_system",
       "label": "5. Spacing System",
       "_origin": "ast",
@@ -7187,16 +7341,16 @@
       "source_location": "L1"
     },
     {
-      "id": "documentation_greencharge_ai_ui_ux_interaction",
-      "label": "Interaction",
+      "id": "documentation_greencharge_ai_ui_ux_layout",
+      "label": "Layout",
       "_origin": "ast",
       "community": 5,
       "community_name": "GreenCharge_AI_UI_UX.md",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "interaction",
+      "norm_label": "layout",
       "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
-      "source_location": "L527"
+      "source_location": "L453"
     },
     {
       "id": "documentation_greencharge_ai_ui_ux_layout_591",
@@ -7233,6 +7387,18 @@
       "norm_label": "primary user goal",
       "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
       "source_location": "L361"
+    },
+    {
+      "id": "documentation_greencharge_ai_ui_ux_type_scale",
+      "label": "Type Scale",
+      "_origin": "ast",
+      "community": 5,
+      "community_name": "GreenCharge_AI_UI_UX.md",
+      "file_type": "document",
+      "node_kind": "heading",
+      "norm_label": "type scale",
+      "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
+      "source_location": "L160"
     },
     {
       "id": "documentation_greencharge_ai_development_plan_2_mvp_scope",
@@ -7883,11 +8049,33 @@
       "source_location": "L1113"
     },
     {
+      "id": "src_components_vehicleloginform",
+      "label": "VehicleLoginForm.jsx",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "react",
+      "file_type": "code",
+      "norm_label": "vehicleloginform.jsx",
+      "source_file": "src/components/VehicleLoginForm.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "src_grid_operator_components_apexchart",
+      "label": "ApexChart.jsx",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "react",
+      "file_type": "code",
+      "norm_label": "apexchart.jsx",
+      "source_file": "src/grid_operator/components/ApexChart.jsx",
+      "source_location": "L1"
+    },
+    {
       "id": "src_grid_operator_components_gridoperatorheader",
       "label": "GridOperatorHeader.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoperatorheader.jsx",
       "source_file": "src/grid_operator/components/GridOperatorHeader.jsx",
@@ -7898,7 +8086,7 @@
       "label": "GridOperatorSidebar.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoperatorsidebar.jsx",
       "source_file": "src/grid_operator/components/GridOperatorSidebar.jsx",
@@ -7909,7 +8097,7 @@
       "label": "navItems",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "navitems",
       "source_file": "src/grid_operator/components/GridOperatorSidebar.jsx",
@@ -7920,7 +8108,7 @@
       "label": "GujaratMap.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gujaratmap.jsx",
       "source_file": "src/grid_operator/components/GujaratMap.jsx",
@@ -7931,7 +8119,7 @@
       "label": "GridOperatorApp.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoperatorapp.jsx",
       "source_file": "src/grid_operator/GridOperatorApp.jsx",
@@ -7942,7 +8130,7 @@
       "label": "grid_operator/index.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "grid_operator/index.jsx",
       "source_file": "src/grid_operator/index.jsx",
@@ -7953,7 +8141,7 @@
       "label": "AlertsPage.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "alertspage.jsx",
       "source_file": "src/grid_operator/pages/AlertsPage.jsx",
@@ -7964,7 +8152,7 @@
       "label": "AnalyticsAlertsPage.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "analyticsalertspage.jsx",
       "source_file": "src/grid_operator/pages/AnalyticsAlertsPage.jsx",
@@ -7975,7 +8163,7 @@
       "label": "grid_operator/pages/DashboardOverview.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "grid_operator/pages/dashboardoverview.jsx",
       "source_file": "src/grid_operator/pages/DashboardOverview.jsx",
@@ -7986,7 +8174,7 @@
       "label": "EVChargingDemandPage.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "evchargingdemandpage.jsx",
       "source_file": "src/grid_operator/pages/EVChargingDemandPage.jsx",
@@ -7997,7 +8185,7 @@
       "label": "ForecastSchedulingPage.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "forecastschedulingpage.jsx",
       "source_file": "src/grid_operator/pages/ForecastSchedulingPage.jsx",
@@ -8008,7 +8196,7 @@
       "label": "GridOverviewPage.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoverviewpage.jsx",
       "source_file": "src/grid_operator/pages/GridOverviewPage.jsx",
@@ -8019,7 +8207,7 @@
       "label": "RenewableEnergyPage.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "renewableenergypage.jsx",
       "source_file": "src/grid_operator/pages/RenewableEnergyPage.jsx",
@@ -8030,7 +8218,7 @@
       "label": "grid_operator/pages/SettingsPage.jsx",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "grid_operator/pages/settingspage.jsx",
       "source_file": "src/grid_operator/pages/SettingsPage.jsx",
@@ -8041,7 +8229,7 @@
       "label": "gridData.js",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "griddata.js",
       "source_file": "src/grid_operator/services/gridData.js",
@@ -8052,40 +8240,40 @@
       "label": "analyticsAlertsData",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "analyticsalertsdata",
       "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L299"
+      "source_location": "L9"
     },
     {
       "id": "src_grid_operator_services_griddata_evdemanddata",
       "label": "evDemandData",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "evdemanddata",
       "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L182"
+      "source_location": "L7"
     },
     {
       "id": "src_grid_operator_services_griddata_forecastdata",
       "label": "forecastData",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "forecastdata",
       "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L255"
+      "source_location": "L8"
     },
     {
       "id": "src_grid_operator_services_griddata_gridoverviewdata",
       "label": "gridOverviewData",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "gridoverviewdata",
       "source_file": "src/grid_operator/services/gridData.js",
@@ -8096,22 +8284,44 @@
       "label": "regionalData",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "regionaldata",
       "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L45"
+      "source_location": "L5"
     },
     {
       "id": "src_grid_operator_services_griddata_renewabledata",
       "label": "renewableData",
       "_origin": "ast",
       "community": 6,
-      "community_name": "GridOperatorApp.jsx",
+      "community_name": "react",
       "file_type": "code",
       "norm_label": "renewabledata",
       "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L124"
+      "source_location": "L6"
+    },
+    {
+      "id": "src_pages_loginpage",
+      "label": "LoginPage.jsx",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "react",
+      "file_type": "code",
+      "norm_label": "loginpage.jsx",
+      "source_file": "src/pages/LoginPage.jsx",
+      "source_location": "L1"
+    },
+    {
+      "id": "ref_react",
+      "label": "react",
+      "_origin": "ast",
+      "community": 6,
+      "community_name": "react",
+      "file_type": "concept",
+      "norm_label": "react",
+      "source_file": "package.json",
+      "source_location": "L19"
     },
     {
       "id": "documentation_greencharge_ai_development_plan_8_phase_3_database_layer",
@@ -8646,88 +8856,11 @@
       "source_location": "L113"
     },
     {
-      "id": "src_app",
-      "label": "App.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "app.jsx",
-      "source_file": "src/App.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_sidebar",
-      "label": "Sidebar.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "sidebar.jsx",
-      "source_file": "src/components/Sidebar.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_sidebar_navitems",
-      "label": "navItems",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "navitems",
-      "source_file": "src/components/Sidebar.jsx",
-      "source_location": "L3"
-    },
-    {
-      "id": "src_components_slotdatacard",
-      "label": "SlotDataCard.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "slotdatacard.jsx",
-      "source_file": "src/components/SlotDataCard.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_slotselector",
-      "label": "SlotSelector.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "slotselector.jsx",
-      "source_file": "src/components/SlotSelector.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_topheader",
-      "label": "TopHeader.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "topheader.jsx",
-      "source_file": "src/components/TopHeader.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_components_vehicleloginform",
-      "label": "VehicleLoginForm.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "vehicleloginform.jsx",
-      "source_file": "src/components/VehicleLoginForm.jsx",
-      "source_location": "L1"
-    },
-    {
       "id": "src_customer_components_customerheader",
       "label": "CustomerHeader.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customerheader.jsx",
       "source_file": "src/customer/components/CustomerHeader.jsx",
@@ -8738,7 +8871,7 @@
       "label": "CustomerSidebar.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customersidebar.jsx",
       "source_file": "src/customer/components/CustomerSidebar.jsx",
@@ -8749,7 +8882,7 @@
       "label": "customerNavItems",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customernavitems",
       "source_file": "src/customer/components/CustomerSidebar.jsx",
@@ -8760,7 +8893,7 @@
       "label": "CustomerApp.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customerapp.jsx",
       "source_file": "src/customer/CustomerApp.jsx",
@@ -8771,7 +8904,7 @@
       "label": "customer/index.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customer/index.jsx",
       "source_file": "src/customer/index.jsx",
@@ -8782,7 +8915,7 @@
       "label": "AllScreensGrid.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "allscreensgrid.jsx",
       "source_file": "src/customer/pages/AllScreensGrid.jsx",
@@ -8793,7 +8926,7 @@
       "label": "AnalyticsPage.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "analyticspage.jsx",
       "source_file": "src/customer/pages/AnalyticsPage.jsx",
@@ -8804,7 +8937,7 @@
       "label": "ChargingHistory.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "charginghistory.jsx",
       "source_file": "src/customer/pages/ChargingHistory.jsx",
@@ -8815,7 +8948,7 @@
       "label": "customer/pages/DashboardOverview.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customer/pages/dashboardoverview.jsx",
       "source_file": "src/customer/pages/DashboardOverview.jsx",
@@ -8826,7 +8959,7 @@
       "label": "FindStations.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "findstations.jsx",
       "source_file": "src/customer/pages/FindStations.jsx",
@@ -8837,7 +8970,7 @@
       "label": "MyEV.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "myev.jsx",
       "source_file": "src/customer/pages/MyEV.jsx",
@@ -8848,7 +8981,7 @@
       "label": "SchedulePage.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "schedulepage.jsx",
       "source_file": "src/customer/pages/SchedulePage.jsx",
@@ -8859,77 +8992,11 @@
       "label": "customer/pages/SettingsPage.jsx",
       "_origin": "ast",
       "community": 7,
-      "community_name": "react",
+      "community_name": "CustomerApp.jsx",
       "file_type": "code",
       "norm_label": "customer/pages/settingspage.jsx",
       "source_file": "src/customer/pages/SettingsPage.jsx",
       "source_location": "L1"
-    },
-    {
-      "id": "src_main",
-      "label": "main.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "main.jsx",
-      "source_file": "src/main.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_pages_loginpage",
-      "label": "LoginPage.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "loginpage.jsx",
-      "source_file": "src/pages/LoginPage.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_pages_testdev",
-      "label": "TestDev.jsx",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "testdev.jsx",
-      "source_file": "src/pages/TestDev.jsx",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_services_electricityservice",
-      "label": "electricityService.js",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "electricityservice.js",
-      "source_file": "src/services/electricityService.js",
-      "source_location": "L1"
-    },
-    {
-      "id": "src_services_electricityservice_fixed_ev_station",
-      "label": "FIXED_EV_STATION",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "code",
-      "norm_label": "fixed_ev_station",
-      "source_file": "src/services/electricityService.js",
-      "source_location": "L10"
-    },
-    {
-      "id": "ref_react",
-      "label": "react",
-      "_origin": "ast",
-      "community": 7,
-      "community_name": "react",
-      "file_type": "concept",
-      "norm_label": "react",
-      "source_file": "package.json",
-      "source_location": "L18"
     },
     {
       "id": "documentation_greencharge_ai_development_plan_19_phase_14_bug_fixing_and_stabilization",
@@ -10394,7 +10461,7 @@
       "file_type": "concept",
       "norm_label": "mongoose",
       "source_file": "package.json",
-      "source_location": "L17"
+      "source_location": "L18"
     },
     {
       "id": "documentation_greencharge_ai_architecture_5_1_backend_responsibilities",
@@ -10649,52 +10716,28 @@
       "source_location": "L221"
     },
     {
-      "id": "documentation_greencharge_ai_ui_ux_14_login_screen",
-      "label": "14. Login Screen",
+      "id": "documentation_greencharge_ai_ui_ux_16_driver_recommendation_card",
+      "label": "16. Driver Recommendation Card",
       "_origin": "ast",
       "community": 97,
-      "community_name": "14. Login Screen",
+      "community_name": "16. Driver Recommendation Card",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "14. login screen",
+      "norm_label": "16. driver recommendation card",
       "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
-      "source_location": "L451"
+      "source_location": "L511"
     },
     {
-      "id": "documentation_greencharge_ai_ui_ux_layout",
-      "label": "Layout",
+      "id": "documentation_greencharge_ai_ui_ux_interaction",
+      "label": "Interaction",
       "_origin": "ast",
       "community": 97,
-      "community_name": "14. Login Screen",
+      "community_name": "16. Driver Recommendation Card",
       "file_type": "document",
       "node_kind": "heading",
-      "norm_label": "layout",
+      "norm_label": "interaction",
       "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
-      "source_location": "L453"
-    },
-    {
-      "id": "documentation_greencharge_ai_ui_ux_4_typography",
-      "label": "4. Typography",
-      "_origin": "ast",
-      "community": 98,
-      "community_name": "4. Typography",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "4. typography",
-      "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
-      "source_location": "L144"
-    },
-    {
-      "id": "documentation_greencharge_ai_ui_ux_type_scale",
-      "label": "Type Scale",
-      "_origin": "ast",
-      "community": 98,
-      "community_name": "4. Typography",
-      "file_type": "document",
-      "node_kind": "heading",
-      "norm_label": "type scale",
-      "source_file": "Documentation/GreenCharge_AI_UI_UX.md",
-      "source_location": "L160"
+      "source_location": "L527"
     },
     {
       "id": "public_favicon_core",
@@ -10702,12 +10745,40 @@
       "_origin": "semantic",
       "author": null,
       "captured_at": null,
-      "community": 7,
-      "community_name": "react",
+      "community": 1,
+      "community_name": "App.jsx",
       "contributor": null,
       "file_type": "image",
       "norm_label": "greencharge favicon",
       "source_file": "public/favicon.svg",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "src_assets_hero_core",
+      "label": "Landing Hero Illustration",
+      "_origin": "semantic",
+      "author": null,
+      "community": 1,
+      "community_name": "App.jsx",
+      "contributor": null,
+      "file_type": "image",
+      "norm_label": "landing hero illustration",
+      "source_file": "src/assets/hero.png",
+      "source_location": null,
+      "source_url": null
+    },
+    {
+      "id": "src_assets_react_core",
+      "label": "React Logo Vector",
+      "_origin": "semantic",
+      "author": null,
+      "community": 1,
+      "community_name": "App.jsx",
+      "contributor": null,
+      "file_type": "image",
+      "norm_label": "react logo vector",
+      "source_file": "src/assets/react.svg",
       "source_location": null,
       "source_url": null
     },
@@ -10736,34 +10807,6 @@
       "file_type": "image",
       "norm_label": "vite logo vector",
       "source_file": "src/assets/vite.svg",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "src_assets_hero_core",
-      "label": "Landing Hero Illustration",
-      "_origin": "semantic",
-      "author": null,
-      "community": 7,
-      "community_name": "react",
-      "contributor": null,
-      "file_type": "image",
-      "norm_label": "landing hero illustration",
-      "source_file": "src/assets/hero.png",
-      "source_location": null,
-      "source_url": null
-    },
-    {
-      "id": "src_assets_react_core",
-      "label": "React Logo Vector",
-      "_origin": "semantic",
-      "author": null,
-      "community": 7,
-      "community_name": "react",
-      "contributor": null,
-      "file_type": "image",
-      "norm_label": "react logo vector",
-      "source_file": "src/assets/react.svg",
       "source_location": null,
       "source_url": null
     }
@@ -11538,18 +11581,6 @@
       "weight": 1.0
     },
     {
-      "source": "src_grid_operator_pages_dashboardoverview_dashboardoverview",
-      "target": "src_grid_operator_pages_dashboardoverview_dashboardoverview_getcoordinatesforpercent",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "src/grid_operator/pages/DashboardOverview.jsx",
-      "source_location": "L41",
-      "weight": 1.0
-    },
-    {
       "source": "cp_sat_server_get_dashboard_html",
       "target": "get",
       "relation": "references",
@@ -11743,7 +11774,7 @@
     },
     {
       "source": "src_grid_operator_index",
-      "target": "src_grid_operator_pages_renewableenergypage",
+      "target": "src_grid_operator_pages_gridoverviewpage",
       "relation": "re_exports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11755,7 +11786,7 @@
     },
     {
       "source": "src_grid_operator_index",
-      "target": "src_grid_operator_pages_evchargingdemandpage",
+      "target": "src_grid_operator_pages_renewableenergypage",
       "relation": "re_exports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11767,7 +11798,7 @@
     },
     {
       "source": "src_grid_operator_index",
-      "target": "src_grid_operator_pages_forecastschedulingpage",
+      "target": "src_grid_operator_pages_evchargingdemandpage",
       "relation": "re_exports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11779,7 +11810,7 @@
     },
     {
       "source": "src_grid_operator_index",
-      "target": "src_grid_operator_pages_analyticsalertspage",
+      "target": "src_grid_operator_pages_forecastschedulingpage",
       "relation": "re_exports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11791,7 +11822,7 @@
     },
     {
       "source": "src_grid_operator_index",
-      "target": "src_grid_operator_pages_alertspage",
+      "target": "src_grid_operator_pages_analyticsalertspage",
       "relation": "re_exports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11803,7 +11834,7 @@
     },
     {
       "source": "src_grid_operator_index",
-      "target": "src_grid_operator_pages_settingspage",
+      "target": "src_grid_operator_pages_alertspage",
       "relation": "re_exports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11811,6 +11842,30 @@
       "context": "export",
       "source_file": "src/grid_operator/index.jsx",
       "source_location": "L15",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_index",
+      "target": "src_grid_operator_pages_settingspage",
+      "relation": "re_exports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "export",
+      "source_file": "src/grid_operator/index.jsx",
+      "source_location": "L16",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_index",
+      "target": "src_grid_operator_services_griddata",
+      "relation": "re_exports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "export",
+      "source_file": "src/grid_operator/index.jsx",
+      "source_location": "L17",
       "weight": 1.0
     },
     {
@@ -11863,7 +11918,7 @@
     },
     {
       "source": "src_grid_operator_index",
-      "target": "src_grid_operator_pages_dashboardoverview",
+      "target": "src_grid_operator_components_apexchart",
       "relation": "re_exports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -11875,7 +11930,7 @@
     },
     {
       "source": "src_grid_operator_index",
-      "target": "src_grid_operator_pages_gridoverviewpage",
+      "target": "src_grid_operator_pages_dashboardoverview",
       "relation": "re_exports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12175,7 +12230,7 @@
     },
     {
       "source": "package",
-      "target": "package_json_ref_cors",
+      "target": "ref_apexcharts",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12187,7 +12242,7 @@
     },
     {
       "source": "package",
-      "target": "package_json_ref_dotenv",
+      "target": "package_json_ref_cors",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12199,7 +12254,7 @@
     },
     {
       "source": "package",
-      "target": "package_json_ref_express",
+      "target": "package_json_ref_dotenv",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12211,7 +12266,7 @@
     },
     {
       "source": "package",
-      "target": "ref_mongoose",
+      "target": "package_json_ref_express",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12223,7 +12278,7 @@
     },
     {
       "source": "package",
-      "target": "ref_react",
+      "target": "ref_mongoose",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12235,7 +12290,7 @@
     },
     {
       "source": "package",
-      "target": "ref_react_dom",
+      "target": "ref_react",
       "relation": "imports",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -12247,6 +12302,30 @@
     },
     {
       "source": "package",
+      "target": "ref_react_apexcharts",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
+      "target": "ref_react_dom",
+      "relation": "imports",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "package.json",
+      "source_location": "L21",
+      "weight": 1.0
+    },
+    {
+      "source": "package",
       "target": "ref_vitejs_plugin_react",
       "relation": "imports",
       "_origin": "ast",
@@ -12254,7 +12333,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -12266,7 +12345,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -12278,7 +12357,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -12950,7 +13029,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/grid_operator/pages/AnalyticsAlertsPage.jsx",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -12962,7 +13041,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/grid_operator/pages/DashboardOverview.jsx",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -12974,7 +13053,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/grid_operator/pages/EVChargingDemandPage.jsx",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -12986,7 +13065,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/grid_operator/pages/ForecastSchedulingPage.jsx",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -13010,7 +13089,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/grid_operator/pages/GridOverviewPage.jsx",
-      "source_location": "L3",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -13022,7 +13101,7 @@
       "confidence_score": 1.0,
       "context": "import",
       "source_file": "src/grid_operator/pages/RenewableEnergyPage.jsx",
-      "source_location": "L2",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -13818,6 +13897,30 @@
       "weight": 1.0
     },
     {
+      "source": "src_grid_operator_components_apexchart",
+      "target": "ref_react",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/grid_operator/components/ApexChart.jsx",
+      "source_location": "L1",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_components_apexchart",
+      "target": "ref_react_apexcharts",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/grid_operator/components/ApexChart.jsx",
+      "source_location": "L2",
+      "weight": 1.0
+    },
+    {
       "source": "src_grid_operator_components_gridoperatorheader",
       "target": "ref_react",
       "relation": "imports_from",
@@ -14023,7 +14126,7 @@
     },
     {
       "source": "src_grid_operator_pages_analyticsalertspage",
-      "target": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_components_apexchart",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -14034,6 +14137,18 @@
       "weight": 1.0
     },
     {
+      "source": "src_grid_operator_pages_analyticsalertspage",
+      "target": "src_grid_operator_services_griddata",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/grid_operator/pages/AnalyticsAlertsPage.jsx",
+      "source_location": "L3",
+      "weight": 1.0
+    },
+    {
       "source": "src_grid_operator_pages_dashboardoverview",
       "target": "ref_react",
       "relation": "imports_from",
@@ -14047,7 +14162,7 @@
     },
     {
       "source": "src_grid_operator_pages_dashboardoverview",
-      "target": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_components_apexchart",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -14055,6 +14170,18 @@
       "context": "import",
       "source_file": "src/grid_operator/pages/DashboardOverview.jsx",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_pages_dashboardoverview",
+      "target": "src_grid_operator_services_griddata",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/grid_operator/pages/DashboardOverview.jsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -14071,7 +14198,7 @@
     },
     {
       "source": "src_grid_operator_pages_evchargingdemandpage",
-      "target": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_components_apexchart",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -14079,6 +14206,18 @@
       "context": "import",
       "source_file": "src/grid_operator/pages/EVChargingDemandPage.jsx",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_pages_evchargingdemandpage",
+      "target": "src_grid_operator_services_griddata",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/grid_operator/pages/EVChargingDemandPage.jsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -14095,7 +14234,7 @@
     },
     {
       "source": "src_grid_operator_pages_forecastschedulingpage",
-      "target": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_components_apexchart",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -14103,6 +14242,18 @@
       "context": "import",
       "source_file": "src/grid_operator/pages/ForecastSchedulingPage.jsx",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_pages_forecastschedulingpage",
+      "target": "src_grid_operator_services_griddata",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/grid_operator/pages/ForecastSchedulingPage.jsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -14131,7 +14282,7 @@
     },
     {
       "source": "src_grid_operator_pages_gridoverviewpage",
-      "target": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_components_apexchart",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -14139,6 +14290,18 @@
       "context": "import",
       "source_file": "src/grid_operator/pages/GridOverviewPage.jsx",
       "source_location": "L3",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_pages_gridoverviewpage",
+      "target": "src_grid_operator_services_griddata",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/grid_operator/pages/GridOverviewPage.jsx",
+      "source_location": "L4",
       "weight": 1.0
     },
     {
@@ -14155,7 +14318,7 @@
     },
     {
       "source": "src_grid_operator_pages_renewableenergypage",
-      "target": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_components_apexchart",
       "relation": "imports_from",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -14163,6 +14326,18 @@
       "context": "import",
       "source_file": "src/grid_operator/pages/RenewableEnergyPage.jsx",
       "source_location": "L2",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_pages_renewableenergypage",
+      "target": "src_grid_operator_services_griddata",
+      "relation": "imports_from",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "import",
+      "source_file": "src/grid_operator/pages/RenewableEnergyPage.jsx",
+      "source_location": "L3",
       "weight": 1.0
     },
     {
@@ -21587,7 +21762,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L21",
+      "source_location": "L23",
       "weight": 1.0
     },
     {
@@ -21636,7 +21811,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_cors",
+      "target": "package_dependencies_apexcharts",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21647,7 +21822,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_dotenv",
+      "target": "package_dependencies_cors",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21658,7 +21833,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_express",
+      "target": "package_dependencies_dotenv",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21669,7 +21844,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_mongoose",
+      "target": "package_dependencies_express",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21680,7 +21855,7 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react",
+      "target": "package_dependencies_mongoose",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
@@ -21691,13 +21866,35 @@
     },
     {
       "source": "package_dependencies",
-      "target": "package_dependencies_react_dom",
+      "target": "package_dependencies_react",
       "relation": "contains",
       "_origin": "ast",
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
       "source_location": "L19",
+      "weight": 1.0
+    },
+    {
+      "source": "package_dependencies",
+      "target": "package_dependencies_react_apexcharts",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L20",
+      "weight": 1.0
+    },
+    {
+      "source": "package_dependencies",
+      "target": "package_dependencies_react_dom",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "package.json",
+      "source_location": "L21",
       "weight": 1.0
     },
     {
@@ -21708,7 +21905,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L22",
+      "source_location": "L24",
       "weight": 1.0
     },
     {
@@ -21719,7 +21916,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L23",
+      "source_location": "L25",
       "weight": 1.0
     },
     {
@@ -21730,7 +21927,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "package.json",
-      "source_location": "L24",
+      "source_location": "L26",
       "weight": 1.0
     },
     {
@@ -22676,7 +22873,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/grid_operator/pages/AnalyticsAlertsPage.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -22687,7 +22884,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/grid_operator/pages/DashboardOverview.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -22698,7 +22895,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/grid_operator/pages/EVChargingDemandPage.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -22709,7 +22906,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/grid_operator/pages/ForecastSchedulingPage.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -22720,7 +22917,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/grid_operator/pages/GridOverviewPage.jsx",
-      "source_location": "L5",
+      "source_location": "L6",
       "weight": 1.0
     },
     {
@@ -22731,7 +22928,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/grid_operator/pages/RenewableEnergyPage.jsx",
-      "source_location": "L4",
+      "source_location": "L5",
       "weight": 1.0
     },
     {
@@ -22743,50 +22940,6 @@
       "confidence_score": 1.0,
       "source_file": "src/grid_operator/pages/SettingsPage.jsx",
       "source_location": "L3",
-      "weight": 1.0
-    },
-    {
-      "source": "src_grid_operator_services_griddata",
-      "target": "src_grid_operator_services_griddata_renewabledata",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L124",
-      "weight": 1.0
-    },
-    {
-      "source": "src_grid_operator_services_griddata",
-      "target": "src_grid_operator_services_griddata_evdemanddata",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L182",
-      "weight": 1.0
-    },
-    {
-      "source": "src_grid_operator_services_griddata",
-      "target": "src_grid_operator_services_griddata_forecastdata",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L255",
-      "weight": 1.0
-    },
-    {
-      "source": "src_grid_operator_services_griddata",
-      "target": "src_grid_operator_services_griddata_analyticsalertsdata",
-      "relation": "contains",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L299",
       "weight": 1.0
     },
     {
@@ -22808,7 +22961,51 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "src/grid_operator/services/gridData.js",
-      "source_location": "L45",
+      "source_location": "L5",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_services_griddata_renewabledata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/grid_operator/services/gridData.js",
+      "source_location": "L6",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_services_griddata_evdemanddata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/grid_operator/services/gridData.js",
+      "source_location": "L7",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_services_griddata_forecastdata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/grid_operator/services/gridData.js",
+      "source_location": "L8",
+      "weight": 1.0
+    },
+    {
+      "source": "src_grid_operator_services_griddata",
+      "target": "src_grid_operator_services_griddata_analyticsalertsdata",
+      "relation": "contains",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "source_file": "src/grid_operator/services/gridData.js",
+      "source_location": "L9",
       "weight": 1.0
     },
     {
@@ -23651,5 +23848,5 @@
       "source_file": "Documentation/GreenCharge_AI_Project_Overview.md"
     }
   ],
-  "built_at_commit": "71f622edca36322c053bde4b68c59a497e3d5e29"
+  "built_at_commit": "d7cd28428f816833f12dffe0babae4409ad9a911"
 }

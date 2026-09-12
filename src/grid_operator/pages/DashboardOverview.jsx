@@ -1,70 +1,146 @@
 import React from 'react';
+import ApexChart from '../components/ApexChart.jsx';
 import { gridOverviewData } from '../services/gridData.js';
 
 export default function DashboardOverview({ onNavigate }) {
   const { kpis, hourlyLoadRenewable, energyMix } = gridOverviewData;
 
-  // Chart coordinates calculation for 450x180 viewBox
-  const chartW = 450;
-  const chartH = 180;
-  const padL = 38;
-  const padR = 15;
-  const padT = 15;
-  const padB = 25;
-  const graphW = chartW - padL - padR;
-  const graphH = chartH - padT - padB;
-  const maxMW = 4000;
+  // 1. Grid Load vs Renewable Generation Area Chart Options
+  const lineChartOptions = {
+    chart: {
+      type: 'area',
+      height: 185,
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#059669', '#2563EB', '#06B6D4'],
+    stroke: {
+      curve: 'smooth',
+      width: [2.5, 2, 1.8],
+    },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.35,
+        opacityTo: 0.05,
+        stops: [0, 90, 100],
+      },
+    },
+    dataLabels: { enabled: false },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+      xaxis: { lines: { show: false } },
+      yaxis: { lines: { show: true } },
+    },
+    xaxis: {
+      categories: hourlyLoadRenewable.map((d) => d.time),
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      min: 0,
+      max: 4000,
+      tickAmount: 4,
+      title: {
+        text: 'Power (MW)',
+        style: { color: '#94A3B8', fontSize: '10px', fontWeight: 600 },
+      },
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+        formatter: (val) => (val === 0 ? '0' : `${Math.round(val / 1000)}K`),
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: {
+        formatter: (val) => `${val} MW`,
+      },
+    },
+    legend: {
+      position: 'bottom',
+      horizontalAlign: 'center',
+      fontSize: '11px',
+      markers: { radius: 2, width: 10, height: 10 },
+      itemMargin: { horizontal: 12, vertical: 4 },
+    },
+  };
 
-  const pointsGrid = hourlyLoadRenewable.map((d, i) => {
-    const x = padL + (i / (hourlyLoadRenewable.length - 1)) * graphW;
-    const y = padT + graphH - (d.gridLoad / maxMW) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  const lineChartSeries = [
+    {
+      name: 'Grid Load',
+      data: hourlyLoadRenewable.map((d) => d.gridLoad),
+    },
+    {
+      name: 'Renewable Generation',
+      data: hourlyLoadRenewable.map((d) => d.renewable),
+    },
+    {
+      name: 'EV Charging Load',
+      data: hourlyLoadRenewable.map((d) => d.evLoad),
+    },
+  ];
 
-  const pointsRen = hourlyLoadRenewable.map((d, i) => {
-    const x = padL + (i / (hourlyLoadRenewable.length - 1)) * graphW;
-    const y = padT + graphH - (d.renewable / maxMW) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  // 2. Energy Mix (Current) Donut Chart Options
+  const donutOptions = {
+    chart: {
+      type: 'donut',
+      height: 185,
+      fontFamily: 'Inter, sans-serif',
+    },
+    labels: energyMix.map((d) => d.name),
+    colors: energyMix.map((d) => d.color),
+    dataLabels: { enabled: false },
+    stroke: { colors: ['#FFFFFF'], width: 2 },
+    plotOptions: {
+      pie: {
+        donut: {
+          size: '68%',
+          labels: {
+            show: true,
+            total: {
+              show: true,
+              label: 'MW',
+              fontSize: '11px',
+              fontFamily: 'Inter, sans-serif',
+              fontWeight: 600,
+              color: '#64748B',
+              formatter: () => '2,450',
+            },
+            value: {
+              fontSize: '17px',
+              fontWeight: 800,
+              color: '#0F172A',
+              offsetY: -4,
+              formatter: () => '2,450',
+            },
+          },
+        },
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: {
+        formatter: (val) => `${val}%`,
+      },
+    },
+    legend: {
+      position: 'right',
+      fontSize: '11.5px',
+      markers: { radius: 2, width: 10, height: 10 },
+      formatter: (seriesName, opts) => {
+        const pct = opts.w.globals.series[opts.seriesIndex];
+        return `${seriesName} ${pct}%`;
+      },
+    },
+  };
 
-  const pointsEV = hourlyLoadRenewable.map((d, i) => {
-    const x = padL + (i / (hourlyLoadRenewable.length - 1)) * graphW;
-    const y = padT + graphH - (d.evLoad / maxMW) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
-
-  const areaGrid = `${padL},${padT + graphH} ${pointsGrid} ${padL + graphW},${padT + graphH}`;
-  const areaRen = `${padL},${padT + graphH} ${pointsRen} ${padL + graphW},${padT + graphH}`;
-
-  // Donut chart SVG path calculation
-  let cumulativePercent = 0;
-  function getCoordinatesForPercent(percent) {
-    const x = Math.cos(2 * Math.PI * percent);
-    const y = Math.sin(2 * Math.PI * percent);
-    return [x, y];
-  }
-
-  const donutSlices = energyMix.map((slice) => {
-    if (slice.percent === 0) return null;
-    const startAngle = cumulativePercent;
-    cumulativePercent += slice.percent / 100;
-    const endAngle = cumulativePercent;
-
-    const [startX, startY] = getCoordinatesForPercent(startAngle);
-    const [endX, endY] = getCoordinatesForPercent(endAngle);
-
-    const largeArcFlag = slice.percent / 100 > 0.5 ? 1 : 0;
-
-    const pathData = [
-      `M ${startX * 60 + 85} ${startY * 60 + 85}`,
-      `A 60 60 0 ${largeArcFlag} 1 ${endX * 60 + 85} ${endY * 60 + 85}`,
-      `L ${endX * 42 + 85} ${endY * 42 + 85}`,
-      `A 42 42 0 ${largeArcFlag} 0 ${startX * 42 + 85} ${startY * 42 + 85}`,
-      'Z',
-    ].join(' ');
-
-    return { ...slice, pathData };
-  });
+  const donutSeries = energyMix.map((d) => d.percent);
 
   return (
     <div className="grid-page-content dashboard-overview-page">
@@ -171,70 +247,13 @@ export default function DashboardOverview({ onNavigate }) {
             <h3 className="card-title">Grid Load vs Renewable Generation</h3>
           </div>
 
-          <div className="chart-container-svg">
-            <svg viewBox={`0 0 ${chartW} ${chartH}`} width="100%" height="180">
-              {/* Grid Lines & Y-axis labels */}
-              {[0, 1000, 2000, 3000, 4000].map((val) => {
-                const y = padT + graphH - (val / maxMW) * graphH;
-                const label = val === 0 ? '0' : `${val / 1000}K`;
-                return (
-                  <g key={val}>
-                    <line x1={padL} y1={y} x2={padL + graphW} y2={y} stroke="#F1F5F9" strokeWidth="1" />
-                    <text x={padL - 8} y={y + 3} textAnchor="end" fontSize="10" fill="#94A3B8" fontWeight="500">
-                      {label}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {/* Y Axis Label */}
-              <text
-                x={-chartH / 2}
-                y="12"
-                transform="rotate(-90)"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#94A3B8"
-                fontWeight="600"
-              >
-                Power (MW)
-              </text>
-
-              {/* Area Fills */}
-              <polygon points={areaGrid} fill="#10B981" fillOpacity="0.18" />
-              <polygon points={areaRen} fill="#3B82F6" fillOpacity="0.12" />
-
-              {/* Lines */}
-              <polyline points={pointsGrid} fill="none" stroke="#059669" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" />
-              <polyline points={pointsRen} fill="none" stroke="#2563EB" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-              <polyline points={pointsEV} fill="none" stroke="#06B6D4" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
-
-              {/* X Axis labels */}
-              {hourlyLoadRenewable.filter((_, idx) => idx % 2 === 0).map((d, i, arr) => {
-                const x = padL + (i / (arr.length - 1)) * graphW;
-                return (
-                  <text key={d.time} x={x} y={chartH - 8} textAnchor="middle" fontSize="10" fill="#94A3B8">
-                    {d.time}
-                  </text>
-                );
-              })}
-            </svg>
-
-            {/* Legend */}
-            <div className="chart-legend-row">
-              <div className="legend-item">
-                <span className="legend-square" style={{ backgroundColor: '#059669' }} />
-                <span>Grid Load</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-square" style={{ backgroundColor: '#2563EB' }} />
-                <span>Renewable Generation</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-square" style={{ backgroundColor: '#06B6D4' }} />
-                <span>EV Charging Load</span>
-              </div>
-            </div>
+          <div style={{ minHeight: '195px' }}>
+            <ApexChart
+              options={lineChartOptions}
+              series={lineChartSeries}
+              type="area"
+              height={195}
+            />
           </div>
         </div>
 
@@ -244,38 +263,13 @@ export default function DashboardOverview({ onNavigate }) {
             <h3 className="card-title">Energy Mix (Current)</h3>
           </div>
 
-          <div className="donut-layout">
-            <div className="donut-svg-wrap">
-              <svg viewBox="0 0 170 170" width="160" height="160">
-                {donutSlices.map((s, idx) => (
-                  s && (
-                    <path
-                      key={idx}
-                      d={s.pathData}
-                      fill={s.color}
-                      stroke="#FFFFFF"
-                      strokeWidth="2"
-                    />
-                  )
-                ))}
-              </svg>
-              <div className="donut-center-info">
-                <span className="donut-center-val">2,450</span>
-                <span style={{ fontSize: '11px', color: '#64748B', fontWeight: 600 }}>MW</span>
-              </div>
-            </div>
-
-            <div className="donut-legend-list">
-              {energyMix.map((mix) => (
-                <div key={mix.name} className="donut-legend-row">
-                  <div className="donut-legend-left">
-                    <span className="legend-square" style={{ backgroundColor: mix.color }} />
-                    <span>{mix.name}</span>
-                  </div>
-                  <span className="donut-legend-pct">{mix.percent}%</span>
-                </div>
-              ))}
-            </div>
+          <div style={{ minHeight: '195px', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <ApexChart
+              options={donutOptions}
+              series={donutSeries}
+              type="donut"
+              height={195}
+            />
           </div>
         </div>
       </div>

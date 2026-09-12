@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import GujaratMap from '../components/GujaratMap.jsx';
+import ApexChart from '../components/ApexChart.jsx';
 import { regionalData } from '../services/gridData.js';
 
 export default function GridOverviewPage() {
@@ -7,11 +8,47 @@ export default function GridOverviewPage() {
   const [selectedRange, setSelectedRange] = useState('Last 24 Hours');
   const { healthScore, healthStatus, healthSubtitle, regions } = regionalData;
 
-  // Circular gauge calculations for Grid Health
-  const radius = 52;
-  const circumference = 2 * Math.PI * radius;
-  // Let's create an open arc (e.g. 260 degrees arc or circular progress)
-  const strokeDashoffset = circumference - (healthScore / 100) * circumference;
+  // ApexCharts RadialBar Options for Grid Health Gauge
+  const gaugeOptions = {
+    chart: {
+      type: 'radialBar',
+      height: 180,
+      sparkline: { enabled: true },
+      fontFamily: 'Inter, sans-serif',
+    },
+    plotOptions: {
+      radialBar: {
+        startAngle: -125,
+        endAngle: 125,
+        hollow: { size: '65%' },
+        track: {
+          background: '#E2E8F0',
+          strokeWidth: '100%',
+        },
+        dataLabels: {
+          name: {
+            show: true,
+            fontSize: '12px',
+            color: '#64748B',
+            offsetY: 22,
+            formatter: () => '/ 100',
+          },
+          value: {
+            fontSize: '28px',
+            fontWeight: 800,
+            color: '#065F46',
+            offsetY: -12,
+            formatter: (val) => `${val}`,
+          },
+        },
+      },
+    },
+    colors: ['#10B981'],
+    stroke: { lineCap: 'round' },
+    tooltip: { enabled: false },
+  };
+
+  const gaugeSeries = [healthScore];
 
   return (
     <div className="grid-page-content grid-overview-page">
@@ -72,39 +109,16 @@ export default function GridOverviewPage() {
           <div className="card-header-clean">
             <h3 className="card-title">Grid Health</h3>
           </div>
-          <div className="health-gauge-wrap">
-            <div className="health-circular-meter">
-              <svg viewBox="0 0 130 130" width="130" height="130">
-                {/* Background track */}
-                <circle
-                  cx="65"
-                  cy="65"
-                  r={radius}
-                  fill="none"
-                  stroke="#E2E8F0"
-                  strokeWidth="10"
-                />
-                {/* Progress arc */}
-                <circle
-                  cx="65"
-                  cy="65"
-                  r={radius}
-                  fill="none"
-                  stroke="#10B981"
-                  strokeWidth="10"
-                  strokeDasharray={circumference}
-                  strokeDashoffset={strokeDashoffset}
-                  strokeLinecap="round"
-                  transform="rotate(-90 65 65)"
-                />
-              </svg>
-              <div className="health-score-text">
-                <span className="health-big-num">{healthScore}</span>
-                <span className="health-out-of">/ 100</span>
-              </div>
+          <div className="health-gauge-wrap" style={{ height: 'auto', minHeight: '230px' }}>
+            <div style={{ width: '100%', height: '150px' }}>
+              <ApexChart
+                options={gaugeOptions}
+                series={gaugeSeries}
+                type="radialBar"
+                height={170}
+              />
             </div>
-
-            <h4 className="health-status-title">{healthStatus}</h4>
+            <h4 className="health-status-title" style={{ marginTop: '10px' }}>{healthStatus}</h4>
             <p className="health-status-desc">{healthSubtitle}</p>
           </div>
         </div>

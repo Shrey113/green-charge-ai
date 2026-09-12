@@ -1,65 +1,170 @@
 import React from 'react';
+import ApexChart from '../components/ApexChart.jsx';
 import { renewableData } from '../services/gridData.js';
 
 export default function RenewableEnergyPage() {
   const { kpis, generation24h, forecast24h, insights } = renewableData;
 
-  // Stacked Area Chart calculations (generation24h)
-  const chartW = 460;
-  const chartH = 175;
-  const padL = 38;
-  const padR = 15;
-  const padT = 15;
-  const padB = 25;
-  const graphW = chartW - padL - padR;
-  const graphH = chartH - padT - padB;
-  const maxGenMW = 1000;
+  // 1. Stacked Area Chart (Renewable Generation) Options
+  const stackedGenOptions = {
+    chart: {
+      type: 'area',
+      stacked: true,
+      height: 175,
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#FBBF24', '#34D399', '#60A5FA'],
+    stroke: { curve: 'smooth', width: 2 },
+    fill: {
+      type: 'solid',
+      opacity: 0.85,
+    },
+    dataLabels: { enabled: false },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+    },
+    xaxis: {
+      categories: generation24h.map((d) => d.time),
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      min: 0,
+      max: 1000,
+      tickAmount: 5,
+      title: {
+        text: 'Power (MW)',
+        style: { color: '#94A3B8', fontSize: '10px', fontWeight: 600 },
+      },
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: { formatter: (val) => `${val} MW` },
+    },
+    legend: {
+      position: 'bottom',
+      horizontalAlign: 'center',
+      fontSize: '11px',
+      markers: { radius: 2, width: 10, height: 10 },
+      itemMargin: { horizontal: 10, vertical: 4 },
+    },
+  };
 
-  // Stacked coordinates:
-  // Layer 1: Hydro (bottom)
-  // Layer 2: Hydro + Wind
-  // Layer 3: Hydro + Wind + Solar (top)
-  const pointsHydro = generation24h.map((d, i) => {
-    const x = padL + (i / (generation24h.length - 1)) * graphW;
-    const y = padT + graphH - (d.hydro / maxGenMW) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  const stackedGenSeries = [
+    { name: 'Solar', data: generation24h.map((d) => d.solar) },
+    { name: 'Wind', data: generation24h.map((d) => d.wind) },
+    { name: 'Hydro', data: generation24h.map((d) => d.hydro) },
+  ];
 
-  const pointsWind = generation24h.map((d, i) => {
-    const x = padL + (i / (generation24h.length - 1)) * graphW;
-    const y = padT + graphH - ((d.hydro + d.wind) / maxGenMW) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  // 2. Renewable Share Radial Gauge Options
+  const shareGaugeOptions = {
+    chart: {
+      type: 'radialBar',
+      height: 165,
+      sparkline: { enabled: true },
+      fontFamily: 'Inter, sans-serif',
+    },
+    plotOptions: {
+      radialBar: {
+        hollow: { size: '62%' },
+        track: { background: '#E2E8F0', strokeWidth: '100%' },
+        dataLabels: {
+          name: {
+            show: true,
+            fontSize: '9.5px',
+            color: '#64748B',
+            offsetY: 20,
+            formatter: () => 'of total generation',
+          },
+          value: {
+            fontSize: '24px',
+            fontWeight: 800,
+            color: '#065F46',
+            offsetY: -10,
+            formatter: (val) => `${val}%`,
+          },
+        },
+      },
+    },
+    colors: ['#047857'],
+    stroke: { lineCap: 'round' },
+    tooltip: { enabled: false },
+  };
 
-  const pointsSolar = generation24h.map((d, i) => {
-    const x = padL + (i / (generation24h.length - 1)) * graphW;
-    const y = padT + graphH - ((d.hydro + d.wind + d.solar) / maxGenMW) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  const shareGaugeSeries = [kpis.generationSharePercent];
 
-  // SVG Area polygons
-  const areaHydro = `${padL},${padT + graphH} ${pointsHydro} ${padL + graphW},${padT + graphH}`;
-  const areaWind = `${pointsHydro} ${pointsWind.split(' ').reverse().join(' ')}`;
-  const areaSolar = `${pointsWind} ${pointsSolar.split(' ').reverse().join(' ')}`;
+  // 3. Renewable Forecast Line Chart Options
+  const forecastOptions = {
+    chart: {
+      type: 'line',
+      height: 175,
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#F59E0B', '#10B981'],
+    stroke: {
+      width: [2.5, 2.5],
+      dashArray: [5, 5],
+      curve: 'smooth',
+    },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+    },
+    dataLabels: { enabled: false },
+    xaxis: {
+      categories: forecast24h.map((d) => d.time),
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      min: 0,
+      max: 1500,
+      tickAmount: 3,
+      title: {
+        text: 'Power (MW)',
+        style: { color: '#94A3B8', fontSize: '10px', fontWeight: 600 },
+      },
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: { formatter: (val) => `${val} MW` },
+    },
+    legend: {
+      position: 'bottom',
+      horizontalAlign: 'center',
+      fontSize: '11px',
+      markers: { radius: 2, width: 12, height: 3 },
+      itemMargin: { horizontal: 12, vertical: 4 },
+    },
+  };
 
-  // Forecast Chart calculations
-  const maxForecastMW = 1500;
-  const pointsForecastSolar = forecast24h.map((d, i) => {
-    const x = padL + (i / (forecast24h.length - 1)) * graphW;
-    const y = padT + graphH - (d.solarForecast / maxForecastMW) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
-
-  const pointsForecastWind = forecast24h.map((d, i) => {
-    const x = padL + (i / (forecast24h.length - 1)) * graphW;
-    const y = padT + graphH - (d.windForecast / maxForecastMW) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
-
-  // Radial Gauge for Renewable Share (34%)
-  const gaugeR = 48;
-  const gaugeCirc = 2 * Math.PI * gaugeR;
-  const gaugeOffset = gaugeCirc - (kpis.generationSharePercent / 100) * gaugeCirc;
+  const forecastSeries = [
+    {
+      name: 'Solar (Forecast)',
+      data: forecast24h.map((d) => d.solarForecast),
+    },
+    {
+      name: 'Wind (Forecast)',
+      data: forecast24h.map((d) => d.windForecast),
+    },
+  ];
 
   return (
     <div className="grid-page-content renewable-energy-page">
@@ -125,104 +230,32 @@ export default function RenewableEnergyPage() {
             <h3 className="card-title">Renewable Generation (Last 24 Hours)</h3>
           </div>
 
-          <div className="chart-container-svg">
-            <svg viewBox={`0 0 ${chartW} ${chartH}`} width="100%" height="160">
-              {/* Y Axis ticks */}
-              {[0, 200, 400, 600, 800, 1000].map((val) => {
-                const y = padT + graphH - (val / maxGenMW) * graphH;
-                return (
-                  <g key={val}>
-                    <line x1={padL} y1={y} x2={padL + graphW} y2={y} stroke="#F1F5F9" strokeWidth="1" />
-                    <text x={padL - 8} y={y + 3} textAnchor="end" fontSize="10" fill="#94A3B8">
-                      {val}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {/* Y Axis Label */}
-              <text
-                x={-chartH / 2}
-                y="12"
-                transform="rotate(-90)"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#94A3B8"
-                fontWeight="600"
-              >
-                Power (MW)
-              </text>
-
-              {/* Stacked Fills */}
-              <polygon points={areaHydro} fill="#60A5FA" fillOpacity="0.85" />
-              <polygon points={areaWind} fill="#34D399" fillOpacity="0.85" />
-              <polygon points={areaSolar} fill="#FBBF24" fillOpacity="0.85" />
-
-              {/* X Axis labels */}
-              {generation24h.filter((_, idx) => idx % 2 === 0).map((d, i, arr) => {
-                const x = padL + (i / (arr.length - 1)) * graphW;
-                return (
-                  <text key={d.time} x={x} y={chartH - 8} textAnchor="middle" fontSize="10" fill="#94A3B8">
-                    {d.time}
-                  </text>
-                );
-              })}
-            </svg>
-
-            {/* Legend */}
-            <div className="chart-legend-row">
-              <div className="legend-item">
-                <span className="legend-square" style={{ backgroundColor: '#FBBF24' }} />
-                <span>Solar</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-square" style={{ backgroundColor: '#34D399' }} />
-                <span>Wind</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-square" style={{ backgroundColor: '#60A5FA' }} />
-                <span>Hydro</span>
-              </div>
-            </div>
+          <div style={{ minHeight: '185px' }}>
+            <ApexChart
+              options={stackedGenOptions}
+              series={stackedGenSeries}
+              type="area"
+              height={185}
+            />
           </div>
         </div>
 
         {/* Right: Renewable Share Gauge */}
-        <div className="grid-card renewable-share-meter-card">
+        <div className="grid-card renewable-share-meter-card" style={{ justifyContent: 'center' }}>
           <div className="card-header-clean" style={{ width: '100%' }}>
             <h3 className="card-title">Renewable Share</h3>
           </div>
 
-          <div className="renewable-circular-wrap">
-            <svg viewBox="0 0 120 120" width="115" height="115">
-              <circle
-                cx="60"
-                cy="60"
-                r={gaugeR}
-                fill="none"
-                stroke="#E2E8F0"
-                strokeWidth="10"
-              />
-              <circle
-                cx="60"
-                cy="60"
-                r={gaugeR}
-                fill="none"
-                stroke="#047857"
-                strokeWidth="10"
-                strokeDasharray={gaugeCirc}
-                strokeDashoffset={gaugeOffset}
-                strokeLinecap="round"
-                transform="rotate(-90 60 60)"
-              />
-            </svg>
-            <div className="renewable-center-label">
-              <span className="renewable-pct-big">{kpis.generationSharePercent}%</span>
-              <span className="renewable-pct-sub">of total generation</span>
-            </div>
+          <div style={{ width: '100%', height: '130px' }}>
+            <ApexChart
+              options={shareGaugeOptions}
+              series={shareGaugeSeries}
+              type="radialBar"
+              height={150}
+            />
           </div>
 
-          <span className="renewable-bottom-sub">840 MW</span>
+          <span className="renewable-bottom-sub" style={{ marginTop: '4px' }}>840 MW</span>
           <span className="renewable-bottom-total">out of 2,450 MW</span>
         </div>
       </div>
@@ -235,74 +268,13 @@ export default function RenewableEnergyPage() {
             <h3 className="card-title">Renewable Forecast (Next 24 Hours)</h3>
           </div>
 
-          <div className="chart-container-svg">
-            <svg viewBox={`0 0 ${chartW} ${chartH}`} width="100%" height="160">
-              {/* Y Axis ticks */}
-              {[0, 500, 1000, 1500].map((val) => {
-                const y = padT + graphH - (val / maxForecastMW) * graphH;
-                return (
-                  <g key={val}>
-                    <line x1={padL} y1={y} x2={padL + graphW} y2={y} stroke="#F1F5F9" strokeWidth="1" />
-                    <text x={padL - 8} y={y + 3} textAnchor="end" fontSize="10" fill="#94A3B8">
-                      {val}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {/* Y Axis Label */}
-              <text
-                x={-chartH / 2}
-                y="12"
-                transform="rotate(-90)"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#94A3B8"
-                fontWeight="600"
-              >
-                Power (MW)
-              </text>
-
-              {/* Dashed Lines */}
-              <polyline
-                points={pointsForecastSolar}
-                fill="none"
-                stroke="#F59E0B"
-                strokeWidth="2.2"
-                strokeDasharray="4,4"
-                strokeLinecap="round"
-              />
-              <polyline
-                points={pointsForecastWind}
-                fill="none"
-                stroke="#10B981"
-                strokeWidth="2.2"
-                strokeDasharray="4,4"
-                strokeLinecap="round"
-              />
-
-              {/* X Axis labels */}
-              {forecast24h.map((d, i, arr) => {
-                const x = padL + (i / (arr.length - 1)) * graphW;
-                return (
-                  <text key={d.time} x={x} y={chartH - 8} textAnchor="middle" fontSize="10" fill="#94A3B8">
-                    {d.time}
-                  </text>
-                );
-              })}
-            </svg>
-
-            {/* Legend */}
-            <div className="chart-legend-row">
-              <div className="legend-item">
-                <span className="legend-line dashed" style={{ borderColor: '#F59E0B' }} />
-                <span>Solar (Forecast)</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-line dashed" style={{ borderColor: '#10B981' }} />
-                <span>Wind (Forecast)</span>
-              </div>
-            </div>
+          <div style={{ minHeight: '185px' }}>
+            <ApexChart
+              options={forecastOptions}
+              series={forecastSeries}
+              type="line"
+              height={185}
+            />
           </div>
         </div>
 

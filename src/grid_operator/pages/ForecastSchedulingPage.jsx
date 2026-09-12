@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import ApexChart from '../components/ApexChart.jsx';
 import { forecastData } from '../services/gridData.js';
 
 export default function ForecastSchedulingPage() {
@@ -6,43 +7,146 @@ export default function ForecastSchedulingPage() {
   const [timeHorizon, setTimeHorizon] = useState('Next 24 Hours');
   const { impact, gridLoadForecast, loadBreakdown } = forecastData;
 
-  // Forecast Chart Dimensions & Points
-  const chartW = 460;
-  const chartH = 175;
-  const padL = 38;
-  const padR = 15;
-  const padT = 15;
-  const padB = 25;
-  const graphW = chartW - padL - padR;
-  const graphH = chartH - padT - padB;
-  const maxLoad = 4000;
+  // 1. Grid Load Forecast Line Chart Options
+  const forecastLineOptions = {
+    chart: {
+      type: 'line',
+      height: 185,
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#0D9488', '#EF4444', '#10B981'],
+    stroke: {
+      width: [2.5, 2.2, 2.2],
+      dashArray: [0, 5, 5],
+      curve: 'smooth',
+    },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+    },
+    dataLabels: { enabled: false },
+    xaxis: {
+      categories: gridLoadForecast.map((d) => d.time),
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      min: 0,
+      max: 4000,
+      tickAmount: 4,
+      title: {
+        text: 'Load (MW)',
+        style: { color: '#94A3B8', fontSize: '10px', fontWeight: 600 },
+      },
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+        formatter: (val) => (val === 0 ? '0' : `${Math.round(val / 1000)}K`),
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: {
+        formatter: (val) => (val !== null && val !== undefined ? `${val} MW` : '-'),
+      },
+    },
+    legend: {
+      position: 'bottom',
+      horizontalAlign: 'center',
+      fontSize: '11px',
+      markers: { radius: 2, width: 12, height: 3 },
+      itemMargin: { horizontal: 12, vertical: 4 },
+    },
+  };
 
-  // Actual load line points (up to index 6 / 12:00)
-  const actualData = gridLoadForecast.filter((d) => d.actual !== null);
-  const pointsActual = actualData.map((d) => {
-    const origIndex = gridLoadForecast.findIndex((item) => item.time === d.time);
-    const x = padL + (origIndex / (gridLoadForecast.length - 1)) * graphW;
-    const y = padT + graphH - (d.actual / maxLoad) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  const forecastLineSeries = [
+    {
+      name: 'Actual Load',
+      data: gridLoadForecast.map((d) => d.actual),
+    },
+    {
+      name: 'Forecasted Load (No Optimization)',
+      data: gridLoadForecast.map((d) => d.noOpt),
+    },
+    {
+      name: 'Forecasted Load (With Optimization)',
+      data: gridLoadForecast.map((d) => d.withOpt),
+    },
+  ];
 
-  // Forecasted No Opt (from index 6 to 12)
-  const noOptData = gridLoadForecast.filter((d) => d.noOpt !== null);
-  const pointsNoOpt = noOptData.map((d) => {
-    const origIndex = gridLoadForecast.findIndex((item) => item.time === d.time);
-    const x = padL + (origIndex / (gridLoadForecast.length - 1)) * graphW;
-    const y = padT + graphH - (d.noOpt / maxLoad) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  // 2. Load Breakdown (Forecasted) Stacked Bar Chart Options
+  const stackedBarOptions = {
+    chart: {
+      type: 'bar',
+      stacked: true,
+      height: 185,
+      toolbar: { show: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    plotOptions: {
+      bar: {
+        borderRadius: 2,
+        columnWidth: '45%',
+      },
+    },
+    colors: ['#60A5FA', '#10B981', '#2DD4BF'],
+    dataLabels: { enabled: false },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+    },
+    xaxis: {
+      categories: loadBreakdown.map((d) => d.time),
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      min: 0,
+      max: 4000,
+      tickAmount: 4,
+      title: {
+        text: 'Load (MW)',
+        style: { color: '#94A3B8', fontSize: '10px', fontWeight: 600 },
+      },
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+        formatter: (val) => (val === 0 ? '0' : `${Math.round(val / 1000)}K`),
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: { formatter: (val) => `${val} MW` },
+    },
+    legend: {
+      position: 'bottom',
+      horizontalAlign: 'center',
+      fontSize: '11px',
+      markers: { radius: 2, width: 10, height: 10 },
+      itemMargin: { horizontal: 12, vertical: 4 },
+    },
+  };
 
-  // Forecasted With Opt (from index 6 to 12)
-  const withOptData = gridLoadForecast.filter((d) => d.withOpt !== null);
-  const pointsWithOpt = withOptData.map((d) => {
-    const origIndex = gridLoadForecast.findIndex((item) => item.time === d.time);
-    const x = padL + (origIndex / (gridLoadForecast.length - 1)) * graphW;
-    const y = padT + graphH - (d.withOpt / maxLoad) * graphH;
-    return `${x},${y}`;
-  }).join(' ');
+  const stackedBarSeries = [
+    {
+      name: 'Base Load',
+      data: loadBreakdown.map((d) => d.base),
+    },
+    {
+      name: 'EV Charging (Optimized)',
+      data: loadBreakdown.map((d) => d.ev),
+    },
+    {
+      name: 'Other Load',
+      data: loadBreakdown.map((d) => d.other),
+    },
+  ];
 
   return (
     <div className="grid-page-content forecast-scheduling-page">
@@ -93,93 +197,13 @@ export default function ForecastSchedulingPage() {
             <h3 className="card-title">Grid Load Forecast</h3>
           </div>
 
-          <div className="chart-container-svg">
-            <svg viewBox={`0 0 ${chartW} ${chartH}`} width="100%" height="165">
-              {/* Y Axis ticks */}
-              {[0, 1000, 2000, 3000, 4000].map((val) => {
-                const y = padT + graphH - (val / maxLoad) * graphH;
-                const label = val === 0 ? '0' : `${val / 1000}K`;
-                return (
-                  <g key={val}>
-                    <line x1={padL} y1={y} x2={padL + graphW} y2={y} stroke="#F1F5F9" strokeWidth="1" />
-                    <text x={padL - 8} y={y + 3} textAnchor="end" fontSize="10" fill="#94A3B8">
-                      {label}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {/* Y Axis Label */}
-              <text
-                x={-chartH / 2}
-                y="12"
-                transform="rotate(-90)"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#94A3B8"
-                fontWeight="600"
-              >
-                Load (MW)
-              </text>
-
-              {/* Solid Actual Load */}
-              <polyline
-                points={pointsActual}
-                fill="none"
-                stroke="#0D9488"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-
-              {/* Dashed No Optimization (Red) */}
-              <polyline
-                points={pointsNoOpt}
-                fill="none"
-                stroke="#EF4444"
-                strokeWidth="2.2"
-                strokeDasharray="4,4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-
-              {/* Dashed With Optimization (Teal) */}
-              <polyline
-                points={pointsWithOpt}
-                fill="none"
-                stroke="#10B981"
-                strokeWidth="2.2"
-                strokeDasharray="4,4"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-
-              {/* X Axis labels */}
-              {gridLoadForecast.filter((_, idx) => idx % 2 === 0).map((d, i, arr) => {
-                const x = padL + (i / (arr.length - 1)) * graphW;
-                return (
-                  <text key={d.time} x={x} y={chartH - 8} textAnchor="middle" fontSize="10" fill="#94A3B8">
-                    {d.time}
-                  </text>
-                );
-              })}
-            </svg>
-
-            {/* Legend */}
-            <div className="chart-legend-row">
-              <div className="legend-item">
-                <span className="legend-line" style={{ backgroundColor: '#0D9488' }} />
-                <span>Actual Load</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-line dashed" style={{ borderColor: '#EF4444' }} />
-                <span>Forecasted Load (No Optimization)</span>
-              </div>
-              <div className="legend-item">
-                <span className="legend-line dashed" style={{ borderColor: '#10B981' }} />
-                <span>Forecasted Load (With Optimization)</span>
-              </div>
-            </div>
+          <div style={{ minHeight: '190px' }}>
+            <ApexChart
+              options={forecastLineOptions}
+              series={forecastLineSeries}
+              type="line"
+              height={190}
+            />
           </div>
         </div>
 
@@ -259,107 +283,13 @@ export default function ForecastSchedulingPage() {
           <h3 className="card-title">Load Breakdown (Forecasted)</h3>
         </div>
 
-        <div className="chart-container-svg">
-          <svg viewBox="0 0 650 165" width="100%" height="160">
-            {/* Y Axis ticks */}
-            {[0, 1000, 2000, 3000, 4000].map((val) => {
-              const y = padT + graphH - (val / maxLoad) * graphH;
-              const label = val === 0 ? '0' : `${val / 1000}K`;
-              return (
-                <g key={val}>
-                  <line x1={padL} y1={y} x2={635} y2={y} stroke="#F1F5F9" strokeWidth="1" />
-                  <text x={padL - 8} y={y + 3} textAnchor="end" fontSize="10" fill="#94A3B8">
-                    {label}
-                  </text>
-                </g>
-              );
-            })}
-
-            {/* Y Axis Label */}
-            <text
-              x={-chartH / 2}
-              y="12"
-              transform="rotate(-90)"
-              textAnchor="middle"
-              fontSize="9"
-              fill="#94A3B8"
-              fontWeight="600"
-            >
-              Load (MW)
-            </text>
-
-            {/* Stacked Bars */}
-            {loadBreakdown.map((item, idx) => {
-              const barWidth = 24;
-              const x = padL + 15 + idx * 46;
-              const baseH = (item.base / maxLoad) * graphH;
-              const evH = (item.ev / maxLoad) * graphH;
-              const otherH = (item.other / maxLoad) * graphH;
-
-              const yBase = padT + graphH - baseH;
-              const yEv = yBase - evH;
-              const yOther = yEv - otherH;
-
-              return (
-                <g key={item.time}>
-                  {/* Base Load Bar (Blue) */}
-                  <rect
-                    x={x}
-                    y={yBase}
-                    width={barWidth}
-                    height={baseH}
-                    fill="#60A5FA"
-                    rx="1"
-                  />
-                  {/* EV Charging Bar (Green) */}
-                  <rect
-                    x={x}
-                    y={yEv}
-                    width={barWidth}
-                    height={evH}
-                    fill="#10B981"
-                    rx="1"
-                  />
-                  {/* Other Load Bar (Teal) */}
-                  <rect
-                    x={x}
-                    y={yOther}
-                    width={barWidth}
-                    height={otherH}
-                    fill="#2DD4BF"
-                    rx="1"
-                  />
-
-                  {/* X Axis Label */}
-                  <text
-                    x={x + barWidth / 2}
-                    y={padT + graphH + 16}
-                    textAnchor="middle"
-                    fontSize="10"
-                    fill="#94A3B8"
-                  >
-                    {item.time}
-                  </text>
-                </g>
-              );
-            })}
-          </svg>
-
-          {/* Legend */}
-          <div className="chart-legend-row" style={{ marginTop: '8px' }}>
-            <div className="legend-item">
-              <span className="legend-square" style={{ backgroundColor: '#60A5FA' }} />
-              <span>Base Load</span>
-            </div>
-            <div className="legend-item">
-              <span className="legend-square" style={{ backgroundColor: '#10B981' }} />
-              <span>EV Charging (Optimized)</span>
-            </div>
-            <div className="legend-item">
-              <span className="legend-square" style={{ backgroundColor: '#2DD4BF' }} />
-              <span>Other Load</span>
-            </div>
-          </div>
+        <div style={{ minHeight: '190px' }}>
+          <ApexChart
+            options={stackedBarOptions}
+            series={stackedBarSeries}
+            type="bar"
+            height={190}
+          />
         </div>
       </div>
     </div>

@@ -1,28 +1,28 @@
 # Graph Report - green-charge-ai  (2026-09-12)
 
 ## Corpus Check
-- 71 files · ~361,451 words
+- 70 files · ~361,330 words
 - Verdict: corpus is large enough that graph structure adds value.
 
 ## Summary
-- 910 nodes · 1157 edges · 98 communities (93 shown, 5 thin omitted)
+- 908 nodes · 1140 edges · 99 communities (93 shown, 6 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 14 edges (avg confidence: 0.85)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `62331ce8`
+- Built from commit: `71f622ed`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - server/package.json
-- App.jsx
+- ChargingStations.jsx
 - ev_charging_optimizer.py
 - package.json
 - GreenCharge AI — Product Requirements Document (PRD)
 - GreenCharge_AI_UI_UX.md
+- GridOperatorApp.jsx
 - react
-- CustomerApp.jsx
 - GreenCharge AI
 - db.js
 - customerData.js
@@ -112,10 +112,11 @@
 - 30. Loading States
 - 40. Implementation Guidelines
 - 6. Shape and Elevation
-- 19. Grid Operator Dashboard
+- 14. Login Screen
+- 4. Typography
 
 ## God Nodes (most connected - your core abstractions)
-1. `react` - 36 edges
+1. `react` - 35 edges
 2. `GreenCharge AI — Product Requirements Document (PRD)` - 16 edges
 3. `18. Acceptance Criteria` - 15 edges
 4. `parse_optimizer_dicts()` - 12 edges
@@ -144,15 +145,15 @@
 ## Hyperedges (group relationships)
 - **Role-based Dashboards Suite** — documentation_greencharge_ai_project_overview_ev_driver_dashboard, documentation_greencharge_ai_project_overview_grid_operator_dashboard, documentation_greencharge_ai_project_overview_ev_network_operator_dashboard [INFERRED 0.95]
 
-## Communities (98 total, 5 thin omitted)
+## Communities (99 total, 6 thin omitted)
 
 ### Community 0 - "server/package.json"
 Cohesion: 0.13
 Nodes (14): dependencies, cors, dotenv, express, cors, dotenv, express, main (+6 more)
 
-### Community 1 - "App.jsx"
-Cohesion: 0.09
-Nodes (27): Web Application HTML Root, GreenCharge Favicon, App(), Landing Hero Illustration, React Logo Vector, navItems, Sidebar(), SlotDataCard() (+19 more)
+### Community 1 - "ChargingStations.jsx"
+Cohesion: 0.26
+Nodes (12): calculateDistanceKm(), ChargingStations(), FALLBACK_STATIONS, STATION_IMAGES, USER_LOCATION, TestDatabase(), fetchCollectionData(), fetchDatabaseCollections() (+4 more)
 
 ### Community 2 - "ev_charging_optimizer.py"
 Cohesion: 0.05
@@ -168,15 +169,15 @@ Nodes (42): 10. Assumptions, 11. Risks, 12. Out of Scope, 13. Acceptance Criteri
 
 ### Community 5 - "GreenCharge_AI_UI_UX.md"
 Cohesion: 0.07
-Nodes (28): 10. User Journey — EV Driver, 11. User Journey — Grid Operator, 12. User Journey — Network Operator, 14. Login Screen, 16. Driver Recommendation Card, 18. Green Score Component, 1. Design Goal, 20. Grid Status Card (+20 more)
+Nodes (26): 10. User Journey — EV Driver, 11. User Journey — Grid Operator, 12. User Journey — Network Operator, 16. Driver Recommendation Card, 18. Green Score Component, 19. Grid Operator Dashboard, 1. Design Goal, 20. Grid Status Card (+18 more)
 
-### Community 6 - "react"
-Cohesion: 0.13
-Nodes (22): react, VehicleLoginForm(), GridOperatorHeader(), GridOperatorSidebar(), navItems, GujaratMap(), GridOperatorApp(), AlertsPage() (+14 more)
+### Community 6 - "GridOperatorApp.jsx"
+Cohesion: 0.12
+Nodes (19): GridOperatorHeader(), GridOperatorSidebar(), navItems, GujaratMap(), GridOperatorApp(), AlertsPage(), AnalyticsAlertsPage(), DashboardOverview() (+11 more)
 
-### Community 7 - "CustomerApp.jsx"
-Cohesion: 0.22
-Nodes (12): CustomerHeader(), customerNavItems, CustomerSidebar(), CustomerApp(), AllScreensGrid(), AnalyticsPage(), ChargingHistory(), DashboardOverview() (+4 more)
+### Community 7 - "react"
+Cohesion: 0.09
+Nodes (29): Web Application HTML Root, GreenCharge Favicon, react, App(), Landing Hero Illustration, React Logo Vector, navItems, Sidebar() (+21 more)
 
 ### Community 8 - "GreenCharge AI"
 Cohesion: 0.09
@@ -521,13 +522,13 @@ Nodes (3): 6. Shape and Elevation, Border Radius, Shadows
 ## Knowledge Gaps
 - **544 isolated node(s):** `$schema`, `plugins`, `react/rules-of-hooks`, `react/only-export-components`, `__filename` (+539 more)
   These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 584 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
-- **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
+- **6 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `react` connect `react` to `App.jsx`, `package.json`, `CustomerApp.jsx`?**
-  _High betweenness centrality (0.028) - this node is a cross-community bridge._
+- **Why does `react` connect `react` to `ChargingStations.jsx`, `package.json`, `GridOperatorApp.jsx`?**
+  _High betweenness centrality (0.026) - this node is a cross-community bridge._
 - **Why does `mongoose` connect `db.js` to `package.json`?**
   _High betweenness centrality (0.015) - this node is a cross-community bridge._
 - **Why does `18. Acceptance Criteria` connect `18. Acceptance Criteria` to `GreenCharge_AI_SRS.md`?**
@@ -536,7 +537,7 @@ _Questions this graph is uniquely positioned to answer:_
   _544 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `server/package.json` be split into smaller, more focused modules?**
   _Cohesion score 0.13333333333333333 - nodes in this community are weakly interconnected._
-- **Should `App.jsx` be split into smaller, more focused modules?**
-  _Cohesion score 0.09103840682788052 - nodes in this community are weakly interconnected._
 - **Should `ev_charging_optimizer.py` be split into smaller, more focused modules?**
   _Cohesion score 0.054340396445659606 - nodes in this community are weakly interconnected._
+- **Should `package.json` be split into smaller, more focused modules?**
+  _Cohesion score 0.06666666666666667 - nodes in this community are weakly interconnected._

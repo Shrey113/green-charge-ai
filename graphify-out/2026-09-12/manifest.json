@@ -24,9 +24,9 @@
     "semantic_hash": ""
   },
   "src/App.jsx": {
-    "mtime": 1789234686.6591272,
-    "seen": 1789235542.2944458,
-    "ast_hash": "7c9ea9a65f01f55413a89b18e2131e48",
+    "mtime": 1789236034.2895079,
+    "seen": 1789236236.7640939,
+    "ast_hash": "3c7ea93fd68c9ade9e23debf93b777fd",
     "semantic_hash": ""
   },
   "src/main.jsx": {
@@ -186,9 +186,9 @@
     "semantic_hash": ""
   },
   "src/components/Sidebar.jsx": {
-    "mtime": 1789232330.5586958,
-    "seen": 1789235542.2944474,
-    "ast_hash": "e48d91ee39cb7d47682fd1a7940158ac",
+    "mtime": 1789236034.2912302,
+    "seen": 1789236236.764096,
+    "ast_hash": "39b79971a18420e23d60fee784f659ae",
     "semantic_hash": ""
   },
   "src/components/SlotDataCard.jsx": {
@@ -204,9 +204,9 @@
     "semantic_hash": ""
   },
   "src/components/TopHeader.jsx": {
-    "mtime": 1789215900.7882464,
-    "seen": 1789235542.2944517,
-    "ast_hash": "b804b1bd39cc4700f89d0369bb5a8d97",
+    "mtime": 1789236034.2923336,
+    "seen": 1789236236.7641013,
+    "ast_hash": "2941e2c36651245a1e6fae69eea64f78",
     "semantic_hash": ""
   },
   "src/pages/TestDev.jsx": {
@@ -390,9 +390,9 @@
     "semantic_hash": ""
   },
   "src/grid_operator/GridOperatorApp.jsx": {
-    "mtime": 1789235495.258418,
-    "seen": 1789235542.2944849,
-    "ast_hash": "dcbb531744f66be9985582754d79cc33",
+    "mtime": 1789236181.8286946,
+    "seen": 1789236236.7641268,
+    "ast_hash": "a9ffedea6de2b4615cc4a7a34d5514bc",
     "semantic_hash": ""
   },
   "src/grid_operator/components/GridOperatorHeader.jsx": {
@@ -414,21 +414,15 @@
     "semantic_hash": ""
   },
   "src/grid_operator/index.jsx": {
-    "mtime": 1789235501.462396,
-    "seen": 1789235542.2944899,
-    "ast_hash": "0a9ecd9b5a2e252608df836f51d21f4f",
+    "mtime": 1789236190.7657967,
+    "seen": 1789236236.7641332,
+    "ast_hash": "6309d8e8280e945842a9e9b37634772d",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/AlertsPage.jsx": {
     "mtime": 1789235468.194963,
     "seen": 1789235542.294491,
     "ast_hash": "3ee5b2d801ece5fd50ca725ec309c6e3",
-    "semantic_hash": ""
-  },
-  "src/grid_operator/pages/AllScreensGrid.jsx": {
-    "mtime": 1789235487.5789852,
-    "seen": 1789235542.2944925,
-    "ast_hash": "b5f3d4524d74425f4f182711d77bcf12",
     "semantic_hash": ""
   },
   "src/grid_operator/pages/AnalyticsAlertsPage.jsx": {

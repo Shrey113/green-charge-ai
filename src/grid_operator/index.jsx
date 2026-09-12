@@ -5,6 +5,7 @@ export { GridOperatorApp };
 export { default as GridOperatorSidebar } from './components/GridOperatorSidebar.jsx';
 export { default as GridOperatorHeader } from './components/GridOperatorHeader.jsx';
 export { default as GujaratMap } from './components/GujaratMap.jsx';
+export { default as ApexChart } from './components/ApexChart.jsx';
 export { default as DashboardOverview } from './pages/DashboardOverview.jsx';
 export { default as GridOverviewPage } from './pages/GridOverviewPage.jsx';
 export { default as RenewableEnergyPage } from './pages/RenewableEnergyPage.jsx';
@@ -13,3 +14,4 @@ export { default as ForecastSchedulingPage } from './pages/ForecastSchedulingPag
 export { default as AnalyticsAlertsPage } from './pages/AnalyticsAlertsPage.jsx';
 export { default as AlertsPage } from './pages/AlertsPage.jsx';
 export { default as SettingsPage } from './pages/SettingsPage.jsx';
+export * from './services/gridData.js';

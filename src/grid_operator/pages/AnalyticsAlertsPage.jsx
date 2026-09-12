@@ -1,39 +1,132 @@
 import React, { useState } from 'react';
+import ApexChart from '../components/ApexChart.jsx';
 import { analyticsAlertsData } from '../services/gridData.js';
 
 export default function AnalyticsAlertsPage() {
   const [timeRange, setTimeRange] = useState('Last 7 Days');
   const { kpis, gridLoadTrend, renewableTrend, recentAlerts } = analyticsAlertsData;
 
-  // Chart coordinates calculation for Grid Load Trend
-  const chartW = 460;
-  const chartH = 165;
-  const padL = 38;
-  const padR = 15;
-  const padT = 15;
-  const padB = 25;
-  const graphW = chartW - padL - padR;
-  const graphH = chartH - padT - padB;
-  const maxLoad = 4000;
+  // 1. Grid Load Trend Area Chart Options
+  const gridLoadTrendOptions = {
+    chart: {
+      type: 'area',
+      height: 180,
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#059669'],
+    stroke: { curve: 'smooth', width: 2.5 },
+    fill: {
+      type: 'gradient',
+      gradient: {
+        shadeIntensity: 1,
+        opacityFrom: 0.35,
+        opacityTo: 0.05,
+        stops: [0, 90, 100],
+      },
+    },
+    markers: {
+      size: 4,
+      colors: ['#059669'],
+      strokeColors: '#FFFFFF',
+      strokeWidth: 1.5,
+      hover: { size: 6 },
+    },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+    },
+    dataLabels: { enabled: false },
+    xaxis: {
+      categories: gridLoadTrend.map((d) => d.date),
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      min: 0,
+      max: 4000,
+      tickAmount: 4,
+      title: {
+        text: 'Load (MW)',
+        style: { color: '#94A3B8', fontSize: '10px', fontWeight: 600 },
+      },
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+        formatter: (val) => (val === 0 ? '0' : `${Math.round(val / 1000)}K`),
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: { formatter: (val) => `${val} MW` },
+    },
+  };
 
-  const loadPoints = gridLoadTrend.map((d, i) => {
-    const x = padL + (i / (gridLoadTrend.length - 1)) * graphW;
-    const y = padT + graphH - (d.load / maxLoad) * graphH;
-    return { x, y, ...d };
-  });
+  const gridLoadTrendSeries = [
+    {
+      name: 'Grid Load',
+      data: gridLoadTrend.map((d) => d.load),
+    },
+  ];
 
-  const loadPolyline = loadPoints.map((p) => `${p.x},${p.y}`).join(' ');
-  const loadArea = `${padL},${padT + graphH} ${loadPolyline} ${padL + graphW},${padT + graphH}`;
+  // 2. Renewable Share Trend Line Chart Options
+  const renTrendOptions = {
+    chart: {
+      type: 'line',
+      height: 180,
+      toolbar: { show: false },
+      zoom: { enabled: false },
+      fontFamily: 'Inter, sans-serif',
+    },
+    colors: ['#10B981'],
+    stroke: { curve: 'smooth', width: 2.5 },
+    markers: {
+      size: 4,
+      colors: ['#10B981'],
+      strokeColors: '#FFFFFF',
+      strokeWidth: 1.5,
+      hover: { size: 6 },
+    },
+    grid: {
+      borderColor: '#F1F5F9',
+      strokeDashArray: 2,
+    },
+    dataLabels: { enabled: false },
+    xaxis: {
+      categories: renewableTrend.map((d) => d.date),
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+      axisBorder: { show: false },
+      axisTicks: { show: false },
+    },
+    yaxis: {
+      min: 0,
+      max: 80,
+      tickAmount: 4,
+      title: {
+        text: '%',
+        style: { color: '#94A3B8', fontSize: '10px', fontWeight: 600 },
+      },
+      labels: {
+        style: { colors: '#94A3B8', fontSize: '10px' },
+      },
+    },
+    tooltip: {
+      theme: 'light',
+      y: { formatter: (val) => `${val}%` },
+    },
+  };
 
-  // Chart coordinates for Renewable Share Trend
-  const maxShare = 80;
-  const sharePoints = renewableTrend.map((d, i) => {
-    const x = padL + (i / (renewableTrend.length - 1)) * graphW;
-    const y = padT + graphH - (d.share / maxShare) * graphH;
-    return { x, y, ...d };
-  });
-
-  const sharePolyline = sharePoints.map((p) => `${p.x},${p.y}`).join(' ');
+  const renTrendSeries = [
+    {
+      name: 'Renewable Share',
+      data: renewableTrend.map((d) => d.share),
+    },
+  ];
 
   return (
     <div className="grid-page-content analytics-alerts-page">
@@ -107,73 +200,19 @@ export default function AnalyticsAlertsPage() {
         <div className="grid-card">
           <div className="card-header-clean">
             <h3 className="card-title">Grid Load Trend</h3>
+            <button type="button" className="analytics-header-filter-btn">
+              <span>{timeRange}</span>
+              <span>▾</span>
+            </button>
           </div>
 
-          <div className="chart-container-svg">
-            <svg viewBox={`0 0 ${chartW} ${chartH}`} width="100%" height="155">
-              {/* Y Axis ticks */}
-              {[0, 1000, 2000, 3000, 4000].map((val) => {
-                const y = padT + graphH - (val / maxLoad) * graphH;
-                const label = val === 0 ? '0' : `${val / 1000}K`;
-                return (
-                  <g key={val}>
-                    <line x1={padL} y1={y} x2={padL + graphW} y2={y} stroke="#F1F5F9" strokeWidth="1" />
-                    <text x={padL - 8} y={y + 3} textAnchor="end" fontSize="10" fill="#94A3B8">
-                      {label}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {/* Y Axis Label */}
-              <text
-                x={-chartH / 2}
-                y="12"
-                transform="rotate(-90)"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#94A3B8"
-                fontWeight="600"
-              >
-                Load (MW)
-              </text>
-
-              {/* Area Fill */}
-              <polygon points={loadArea} fill="#10B981" fillOpacity="0.2" />
-
-              {/* Line */}
-              <polyline
-                points={loadPolyline}
-                fill="none"
-                stroke="#059669"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-
-              {/* Data points */}
-              {loadPoints.map((p) => (
-                <circle
-                  key={p.date}
-                  cx={p.x}
-                  cy={p.y}
-                  r="3.5"
-                  fill="#059669"
-                  stroke="#FFFFFF"
-                  strokeWidth="1.5"
-                />
-              ))}
-
-              {/* X Axis labels */}
-              {gridLoadTrend.map((d, i, arr) => {
-                const x = padL + (i / (arr.length - 1)) * graphW;
-                return (
-                  <text key={d.date} x={x} y={chartH - 8} textAnchor="middle" fontSize="10" fill="#94A3B8">
-                    {d.date}
-                  </text>
-                );
-              })}
-            </svg>
+          <div style={{ minHeight: '185px' }}>
+            <ApexChart
+              options={gridLoadTrendOptions}
+              series={gridLoadTrendSeries}
+              type="area"
+              height={185}
+            />
           </div>
         </div>
 
@@ -183,67 +222,13 @@ export default function AnalyticsAlertsPage() {
             <h3 className="card-title">Renewable Share Trend</h3>
           </div>
 
-          <div className="chart-container-svg">
-            <svg viewBox={`0 0 ${chartW} ${chartH}`} width="100%" height="155">
-              {/* Y Axis ticks */}
-              {[0, 20, 40, 60, 80].map((val) => {
-                const y = padT + graphH - (val / maxShare) * graphH;
-                return (
-                  <g key={val}>
-                    <line x1={padL} y1={y} x2={padL + graphW} y2={y} stroke="#F1F5F9" strokeWidth="1" />
-                    <text x={padL - 8} y={y + 3} textAnchor="end" fontSize="10" fill="#94A3B8">
-                      {val}
-                    </text>
-                  </g>
-                );
-              })}
-
-              {/* Y Axis Label */}
-              <text
-                x={-chartH / 2}
-                y="14"
-                transform="rotate(-90)"
-                textAnchor="middle"
-                fontSize="9"
-                fill="#94A3B8"
-                fontWeight="600"
-              >
-                %
-              </text>
-
-              {/* Line */}
-              <polyline
-                points={sharePolyline}
-                fill="none"
-                stroke="#10B981"
-                strokeWidth="2.5"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-
-              {/* Data points */}
-              {sharePoints.map((p) => (
-                <circle
-                  key={p.date}
-                  cx={p.x}
-                  cy={p.y}
-                  r="3.5"
-                  fill="#10B981"
-                  stroke="#FFFFFF"
-                  strokeWidth="1.5"
-                />
-              ))}
-
-              {/* X Axis labels */}
-              {renewableTrend.map((d, i, arr) => {
-                const x = padL + (i / (arr.length - 1)) * graphW;
-                return (
-                  <text key={d.date} x={x} y={chartH - 8} textAnchor="middle" fontSize="10" fill="#94A3B8">
-                    {d.date}
-                  </text>
-                );
-              })}
-            </svg>
+          <div style={{ minHeight: '185px' }}>
+            <ApexChart
+              options={renTrendOptions}
+              series={renTrendSeries}
+              type="line"
+              height={185}
+            />
           </div>
         </div>
       </div>
