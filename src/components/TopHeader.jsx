@@ -3,7 +3,7 @@ import leafIcon from '../assets/icons/leaf.svg';
 import locationPinIcon from '../assets/icons/location-pin.svg';
 import clockIcon from '../assets/icons/clock.svg';
 
-export default function TopHeader({ onSwitchToCustomer }) {
+export default function TopHeader({ onSwitchToCustomer, onSwitchToGrid }) {
   const currentDate = new Date().toLocaleDateString('en-US', {
     weekday: 'short',
     month: 'short',
@@ -51,7 +51,7 @@ export default function TopHeader({ onSwitchToCustomer }) {
           </div>
         </div>
 
-        {/* Customer Portal Quick Switch Button */}
+        {/* Portal Quick Switch Buttons */}
         {onSwitchToCustomer && (
           <button
             type="button"
@@ -59,7 +59,19 @@ export default function TopHeader({ onSwitchToCustomer }) {
             onClick={onSwitchToCustomer}
             title="Switch to EV Driver Portal (/customer)"
           >
-            🚗 Open EV Driver View &rarr;
+            🚗 Customer App &rarr;
+          </button>
+        )}
+
+        {onSwitchToGrid && (
+          <button
+            type="button"
+            className="btn-switch-role-pill"
+            style={{ background: '#fffbeb', color: '#b45309', borderColor: '#fde68a' }}
+            onClick={onSwitchToGrid}
+            title="Switch to Grid Operator Portal (/grid)"
+          >
+            ⚡ Grid Operator &rarr;
           </button>
         )}
 

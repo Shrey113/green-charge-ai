@@ -74,6 +74,11 @@ body {
   color: #ffffff;
 }
 
+.portal-badge-indicator.grid {
+  background: #d97706;
+  color: #ffffff;
+}
+
 .portal-banner-text {
   color: #cbd5e1;
   font-size: 12.5px;

@@ -5,15 +5,19 @@ import TestDev from './pages/TestDev.jsx';
 import TestDatabase from './pages/TestDatabase.jsx';
 import ChargingStations from './pages/ChargingStations.jsx';
 import CustomerApp from './customer/CustomerApp.jsx';
+import GridOperatorApp from './grid_operator/GridOperatorApp.jsx';
 import './App.css';
 
 function App() {
-  // Determine route from window.location (supports /customer, /customer/, #customer, #/customer)
+  // Determine route from window.location (supports /customer, /grid, /grid-operator, #customer, #grid)
   const getInitialRoute = () => {
     const path = window.location.pathname.toLowerCase();
     const hash = window.location.hash.toLowerCase();
     if (path.startsWith('/customer') || hash.includes('customer')) {
       return 'customer';
+    }
+    if (path.startsWith('/grid') || hash.includes('grid')) {
+      return 'grid';
     }
     return 'operator';
   };
@@ -39,6 +43,8 @@ function App() {
     setCurrentRoute(route);
     if (route === 'customer') {
       window.history.pushState({}, '', '/customer');
+    } else if (route === 'grid') {
+      window.history.pushState({}, '', '/grid');
     } else {
       window.history.pushState({}, '', '/');
     }
@@ -52,15 +58,24 @@ function App() {
         <div className="global-portal-banner">
           <div className="portal-banner-left">
             <span className="portal-badge-indicator customer">EV DRIVER APP</span>
-            <span className="portal-banner-text">Viewing Customer App (/customer)</span>
+            <span className="portal-banner-text">Viewing Customer Portal (/customer)</span>
           </div>
-          <button
-            type="button"
-            className="btn-switch-portal-action"
-            onClick={() => navigateTo('operator')}
-          >
-            &larr; Switch to Operator Portal
-          </button>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              type="button"
+              className="btn-switch-portal-action"
+              onClick={() => navigateTo('operator')}
+            >
+              &larr; Operator Portal
+            </button>
+            <button
+              type="button"
+              className="btn-switch-portal-action"
+              onClick={() => navigateTo('grid')}
+            >
+              ⚡ Grid Operator (/grid) &rarr;
+            </button>
+          </div>
         </div>
 
         {/* Dedicated Customer App Layout */}
@@ -69,22 +84,65 @@ function App() {
     );
   }
 
-  // --- ROUTE 2: Network Operator Control Center (/) ---
+  // --- ROUTE 2: Grid Operator Portal (/grid) ---
+  if (currentRoute === 'grid') {
+    return (
+      <div className="portal-root-wrapper">
+        {/* Top Floating Switcher Bar */}
+        <div className="global-portal-banner">
+          <div className="portal-banner-left">
+            <span className="portal-badge-indicator grid">GRID OPERATOR PORTAL</span>
+            <span className="portal-banner-text">Regional Electricity Grid & Renewable Balancing (/grid)</span>
+          </div>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+            <button
+              type="button"
+              className="btn-switch-portal-action"
+              onClick={() => navigateTo('operator')}
+            >
+              &larr; Operator Portal
+            </button>
+            <button
+              type="button"
+              className="btn-switch-portal-action"
+              onClick={() => navigateTo('customer')}
+            >
+              🚗 Customer App (/customer) &rarr;
+            </button>
+          </div>
+        </div>
+
+        {/* Dedicated Grid Operator App Layout */}
+        <GridOperatorApp />
+      </div>
+    );
+  }
+
+  // --- ROUTE 3: Network Operator Control Center (/) ---
   return (
     <div className="portal-root-wrapper">
       {/* Top Floating Switcher Bar */}
       <div className="global-portal-banner">
         <div className="portal-banner-left">
           <span className="portal-badge-indicator operator">OPERATOR PORTAL</span>
-          <span className="portal-banner-text">Network Operator Control Center (/)</span>
+          <span className="portal-banner-text">EV Charging Network Operator Control Center (/)</span>
         </div>
-        <button
-          type="button"
-          className="btn-switch-portal-action"
-          onClick={() => navigateTo('customer')}
-        >
-          Open Customer App (/customer) &rarr;
-        </button>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+          <button
+            type="button"
+            className="btn-switch-portal-action"
+            onClick={() => navigateTo('customer')}
+          >
+            🚗 Customer App (/customer) &rarr;
+          </button>
+          <button
+            type="button"
+            className="btn-switch-portal-action"
+            onClick={() => navigateTo('grid')}
+          >
+            ⚡ Grid Operator (/grid) &rarr;
+          </button>
+        </div>
       </div>
 
       <div className="app-layout">
@@ -94,6 +152,8 @@ function App() {
           onTabChange={(tab) => {
             if (tab === 'customer-portal') {
               navigateTo('customer');
+            } else if (tab === 'grid-portal') {
+              navigateTo('grid');
             } else {
               setActiveTab(tab);
             }
@@ -102,7 +162,10 @@ function App() {
 
         {/* 2. Main Right Area with Title Bar */}
         <div className="app-main-content">
-          <TopHeader onSwitchToCustomer={() => navigateTo('customer')} />
+          <TopHeader
+            onSwitchToCustomer={() => navigateTo('customer')}
+            onSwitchToGrid={() => navigateTo('grid')}
+          />
 
           <div className="page-content-area">
             {/* Charging Stations page with search, cards list, pagination & interactive map */}
