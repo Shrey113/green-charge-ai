@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
 import electricityMapsRouter from './electricityMaps.js';
+import optimizerRouter from './routes/optimizerRoutes.js';
 import { connectDB } from './Database/db.js';
 
 dotenv.config();
@@ -18,6 +19,9 @@ app.use(express.json());
 // Electricity Maps API Route
 app.use('/api/electricity-maps', electricityMapsRouter);
 
+// Python CP-SAT Optimizer Bridge Route
+app.use('/api/optimizer', optimizerRouter);
+
 // API health and test endpoint
 app.get('/api', (req, res) => {
   res.json({
@@ -28,12 +32,17 @@ app.get('/api', (req, res) => {
     routes: {
       electricityMapsForecast: 'GET /api/electricity-maps/forecast?lat=<lat>&lon=<lon>',
       electricityMapsStatus: 'GET /api/electricity-maps/status',
+      optimizerBridgeStatus: 'GET /api/optimizer/status',
+      optimizerSampleInput: 'GET /api/optimizer/sample-input',
+      optimizerLatestSchedule: 'GET /api/optimizer/latest',
+      optimizerRunSolve: 'POST /api/optimizer/optimize',
     },
   });
 });
 
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
-  console.log(`Electricity Maps API (Fixed EV Station): http://localhost:${PORT}/api/electricity-maps/forecast?lat=23.188551&lon=72.626715`);
+  console.log(`Electricity Maps API: http://localhost:${PORT}/api/electricity-maps/forecast?lat=23.188551&lon=72.626715`);
+  console.log(`Python Optimizer Bridge: http://localhost:${PORT}/api/optimizer/status`);
 });
 
